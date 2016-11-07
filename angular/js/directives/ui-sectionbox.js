@@ -32,7 +32,6 @@ angular.module('app').directive('menuheight', ['$timeout', function($window) {
     return function(scope, element, attrs) {
         var w = angular.element($window);
         var changeNavHeight = function() {
-          //console.log($scope.settings.menuProfile);
             if (angular.element(".page-sidebar.collapseit").length || angular.element(".page-sidebar.chat_shift").length) {
               var navHeight = angular.element("#main-content section.wrapper .content-wrapper").innerHeight() + 90;              
             } else {

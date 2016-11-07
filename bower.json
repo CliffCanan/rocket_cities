@@ -1,8 +1,8 @@
 {
-  "name": "completeadminangularwebapp",
-  "version": "3.3",
+  "name": "rocketcities",
+  "version": "0.0.1",
   "authors": ["themebuilder"],
-  "description": "AngularJS and Bootstrap 3 - Admin web application template.",
+  "description": "Super fandom.",
   "keywords": [
     "AngularJS", "admin", "widgets", "admin panel", "flat ui", "ui", "web app", "app", "backend", "angular", "dashboard", "bootstrap", "charts", "ui kit", "responsive"
   ],

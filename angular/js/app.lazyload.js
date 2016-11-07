@@ -3,8 +3,8 @@
 angular.module('app')
     /**
    * jQuery plugin config use ui-jq directive , config the js and css files that required
-   * key: function name of the jQuery plugin
-   * value: array of the css js file located
+   * Key: function name of the jQuery plugin
+   * Value: array of the css js file located
    */
   .constant('JQ_CONFIG', {
       easyPieChart:   [   '../bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.fill.js'],
@@ -67,14 +67,6 @@ angular.module('app')
                       '../bower_components/morrisjs/morris.css'
                   ]
               },
-              /*{
-                  name: 'angular-echarts',
-                  files: [
-                      '../bower_components/echarts/build/dist/echarts-all.js',
-                      '../bower_components/angular-echarts/dist/angular-echarts.min.js'
-                  ]
-
-              },*/
               {
                   name:'cgNotify',
                   files: [
@@ -88,22 +80,12 @@ angular.module('app')
                       '../bower_components/angular-count-to/build/angular-count-to.min.js'
                   ]
               },
-                                      
               {
                   name:'angularFileUpload',
                   files: [
                     '../bower_components/angular-file-upload/dist/angular-file-upload.min.js'
                   ]
               },
-              /*{
-                  name: 'textAngular',
-                  series: true,
-                  files: [
-                      '../bower_components/textAngular/dist/textAngular.css',
-                      '../bower_components/textAngular/dist/textAngular-rangy.min.js',
-                      '../bower_components/textAngular/dist/textAngular.min.js'
-                  ]
-              },*/
               {
                   name: 'vr.directives.slider',
                   files: [
@@ -132,7 +114,6 @@ angular.module('app')
                       '../bower_components/angular-chart.js/dist/angular-chart.js',
                       '../bower_components/angular-chart.js/dist/angular-chart.css'
                   ]
-
               },
               {
                   name: 'angular-rickshaw',
@@ -141,7 +122,6 @@ angular.module('app')
                     '../bower_components/rickshaw/rickshaw.min.js',
                     '../bower_components/angular-rickshaw/rickshaw.js'
                   ]
-
               },
               {
                   name: 'xeditable',
