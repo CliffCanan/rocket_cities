@@ -1,0 +1,98 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Sparkline - Line & Area Charts';">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Line</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div ng-init="data1=[5,10, 8,10, 8, 5, 7, 4, 4, 5, 7, 4, 4, 7, 5, 2, 8, 3, 4, 5]" ui-jq="sparkline" ui-options="{{data1}}, {
+                type: 'line',
+                width: '100%',
+                height: '200',
+                lineWidth: 2,
+                lineColor: '{{app.color.primary}}',
+                fillColor: 'rgba(132,127,159,0.5)',
+                highlightSpotColor: '{{app.color.accent}}',
+                highlightLineColor: '#E91E63',
+                spotRadius: 4,
+                }" class="sparkline inline">Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Composite Line</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div ng-init="data5=[8, 4, 1, 2, 6, 7, 1, 6, 2, 4, 3, 5, 6, 0, 3, 0, 4, 6, 5, 7, 6]" ui-jq="sparkline" ui-options="{{data5}}, {
+                fillColor: false,
+                changeRangeMin: 0,
+                chartRangeMax: 10,
+                type: 'line',
+                width: '100%',
+                height: '200',
+                lineWidth: 2,
+                lineColor: '{{app.color.primary}}',
+                highlightSpotColor: '{{app.color.accent}}',
+                highlightLineColor: '#E91E63',
+                spotRadius: 4,
+                }" class="sparkline inline">Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Normal Range</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div ng-init="data6=[5, 4, 0, 0, 0, 0, 1, 4, 4, 10, 10, 10, 10, 0, 0, 0, 4, 6, 5, 9, 10]" ui-jq="sparkline" ui-options="{{data6}}, {
+                fillColor: false,
+                changeRangeMin: 0,
+                chartRangeMax: 10,
+                type: 'line',
+                width: '100%',
+                height: '200',
+                lineWidth: 2,
+                lineColor: '{{app.color.primary}}',
+                highlightSpotColor: '{{app.color.accent}}',
+                highlightLineColor: '#E91E63',
+                spotRadius: 4,
+                }" class="sparkline inline">Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+   
+</div>

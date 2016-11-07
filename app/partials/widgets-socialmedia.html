@@ -1,0 +1,248 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Widgets - Social Media';">
+   
+<div class="col-lg-6">
+        <section class="box">
+            <header class="panel_header">
+                <h2 class="title pull-left">Messages Widget</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>        
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="wid-notification" ng-controller="MessagesWidgetCtrl">
+                            <perfect-scrollbar wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class='ps-messages-widget'>
+                                <ul class="list-unstyled messages-widget">
+                                    <li class="{{message.read ? 'read' : 'unread'}} status-{{message.status}}" ng-repeat="message in messages">
+                                        <a href="javascript:;">
+                                            <div class="user-img">
+                                                <img ng-src="{{message.avatar}}" alt="user-image" class="img-circle img-inline">
+                                            </div>
+                                            <div>
+                                                <span class="name">
+                                                    <strong>{{message.name}}</strong>
+                                                    <span class="time small">- {{message.time}}</span>
+                                                <span class="profile-status {{message.status}} pull-right"></span>
+                                                </span>
+                                                <span class="desc small">
+                                                    {{message.description}}
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </perfect-scrollbar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <div class="col-lg-6">
+        <section class="box nobox">
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="wid-blog">
+                            <div class="bg-primary wid-blog-title">
+                                <h2>Complete Admin - Angular is a beautiful theme with tons of features</h2>
+                                
+                            </div>
+                            <div class="bg-white wid-blog-content">
+                                <div class="pic-wrapper col-md-2 col-sm-2 col-xs-3 text-center">
+                                    <img src="data/profile/avatar-5.png" class="" alt="">
+                                </div>
+                                <div class="info-wrapper col-md-10 col-sm-10 col-xs-9">
+                                    <div class="username">
+                                        <h4 class="text-strong">John Smith</h4>
+                                    </div>
+                                    <div class="info text-muted">
+                                        "Balance" is a concept based on human perception and the complex nature of the human senses of weight and proportion.
+                                    </div>
+                                    <div class="info-details">
+                                        <ul class="list-unstyled list-inline">
+                                            <li><a href="#" class="text-muted">12<sup>th</sup> March, 2015</a></li>
+                                            <li><a href="#" class="text-muted"><i class="fa fa-comment"></i> 584</a></li>
+                                            <li><a href="#" class="text-accent"><i class="fa fa-heart"></i> 12k</a></li>
+                                            <li><a href="#" class="text-muted">More</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+<div class="clearfix"></div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <section class="box nobox">
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="wid-uprofile-wrapper">
+                            <div class="wid-uprofile bg-primary">
+                                <div class="uprofile-image">
+                                    <img src="data/profile/profile.jpg" class="img-responsive">
+                                </div>
+                                <div class="uprofile-data">
+                                    <div class="uprofile-name">
+                                        <h3>
+                        <a ui-sref="app.ui.profile">Shane Taylor</a>
+                        <!-- Available statuses: online, idle, busy, away and offline -->
+                        <span class="uprofile-status online"></span>
+                    </h3>
+                                        <p class="uprofile-title">Web Developer</p>
+                                    </div>
+                                    <div class="uprofile-info">
+                                        <ul class="list-unstyled">
+                                            <li><i class='fa fa-home'></i> New York, USA</li>
+                                            <li><i class='fa fa-user'></i> 340 Contacts</li>
+                                            <li><i class='fa fa-suitcase'></i> Tech Lead, YIAM</li>
+                                        </ul>
+                                    </div>
+                                    <div class=" uprofile-social">
+                                        <a href="#" class="btn btn-primary btn-sm facebook"><i class="fa fa-facebook icon-xs"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm twitter"><i class="fa fa-twitter icon-xs"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm google-plus"><i class="fa fa-google-plus icon-xs"></i></a>
+                                        <a href="#" class="btn btn-primary btn-sm dribbble"><i class="fa fa-dribbble icon-xs"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Social Media Widgets</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body padding-bottom-0">
+                <div class="row" ng-controller="CounttoCtrl">
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social facebook">
+                            <div class="social-icon">
+                                <i class='fa fa-facebook text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_facebook}}" value="{{countFrom_facebook}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h3 class="bold count text-light"> K</h3>
+                                <h4 class="counttype text-light">Likes</h4>
+                                <span class="percent">5% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social twitter">
+                            <div class="social-icon">
+                                <i class='fa fa-twitter text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_twitter}}" value="{{countFrom_twitter}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Tweets</h4>
+                                <span class="percent">2% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social google-plus">
+                            <div class="social-icon">
+                                <i class='fa fa-google-plus text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_googleplus}}" value="{{countFrom_googleplus}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Circles</h4>
+                                <span class="percent">2% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social dribbble">
+                            <div class="social-icon">
+                                <i class='fa fa-dribbble text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_dribbble}}" value="{{countFrom_dribbble}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Subscribers</h4>
+                                <span class="percent">7% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social linkedin">
+                            <div class="social-icon">
+                                <i class='fa fa-linkedin text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_linkedin}}" value="{{countFrom_linkedin}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Connections</h4>
+                                <span class="percent">7% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social youtube">
+                            <div class="social-icon">
+                                <i class='fa fa-youtube text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_youtube}}" value="{{countFrom_youtube}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Subscribers</h4>
+                                <span class="percent">7% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social skype">
+                            <div class="social-icon">
+                                <i class='fa fa-skype text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_skype}}" value="{{countFrom_skype}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Contacts</h4>
+                                <span class="percent">7% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-xs-12 col-sm-6">
+                        <div class="wid-social flickr">
+                            <div class="social-icon">
+                                <i class='fa fa-flickr text-light icon-xlg pull-right'></i>
+                            </div>
+                            <div class="social-info">
+                                <h3 count-to="{{countTo_flickr}}" value="{{countFrom_flickr}}" duration="5" class="number_counter bold count text-light"></h3>
+                                <h4 class="counttype text-light">Media</h4>
+                                <span class="percent">7% increase from last week</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+<div class="clearfix"></div>
+
+</div>

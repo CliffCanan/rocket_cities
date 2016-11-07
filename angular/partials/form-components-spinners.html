@@ -1,0 +1,55 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Form Components - Spinners';">
+    
+    
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Spinners</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body padding-bottom-0">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+                        <div class="form-group" inputgroup>
+                            <label class="form-label" for="field-1">Empty Value</label>
+                            <div class="controls">
+                                <input ui-jq="TouchSpin" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group" inputgroup>
+                            <label class="form-label" for="field-1">Prefix spinner</label>
+                            <div class="controls">
+                                <input ui-jq="TouchSpin" type="text" value="0" class="form-control" data-min='0' data-max="10" data-step="0.1" data-decimals="2" data-prefix="$">
+                            </div>
+                        </div>
+                        <div class="form-group" inputgroup>
+                            <label class="form-label" for="field-1">Postfix spinner</label>
+                            <div class="controls">
+                                <input ui-jq="TouchSpin" type="text" value="5" class="form-control" data-min='0' data-max="10" data-step="0.1" data-decimals="2" data-postfix="%">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="field-1">Vertical arrows</label>
+                            <div class="controls">
+                                <input ui-jq="TouchSpin" type="text" value="10" class="form-control" data-min='0' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="field-1">Vertical plus/minus</label>
+                            <div class="controls">
+                                <input ui-jq="TouchSpin" type="text" value="10" class="form-control" data-min='0' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-plus" data-verticaldownclass="fa fa-minus">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+</div>

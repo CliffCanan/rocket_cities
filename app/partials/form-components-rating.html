@@ -1,0 +1,39 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Form Components - Rating';">
+   
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Rating</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body padding-bottom-0">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10" ng-controller="RatingDemoCtrl">
+                        <div class="form-group">
+                            <label class="form-label">Default</label>
+                            <uib-rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"></uib-rating>
+                            <span class="label" ng-class="{'label-warning': percent<30, 'label-primary': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+                            <pre style="margin:15px 0;">Rate: <b>{{rate}}</b> - Readonly is: <i>{{isReadonly}}</i> - Hovering over: <b>{{overStar || "none"}}</b></pre>
+                            <button class="btn btn-sm btn-danger" ng-click="rate = 0" ng-disabled="isReadonly">Clear</button>
+                            <button class="btn btn-sm btn-default" ng-click="isReadonly = ! isReadonly">Toggle Readonly</button>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Custom Icons</label>
+                            <div ng-init="x = 5">
+                                <uib-rating ng-model="x" max="15" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'"></uib-rating> <pre>(<i>Rate:</i> {{x}})</pre></div>
+                            <div ng-init="y = 2">
+                                <uib-rating ng-model="y" rating-states="ratingStates"></uib-rating> <pre>(<i>Rate:</i> {{y}})</pre></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</div>

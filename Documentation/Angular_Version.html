@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!--if lt IE 7html.no-js.lt-ie9.lt-ie8.lt-ie7
+-->
+<!--if IE 7html.no-js.lt-ie9.lt-ie8
+-->
+<!--if IE 8html.no-js.lt-ie9
+-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <!-- if IEmeta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    -->
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- if lt IE 9
+    script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+    
+    -->
+    <!-- stylesheets-->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <style type="text/css">
+    .colorbox {
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+        height: 60px;
+        width: 200px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        float: left;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    h4{
+        margin-top:30px;
+        margin-bottom: 10px;
+    }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <header role="banner" class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" target="_blank" class="navbar-brand">Complete Admin - AngularJS</a>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="bs-header">
+        <div class="container">
+            <h1>Documentation</h1>
+        </div>
+    </div>
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="bs-sidebar hidden-print">
+                    <ul class="nav bs-sidenav">
+                        <li><a href="#thanks">Thanks</a></li>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#file-structure">File Structure</a></li>
+                        <li><a href="#run">Installation</a></li>
+                        <li><a href="#npmstart">Local Server</a></li>
+                        <li><a href="#bower">Bower Dependency Management </a></li>
+                        <li><a href="#grunt">Automation with Grunt</a></li>
+                        <li><a href="#appscope">Global App Scope</a></li>
+                        <li><a href="#cssutilities">CSS Utilities</a></li>
+                        <li><a href="#appcore">Core & Plugins</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div role="main" class="col-md-9">
+                <section id="thanks">
+                    <div class="page-header">
+                        <h1>Thank you</h1>
+                    </div>
+                    <p class="lead">Thank you for purchasing. If you have any questions that are beyond the scope of this documentation, please feel free to <a href="mailto:themebuilder@jaybabani.com" target="_blank">contact me at email: themebuilder@jaybabani.com</a>.
+                    </p>
+                </section>
+                <section id="intro">
+                    <div class="page-header">
+                        <h1>Introduction</h1>
+                    </div>
+                    <p class="lead">"Complete Admin" is a premium admin dashboard theme built with the Powerful AngularJS framework and Bootstrap 3. It is specially designed to give your admin panel a unique and elegant look. It is easy to customize and coded in developer friendly manner. </p>
+                    <p class="lead">It is fully responsive admin dashboard template and is adaptive with any size viewport. Solid integration of reusable UI components and latest trending plugins. This theme can be used for type of project applications.
+                    </p>
+                    <p class="lead">Complete Admin includes many angular based plugins. It is designed to be a complete admin panel for any web project.</p>
+                </section>
+                <section id="file-structure">
+                    <div class="page-header">
+                        <h1>File Structure</h1>
+                    </div>
+                    <p class="lead">Within the download you'll find the following file structure and contents</p>
+                    <p>Once downloaded, unzip the compressed folder and you'll see something like this:</p>
+                    <pre class="prettyprint">Complete Admin/
+├── Complete Admin/                       ───> Contains the develop version of CompleTe admin Template.
+│   ├── app/                    └──> All application files in this folder.
+│   │     ├── data/                       └──> All API data files.
+│   │     ├── img/                        └──> All the logo, favicon images etc. 
+│   │     ├── js/                          └──> All the custom scripts
+│   │     ├── css/                        └──> All the custom stylesheets
+│   │     ├── partials/                   └──> All the custom templates
+│   │     ├── index.min.html
+│   │     └── index.html
+│   ├── bower_components                 └──> All bower dependencies
+│   ├── grunt                               └──> All grunt task manager files
+│   ├── bower.json
+│   ├── Gruntfile.js
+│   └── package.json
+├── version.txt/                    ───> Contains the version of CompleTe admin
+└── documentation/                ───> The help documentation is.</pre>
+                    <p class="lead">Important files description:</p>
+                    <dl class="dl-horizontal">
+                        <dt>"bower.json"</dt>
+                        <dd> is the JSON file of <a href="http://bower.io/">Twitter Bower</a> (You can click the link to know more).</dd>
+                        <dt>"Gruntfile.js"</dt>
+                        <dd> is the configure file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more). It is used to configure or define tasks and load Grunt plugins.
+                        </dd>
+                        <dt>"package.json"</dt>
+                        <dd> is the JSON file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more). This file is used by npm to store metadata for projects published as <a href="https://npmjs.org/">npm</a> modules. You will list grunt and the Grunt plugins your project needs as <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> in this file.
+                        </dd>
+                    </dl>
+                </section>
+                <section id="run">
+                    <div class="page-header">
+                        <h1>Installation</h1>
+                    </div>
+                    <p>
+                        In order to utilize <a href="http://gruntjs.com" class="text-info font-bold">Grunt</a> you will need to have installed <a href="http://nodejs.org" class="text-info font-bold">Node.js</a> on your computer. Also insure that you have <a href="https://www.npmjs.org/" class="text-info font-bold">NPM</a> installed.
+                        <br> You can check if these are installed properly by opening up a Terminal (Linux or Mac) or Command Prompt (Windows)
+                        <br> and entering the command: <code>node --version</code> and <code>npm --version</code> These commands should output something similar to "v0.10.31" and "1.4.23" respectively.
+                    </p>
+                    <p><strong>Please note that any commands must be ran from the project's root folder.</strong></p>
+                    <h4>Open the your project folder in the terminal</h4>
+                    <p>
+                        Once you have Node and npm installed open your terminal and change the directory to your project folder.
+                    </p>
+                    <p>
+                        On the Mac you can just type
+                    </p>
+                    <pre><span class="text-primary">cd</span></pre>
+                    <p>
+                        into the command line and then drag and drop the project folder on to the terminal window. This will add the path of the project directory next to the <code>cd</code> you just typed. Hit return and you have changed to your project folder.
+                    </p>
+                    <p>
+                        On Windows you will have to open cmd.exe and then type in
+                    </p>
+                    <pre><span class="text-primary">cd</span> path\to\project\directory</pre>
+                    <p>
+                        and hit return to change into your project folder.
+                    </p>
+                    <h4>grunt-cli</h4>
+                    <p>
+                        In order to be able to run Grunt from the terminal you need to install a little tool called grunt-cli. "cli" stands for "comand line interface". This program only needs to be installed once. It is installed globally so it is available on your computer everywhere. grunt-cli is used to actually run the Grunt installation that we just installed in your project directory locally. This just means that each project can use a different version of Grunt locally without worry.
+                    </p>
+                    <p>
+                        From the project's root folder type
+                    </p>
+                    <pre>npm install -g grunt-cli</pre>
+                    <p>
+                        into the command line and hit return.
+                    </p>
+                    <h4>Installing Grunt plugins</h4>
+                    <p>
+                        From the project's root folder type
+                    </p>
+                    <pre>npm install</pre>
+                    <p>
+                        into the command line.
+                    </p>
+                </section>
+                <section id="npmstart">
+                    <h1>Local Server Development</h1>
+                    <p>We've made it easy to develop and test on your local machine. You can start a local server by running the command</p>
+                    <p>
+                        From the project's root folder type
+                    </p>
+                    <pre>npm start</pre>
+                    <p>
+                        into the command line.
+                    </p>
+                    <p>This will start a local server and open up your browser.</p>
+                    <p>Then you can start your browser and visit</p>
+                    <pre>http://localhost/app/</pre> or
+                    <pre>http://localhost:8080/app/</pre>
+                    <h4>Grunt Build Tool</h4>
+                    <p>This project supports build steps with Grunt. The supported Grunt tasks that this project ships with is:</p>
+                    <ul>
+                        <li>Bower Depenecy Inclusion</li>
+                        <li>Concatenate and minify js files.</li>
+                        <li>Concatenate and minify css files.</li>
+                    </ul>
+                    <p>To build your project, from the project's root folder type</p>
+                    <pre>grunt build:angular</pre>
+                    <p>It will create the angular folder in your project root directory. You can access it in your brower at:</p>
+                    <pre>http://localhost/angular/</pre>
+                </section>
+                <section id="bower">
+                    <div class="page-header">
+                        <h1> Bower Dependency Management</h1>
+                    </div>
+                    <p class="lead"> <a href="http://bower.io/">Bower</a> is a front-end package manager for the web by Twitter.</p>
+                    <p>Complete Admin use Bower to manage all the front end dependencies, make things clean, tidy and simple.</p>
+                    <p>If you haven't try Bower before, then give it a shot,<strong> it makes life easier</strong>, you'll fail in love with it.</p>
+                    <p>Inside the <strong>bower.json</strong> file of Bower, you'll see the list dependencies (package name and version):</p>
+                    <p>If you want to know more about the packages, you can <a href="http://bower.io/search/">click here.</a> Search the package and click the link to know more.</p>
+                    <p>To ensure you have all updated the Javascript libraries managed by bower, run the command <pre>bower install</pre> in a terminal or command prompt while you are in the current working directory of the project.</p>
+                    <pre> 
+  "dependencies": {
+    "angular": "~1.3.11",
+    "angular-animate": "~1.3.11",
+    "angular-bootstrap": "~0.12.0",
+    "angular-bootstrap-colorpicker":"3.0.18",
+    "angular-chart.js":"~0.7.1",
+    "angular-cookies": "~1.3.11",
+    "angular-count-to":"*",
+    "angular-file-upload": "~1.1.1",
+    "angular-inview": "~1.5.0",
+    "angular-loading-bar": "~0.7.1",
+    "angular-notify": "~2.5.0",
+    "angular-perfect-scrollbar": "~0.0.4",
+    "angular-resource": "~1.3.11",
+    "angular-rickshaw": "~0.10.0",
+    "angular-sanitize": "~1.3.11",
+    "angular-smart-table": "~1.4.9",
+    "angular-touch": "~1.3.11",
+    "angular-ui-calendar": "~1.0.0",
+    "angular-ui-grid": "~3.0.0-rc.16",
+    "angular-ui-router": "~0.2.11",
+    "angular-ui-utils": "~0.2.1",
+    "angular-xeditable": "~0.1.8",
+    "animate.css": "~3.2.0",
+    "bootstrap": "~3.3.0",
+    "bootstrap-wysiwyg": "*",
+    "bootstrap-chosen": "~1.0.0",
+    "bootstrap-daterangepicker": "~1.3.17",
+    "bootstrap-tagsinput": "~0.4.2",
+    "bootstrap-touchspin": "~3.0.1",
+    "bower-jvectormap": "~1.2.2",
+    "Chart.js":"~1.0.1",
+    "chosen": "https://github.com/harvesthq/chosen/releases/download/v1.3.0/chosen_v1.3.0.zip",
+    "datatables": "~1.10.4",
+    "footable": "~2.0.3",
+    "flot": "~0.8.3",
+    "flot.tooltip": "~0.8.4",
+    "flot.orderbars": "*",
+    "flot-spline": "0.0.1",
+    "font-awesome": "~4.2.0",
+    "fullcalendar": "~2.2.1",
+    "html5sortable": "*",
+    "jquery": "~2.1.3",
+    "jquery.easy-pie-chart": "~2.1.6",
+    "jquery-knob":"~1.2.11",
+    "jquery.sparkline": "~2.1.2",
+    "moment": "~2.10.3",
+    "nestable": "*",
+    "ng-grid": "~2.0.13",
+    "ngImgCrop": "~0.2.0",
+    "ngmorris":"~0.0.1",
+    "ngstorage": "~0.3.0",
+    "oclazyload": "~1.0.1",
+    "perfect-scrollbar": "~0.5.1",
+    "plugins": "datatables/plugins#~1.0.1",
+    "venturocket-angular-slider": "~0.3.2"
+  }</pre>
+                </section>
+                <section id="grunt">
+                    <div class="page-header">
+                        <h1>Automation with Grunt</h1>
+                    </div>
+                    <p class="lead"><a href="http://gruntjs.com/">Grunt</a> is a JavaScript task runner (Automation), save yourself from repetitive tasks.</p>
+                    <p>It's probably a bit complex to you if it's your first time using Grunt. However, <strong>you'll fail in love with it</strong> once you get it, it saves you from repetitive tasks. Project like jQuery, Bootstrap and many more use and love GruntJS.</p>
+                    <dl class="dl-horizontal">
+                        <dt>"Gruntfile.js"</dt>
+                        <dd> is the configure file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more). It is used to configure or define tasks and load Grunt plugins.
+                        </dd>
+                        <dt>"package.json"</dt>
+                        <dd> is the JSON file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more). This file is used by npm to store metadata for projects published as <a href="https://npmjs.org/">npm</a> modules. You will list grunt and the Grunt plugins your project needs as <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> in this file.
+                        </dd>
+                    </dl>
+                    <p>Inside <strong>package.json</strong> file, you'll see all the <a href="http://gruntjs.com/plugins">Grunt plugins</a> that help to automate the tasks.</p>
+                    <p>And all the plugins are configured in <strong>Gruntfile.coffee</strong> file.</p>
+                    <p>If you want to know more about the plugins, you can <a href="http://gruntjs.com/plugins">click here.</a></p>
+                    <pre> "devDependencies": {
+   "grunt": "^0.4.5",
+    "grunt-bower-install-simple": "^0.9.3",
+    "grunt-bump": "0.0.15",
+    "grunt-changelog": "^0.2.2",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-htmlmin": "^0.3.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-recess": "^1.0.0",
+    "grunt-swig": "^0.2.1",
+    "gruntfile-gtx": "^0.3.0",
+    "http-server": "^0.6.1",
+    "require-directory": "^2.0.0"
+ }</pre>
+                </section>
+                <section id="appscope">
+                    <div class="page-header">
+                        <h1>Global App Scope</h1>
+                    </div>
+                    <h4>Configure Global App Variables</h4>
+                    <p>Open main.js file (app/js/app.main.js) and Change the Global App Scope like Project name, version according to your needs. </p>
+                    <p>you can change the default layout as follows:
+                        <ul>
+                            <li>menuFolded: true if you want to initialize the template collapsed side menu.</li>
+                            <li>chatFolded: true if you want to initialize the template collapsed chat api.</li>
+                            <li>layoutBoxed: true if you want to initialize the template as boxed layout.</li>
+                            <li>menuProfile: false if you want to display user profile in main menu.</li>
+                            <li>searchOpen: true if you want to display search bar as open in header top bar.</li>
+                        </ul>
+                    </p>
+                    <h4>Configure Navigation Menu</h4>
+                    <p>Open nav.html file (app/partials/components/nav.html)</p>
+                    <p>Find ul with class .wrapper-menu and change or add a menu item in the list as follows:</p>
+                    <pre>
+
+&lt;li ui-sref-active="active">
+       &lt;a ui-sref="app.ui.typography">Typography&lt;/a>
+&lt;/li>
+
+</pre>
+                    <h4>Configure App Router</h4>
+                    <p>Open app.router.js file (app/js/app.router.js)</p>
+                    <p>Set up your states in the module config, as in the following:</p>
+                    <pre>
+.state('app.ui.typography', {
+       url: '/typography',
+          templateUrl: 'partials/ui-typography.html'
+})
+.state('app.ui.accordion', {
+       url: '/accordion',
+         templateUrl: 'partials/ui-accordion.html'
+})  
+</pre>
+                    <h4>Configure lazyload Dependencies</h4>
+                    <p>To dynamically load dependencies at runtime when we change states we use oclazyload.</p>
+                    <p>Open app.lazyload.js file (app/js/app.lazyload.js) and configure your modules as below:</p>
+                    <pre>
+  modules: [
+              {
+                  name: 'ngGrid',
+                  files: [
+                      '../bower_components/ng-grid/build/ng-grid.min.js',
+                      '../bower_components/ng-grid/ng-grid.min.css',
+                      '../bower_components/ng-grid/ng-grid.bootstrap.css'
+                  ]
+              }
+]
+
+</pre>
+                </section>
+                <section id="cssutilities">
+                    <div class="page-header">
+                        <h1>CSS Utilities</h1>
+                    </div>
+                    <h4>Bootstrap CSS</h4>
+                    <p>
+                        For the bootstrap css and components, please check the <a href="http://getbootstrap.com" class="text-info font-bold">Bootstrap 3</a>
+                    </p>
+                    <p><strong>Angular UI Bootstrap</strong>, This project does not use bootstrap.js, but use Angular UI Bootstrap written in pure AngularJS, check <a ui-sref="app.ui.bootstrap" class="text-info font-bold" href="#/app/ui/bootstrap">UI Boostrap</a> and <a href="http://angular-ui.github.io/bootstrap" class="text-info font-bold">Official Documents</a></p>
+                    <h4 class="">Icons</h4>
+                    <ul>
+                        <li>FontAwesome icons
+                            <label class="label bg-info">4.1</label>
+                            <p>Check <strong><a href="http://fortawesome.github.io/Font-Awesome/">FontAwesome</a></strong> for more details to see how to use and examples</p>
+                        </li>
+                        <li>Glyphicons
+                            <p>Bootstrap default icons</p>
+                        </li>
+                    </ul>
+                    <h4 class="">Animate</h4>
+                    <p><a href="http://daneden.me/animate/"><strong>animate.css</strong></a> is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness. </p>
+                    <h4>Colors</h4>
+                    <p>This app uses as color palette as below</p>
+                    <p>Open main.js file (app/js/app.main.js) to view the color settings:</p>
+                    <div style='background:#7E57C2;' class='colorbox'>Primary</div>
+                    <div style='background:#FF9800;' class='colorbox'>orange</div>
+                    <div style='background:#03A9F4;' class='colorbox'>info</div>
+                    <div style='background:#4CAF50;' class='colorbox'>success</div>
+                    <div style='background:#FDD835;' class='colorbox'>warning</div>
+                    <div style='background:#F44336;' class='colorbox'>danger</div>
+                    <div style='background:#9E9E9E;' class='colorbox'>secondary</div>
+                    <div class="clearfix"></div>
+                    <h4 class="">The Grid</h4>
+                    <p>
+                        See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th> Extra small devices <small>Phones (&lt;768px)</small></th>
+                                    <th> Small devices <small>Tablets (≥768px)</small></th>
+                                    <th> Medium devices <small>Desktops (≥992px)</small></th>
+                                    <th> Large devices <small>Desktops (≥1200px)</small></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Grid behavior</th>
+                                    <td>Horizontal at all times</td>
+                                    <td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Container width</th>
+                                    <td>None (auto)</td>
+                                    <td>750px</td>
+                                    <td>970px</td>
+                                    <td>1170px</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Class prefix</th>
+                                    <td><code>.col-xs-</code></td>
+                                    <td><code>.col-sm-</code></td>
+                                    <td><code>.col-md-</code></td>
+                                    <td><code>.col-lg-</code></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap"># of columns</th>
+                                    <td colspan="4">12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Column width</th>
+                                    <td class="text-muted">Auto</td>
+                                    <td>~62px</td>
+                                    <td>~81px</td>
+                                    <td>~97px</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Gutter width</th>
+                                    <td colspan="4">30px (15px on each side of a column)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Nestable</th>
+                                    <td colspan="4">Yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Offsets</th>
+                                    <td colspan="4">Yes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-nowrap">Column ordering</th>
+                                    <td colspan="4">Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4 class="margin-top-20">CSS Utilities</h4>
+                    <p>
+                        In addition to the default bootstrap css, package includes classes that can help you speed up your development work
+                    </p>
+                    <table class="table table-border bg-white b-a">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.no-margin</code></td>
+                                <td>margin: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-0</code></td>
+                                <td>margin-bottom: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-5</code></td>
+                                <td>margin-bottom: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-10</code></td>
+                                <td>margin-bottom: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-15</code></td>
+                                <td>margin-bottom: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-20</code></td>
+                                <td>margin-bottom: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-25</code></td>
+                                <td>margin-bottom: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-bottom-30</code></td>
+                                <td>margin-bottom: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-0</code></td>
+                                <td>margin-top: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-5</code></td>
+                                <td>margin-top: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-10</code></td>
+                                <td>margin-top: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-15</code></td>
+                                <td>margin-top: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-20</code></td>
+                                <td>margin-top: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-25</code></td>
+                                <td>margin-top: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-top-30</code></td>
+                                <td>margin-top: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-0</code></td>
+                                <td>margin-right: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-5</code></td>
+                                <td>margin-right: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-10</code></td>
+                                <td>margin-right: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-15</code></td>
+                                <td>margin-right: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-20</code></td>
+                                <td>margin-right: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-25</code></td>
+                                <td>margin-right: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-right-30</code></td>
+                                <td>margin-right: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-0</code></td>
+                                <td>margin-left: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-5</code></td>
+                                <td>margin-left: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-10</code></td>
+                                <td>margin-left: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-15</code></td>
+                                <td>margin-left: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-20</code></td>
+                                <td>margin-left: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-25</code></td>
+                                <td>margin-left: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.margin-left-30</code></td>
+                                <td>margin-left: 30px </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-border bg-white b-a">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Padding</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.no-padding</code></td>
+                                <td>padding: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-0</code></td>
+                                <td>padding-bottom: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-5</code></td>
+                                <td>padding-bottom: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-10</code></td>
+                                <td>padding-bottom: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-15</code></td>
+                                <td>padding-bottom: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-20</code></td>
+                                <td>padding-bottom: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-25</code></td>
+                                <td>padding-bottom: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-bottom-30</code></td>
+                                <td>padding-bottom: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-0</code></td>
+                                <td>padding-top: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-5</code></td>
+                                <td>padding-top: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-10</code></td>
+                                <td>padding-top: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-15</code></td>
+                                <td>padding-top: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-20</code></td>
+                                <td>padding-top: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-25</code></td>
+                                <td>padding-top: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-top-30</code></td>
+                                <td>padding-top: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-0</code></td>
+                                <td>padding-right: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-5</code></td>
+                                <td>padding-right: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-10</code></td>
+                                <td>padding-right: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-15</code></td>
+                                <td>padding-right: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-20</code></td>
+                                <td>padding-right: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-25</code></td>
+                                <td>padding-right: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-right-30</code></td>
+                                <td>padding-right: 30px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-0</code></td>
+                                <td>padding-left: 0 </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-5</code></td>
+                                <td>padding-left: 5px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-10</code></td>
+                                <td>padding-left: 10px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-15</code></td>
+                                <td>padding-left: 15px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-20</code></td>
+                                <td>padding-left: 20px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-25</code></td>
+                                <td>padding-left: 25px </td>
+                            </tr>
+                            <tr>
+                                <td><code>.padding-left-30</code></td>
+                                <td>padding-left: 30px </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section id="appcore">
+                    <h1>Core & Plugins</h1>
+                    <p>You must know AngularJS, "ui-router" and "ui-jq" to get started your project.</p>
+                    <h4 class="m-t-xl">ui-router</h4>
+                    <p>
+                        ui-router for <strong>Nested Routing</strong> and <strong>Nested View</strong>, check the <a href="http://angular-ui.github.io/ui-router/" class="text-info">official documents</a>
+                    </p>
+                    <h4 class="m-t-xl">ui-load</h4>
+                    <p>ui-load for <strong>lazy loading</strong> the js and css files. </p>
+                    <p>ui-load also used in the ui-router <code>resolve:{}</code> for lazy loading Angular Directives, Controllers and Services.</p>
+                    <h4 class="m-t-xl">ui-jq</h4>
+                    <p>
+                        <code>ui-jq</code> Call the jQuery function or plugin specified on the element. check the <a href="http://angular-ui.github.io/ui-utils/#/jq" class="text-info">official documents</a>
+                    </p>
+                    <h4 class="m-t-xl">ui-module</h4>
+                    <p>
+                        <code>ui-module</code> Load other dependences for child directive. you need config the dependences in "js/app.js" constant "MODULE_CONFIG".
+                        <br>example: check the "ui-select2" directive on "form/element"
+                    </p>
+                    <h4 class="m-t-xl">ui-validate</h4>
+                    <p>
+                        The <code>ui-validate</code> directive makes it very easy to create custom validator expressions. check the <a href="http://angular-ui.github.io/ui-utils/#/validate" class="text-info">official documents</a>
+                    </p>
+                    <h3 class="text-info font-thin m-t-xl m-b-lg">Plugins</h3>
+                    <p>All jQuery plugins are depended on <code>ui-jq</code>, do not need create the Angular Directive for each of the plugin. you can config in the app/js/app.js Angular Constant <code>JQ_CONFIG</code>, <code>functionName =&gt; pluginPath</code>, the js and css files are lazy loaded.</p>
+                    <div class="row m-b-xl">
+                        <div class="col-md-6">
+                            <h4>jQuery</h4>
+                            <p>Check the online <a href="http://jquery.com"><strong>document</strong></a>. </p>
+                            <h4>angular-bootstrap</h4>
+                            <p>Check the online <a href="https://github.com/angular-ui/bootstrap"><strong>document</strong></a>. </p>
+                            <h4>morris.js</h4>
+                            <p>Check the online <a href="https://github.com/morrisjs/morris.js"><strong>document</strong></a>. </p>
+<!--                      <h4>textAngular</h4>
+                            <p>Check the online <a href="https://github.com/fraywing/textAngular"><strong>document</strong></a>. </p>
+ -->                            
+                            <h4>angular-bootstrap-colorpicker</h4>
+                            <p>Check the online <a href="https://github.com/buberdds/angular-bootstrap-colorpicker"><strong>document</strong></a>. </p>
+                            <h4>angular-bootstrap-datetimepicker</h4>
+                            <p>Check the online <a href="http://dalelotts.github.io/angular-bootstrap-datetimepicker"><strong>document</strong></a>. </p>
+                            <h4>angular-chart.js</h4>
+                            <p>Check the online <a href="https://github.com/jtblin/angular-chart.js"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">FullCalendar</h4>
+                            <p>Check the online <a href="http://arshaw.com/fullcalendar/"><strong>document</strong></a> and <a href="http://angular-ui.github.io/ui-calendar/"><strong>Angular Fullcalendar Wrapper</strong></a></p>
+
+                            <h4>angular-perfect-scrollbar</h4>
+                            <p>Check the online <a href="https://github.com/itsdrewmiller/angular-perfect-scrollbar"><strong>document</strong></a>. </p>
+                            <h4>angular-rickshaw</h4>
+                            <p>Check the online <a href="https://github.com/ngyewch/angular-rickshaw"><strong>document</strong></a>. </p>
+                            <h4>angular-smart-table</h4>
+                            <p>Check the online <a href="https://github.com/lorenzofox3/Smart-Table"><strong>document</strong></a>. </p>
+                            <h4>angular-ui-grid</h4>
+                            <p>Check the online <a href="http://ui-grid.info"><strong>document</strong></a>. </p>
+                            <h4>angular-ui-utils</h4>
+                            <p>Check the online <a href="https://github.com/angular-ui/ui-utils"><strong>document</strong></a>. </p>
+                            <h4>angular-xeditable</h4>
+                            <p>Check the online <a href="http://vitalets.github.io/angular-xeditable"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Datatables</h4>
+                            <p>Check the online <a href="http://datatables.net/"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Chosen</h4>
+                            <p>Check the online <a href="http://github.com/harvesthq/chosen"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md"></h4>
+                            <p>Check the online <a href=""><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Slider</h4>
+                            <p>Check the online <a href="http://www.eyecon.ro/bootstrap-slider"><strong>document</strong></a>.</p>
+                            <h4 class="m-t-md">TouchSpin</h4>
+                            <p>Check the online <a href="http://www.virtuosoft.eu/code/bootstrap-touchspin/"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">WYSISYG</h4>
+                            <p>Check the online <a href="http://github.com/mindmup/bootstrap-wysiwyg"><strong>document</strong></a>. </p>
+                        </div>
+                        <div class="col-md-6">
+
+                            <h4>angular-count-to</h4>
+                            <p>Check the online <a href="https://github.com/sparkalow/angular-count-to"><strong>document</strong></a>. </p>
+                            <h4>angular-file-upload</h4>
+                            <p>Check the online <a href="https://github.com/nervgh/angular-file-upload"><strong>document</strong></a>. </p>
+                            <h4>angular-inview</h4>
+                            <p>Check the online <a href="https://github.com/thenikso/angular-inview"><strong>document</strong></a>. </p>
+                            <h4>angular-loading-bar</h4>
+                            <p>Check the online <a href="https://github.com/chieffancypants/angular-loading-bar"><strong>document</strong></a>. </p>
+                            <h4>angular-notify</h4>
+                            <p>Check the online <a href="https://github.com/cgross/angular-notify"><strong>document</strong></a>. </p>                        
+                            <h4 class="m-t-md">Flotchart</h4>
+                            <p>Check the online <a href="http://www.flotcharts.org/"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Sparklines</h4>
+                            <p>Check the online <a href="http://omnipotent.net/jquery.sparkline"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Easy pie chart</h4>
+                            <p>Check the online <a href="http://rendro.github.io/easy-pie-chart"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Sortable</h4>
+                            <p>Check the online <a href="http://farhadi.ir/projects/html5sortable"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">Nestable</h4>
+                            <p>Check the online <a href="http://dbushell.github.io/Nestable/"><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md"></h4>
+                            <p>Check the online <a href=""><strong>document</strong></a>. </p>
+                            <h4 class="m-t-md">JvectorMap</h4>
+                            <p>Check the online <a href="http://jvectormap.com/"><strong>document</strong></a>. </p>
+
+
+                            <h4>bootstrap-tagsinput</h4>
+                            <p>Check the online <a href="https://github.com/TimSchlechter/bootstrap-tagsinput"><strong>document</strong></a>. </p>
+                            <h4>footable</h4>
+                            <p>Check the online <a href="https://github.com/bradvin/FooTable"><strong>document</strong></a>. </p>
+                            <h4>aterrien/jQuery-Knob</h4>
+                            <p>Check the online <a href="https://github.com/aterrien/jQuery-Knob"><strong>document</strong></a>. </p>
+                            <h4>ng-grid</h4>
+                            <p>Check the online <a href="https://github.com/angular-ui/ng-grid"><strong>document</strong></a>. </p>
+                            <h4>ng-img-crop</h4>
+                            <p>Check the online <a href="https://github.com/alexk111/ngImgCrop"><strong>document</strong></a>. </p>
+                            <h4>oclazyload</h4>
+                            <p>Check the online <a href="https://github.com/ocombe/ocLazyLoad"><strong>document</strong></a>. </p>
+                            <h4>perfect-scrollbar</h4>
+                            <p>Check the online <a href="http://noraesae.github.io/perfect-scrollbar/"><strong>document</strong></a>. </p>
+                            <h4>angular-slider</h4>
+                            <p>Check the online <a href="https://github.com/Venturocket/angular-slider"><strong>document</strong></a>. </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="bs-footer">
+        <div class="container">
+            <p>Copyright 2015 <a href="http://jaybabani.com/">jaybabani.com</a></p>
+        </div>
+    </footer>
+    <!-- Scripts-->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/holder.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/jquery.smooth-scroll.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script>
+    $('.bs-sidenav a').smoothScroll();
+    window.prettyPrint && prettyPrint();
+    </script>
+</body>
+
+</html>

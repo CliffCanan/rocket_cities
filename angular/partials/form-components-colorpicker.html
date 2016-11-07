@@ -1,0 +1,65 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Form Components - Color Picker';">
+   
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Color Picker</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body padding-bottom-0">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10" ng-controller="ColorPickerCtrl">
+                        <div class="form-group">
+                            <label class="form-label" for="daterange-1">HEX</label>
+                            <div class="input-group" inputgroup>
+                                <span class="input-group-addon">
+                                <i class="sel-color" style="background-color:{{ hexPicker.color }};"></i>
+                            </span>
+                                <input colorpicker class="form-control" ng-model="hexPicker.color" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="daterange-1">RGB</label>
+                            <div class="input-group" inputgroup>
+                                <span class="input-group-addon">
+                                <i class="sel-color" style="background-color:{{ rgbPicker.color }};"></i>
+                            </span>
+                                <input colorpicker="rgb" class="form-control" ng-model="rgbPicker.color" type="text" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="daterange-1">RGBA</label>
+                            <div class="input-group" inputgroup>
+                                <span class="input-group-addon">
+                                <i class="sel-color" style="background-color:{{ rgbaPicker.color }};"></i>
+                            </span>
+                                <input colorpicker="rgba" colorpicker-position="right" class="form-control" ng-model="rgbaPicker.color" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="daterange-1">non input element model value: {{ nonInput.color }}</label>
+                            <div class="controls">
+                                <button colorpicker type="button" colorpicker-position="top" class="btn btn-success btn-sm" ng-model="nonInput.color">Change color</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls">
+                                <button class="btn btn-sm btn-primary" ng-click="resetColor()">Update HEX</button>
+                                <button class="btn btn-sm btn-primary" ng-click="resetRBGColor()">Update RGB</button>
+                                <button class="btn btn-sm btn-primary" ng-click="resetRBGAColor()">Update RGBA</button>
+                                <button class="btn btn-sm btn-primary" ng-click="resetNonInputColor()">Update Non input</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+
+</div>

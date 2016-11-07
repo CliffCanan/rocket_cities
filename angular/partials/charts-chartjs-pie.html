@@ -1,0 +1,44 @@
+<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Chart JS - Pie & Donut Charts';">
+    
+ 
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Doughnut chart</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2" ng-controller="DoughnutCtrl">
+                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colours="colours"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Pie chart</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 col-md-offset-2" ng-controller="PieCtrl">
+                        <canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-colours="colours">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+   
+   
+</div>
