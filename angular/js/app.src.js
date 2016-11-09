@@ -52939,10 +52939,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.ui.progress', {
-                url: '/progress',
-                templateUrl: 'partials/ui-progress.html'
-            })
             .state('app.ui.buttons', {
                 url: '/buttons',
                 templateUrl: 'partials/ui-buttons.html',
@@ -52953,10 +52949,6 @@ angular.module('app')
                         }
                     ]
                 }
-            })
-            .state('app.ui.alert', {
-                url: '/alert',
-                templateUrl: 'partials/ui-alert.html'
             })
             .state('app.ui.notifications', {
                 url: '/notifications',
@@ -52980,17 +52972,6 @@ angular.module('app')
             .state('app.ui.videoembed', {
                 url: '/videoembed',
                 templateUrl: 'partials/ui-videoembed.html'
-            })
-            .state('app.ui.breadcrumb', {
-                url: '/breadcrumb',
-                templateUrl: 'partials/ui-breadcrumb.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
             })
             .state('app.ui.carousel', {
                 url: '/carousel',
@@ -53242,22 +53223,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.slider', {
-                url: '/slider',
-                templateUrl: 'partials/form-slider.html',
-                controller: 'FormSliderCtrl',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('vr.directives.slider').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/form-slider.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.form.editable', {
                 url: '/editable',
                 templateUrl: 'partials/form-editable.html',
@@ -53317,14 +53282,6 @@ angular.module('app')
                         }
                     ]
                 }
-            })
-            .state('app.ui.pricingexpand', {
-                url: '/pricingexpand',
-                templateUrl: 'partials/ui-pricing-expanded.html'
-            })
-            .state('app.ui.pricingnarrow', {
-                url: '/pricingnarrow',
-                templateUrl: 'partials/ui-pricing-narrow.html'
             })
             .state('app.ui.profile', {
                 url: '/profile',
@@ -53453,7 +53410,6 @@ angular.module('app')
                         }
                     ]
                 }
-
             })
             .state('app.charts.chartjsline', {
                 url: '/chartjsline',
@@ -53732,37 +53688,6 @@ angular.module('app')
             .state('app.layout.chat', {
                 url: '/chat',
                 templateUrl: 'partials/layout-chat.html'
-            })
-            .state('app.ui.vectormaps', {
-                url: '/vectormaps',
-                templateUrl: 'partials/ui-vectormaps.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('js/controllers/vectormap.js');
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.googlemapfull', {
-                url: '/googlemapfull',
-                templateUrl: 'partials/ui-googlemapfull.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load([
-                                'js/map/load-google-maps.js',
-                                'js/map/ui-map.js',
-                                'js/map/map.js'
-                            ]).then(
-                                function () {
-                                    return loadGoogleMaps();
-                                }
-                            );
-                        }
-                    ]
-                }
-
             })
     }
     ]

@@ -14,7 +14,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-3 padding-right-0 margin-top-30">
                         <div class="mail-wrapper">
                             <ul class="list-unstyled mail_tabs">
-                                <li ng-repeat="fold in folds" ui-sref-active="active">
+                                <li ng-repeat="fold in folders" ui-sref-active="active">
                                     <a ui-sref="app.mail.list({fold:fold.filter})">
                                         <i class="fa {{fold.icon}}"></i> {{fold.name}} <span class="badge badge-{{fold.badge}} pull-right" ng-show="fold.count != ''">{{fold.count}}</span>
                                     </a>
@@ -30,18 +30,18 @@
                                     </a>
                                 </li>
                             </ul>
-                         <form name="label" class="mail-addlabel">
+                            <form name="label" class="mail-addlabel">
                                 <div class="input-group" inputgroup>
                                     <input type="text" class="form-control input-md" ng-model="newLabel.name" placeholder="New label" required>
                                     <span class="input-group-btn">
-                              <button class="btn btn-sm btn-default" type="button" ng-click="addLabel()" ng-disabled="label.$invalid">Add</button>
-                            </span>
+                                        <button class="btn btn-sm btn-default" type="button" ng-click="addLabel()" ng-disabled="label.$invalid">Add</button>
+                                    </span>
                                 </div>
                             </form>
-                           </div>
+                        </div>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-9  margin-top-30 padding-left-0">
-                           
+
                         <div class="mail_content">
                             <div class="row">
                                 <div ui-view class="fade-in"></div>

@@ -1,8 +1,7 @@
 app.controller('MailCtrl', ['$scope', function($scope) {
-  $scope.folds = [
+  $scope.folders = [
     {name: 'Inbox', filter:'', icon:'fa-inbox', badge:'primary', count: '6'},
     {name: 'Sent', filter:'sent', icon:'fa-send-o', badge: '', count: ''},
-    {name: 'Important', filter:'important', icon:'fa-star-o', badge: '', count: ''},
     {name: 'Draft', filter:'draft', icon:'fa-edit', badge:'accent', count: '2'},
     {name: 'Trash', filter:'trash', icon:'fa-trash-o', badge: '', count: ''}
   ];
