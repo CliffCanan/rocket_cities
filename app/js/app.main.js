@@ -8,11 +8,11 @@ angular.module('app').controller('AppCtrl', ['$scope',
         $scope.app = {
             name: 'Rocket Cities',
             version: '0.0.1',
-            type: 'general',
+            type: 'influencer',
             color: {
-                primary: '#3f51b5',
+                primary: '#a30303',//'#3f51b5',
                 accent: '#E91E63',
-                info: '#26C6DA',
+                info: '#03A9F4',
                 success: '#46be8a',
                 warning: '#fdb45d',
                 danger: '#F44336',
@@ -20,6 +20,7 @@ angular.module('app').controller('AppCtrl', ['$scope',
                 text: '#767676'
             },
             settings: {
+                showSideMenu: true,
                 menuFolded: menufold,
                 chatFolded: true,
                 searchFocus: false,

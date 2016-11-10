@@ -1,32 +1,148 @@
-<div class='content-wrapper' ng-init="app.settings.pagetitle = 'Video Embed';">
-    
-    <div class="col-xs-12">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left">Responsive Video Embed</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle material-icons">expand_more</i>
-                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
-                    <i class="box_close material-icons">close</i>
+<div class='content-wrapper' ng-init="app.settings.pagetitle = ''; app.settings.showSideMenu = false;">
+
+    <div class="container-fluid p-0 full-width">
+
+        <div class="alert alert-default alert-dismissible text-center m-b-0 fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <strong>Hey there, Cliff!</strong> This is your public profile page. <a href>Add videos</a> to get started.
+        </div>
+
+        <div class="profile-banner-bg">
+
+            <img src="data/profile/profile.jpg" class="img-responsive">
+
+            <div class="name-container">
+                <h2><strong>Cliff Canan</strong> | Video Game Reviews</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <section class="box">
+
+                <div class="content-body p-10">
+                    <button type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5">
+                        <i class="fa fa-plus"></i> &nbsp; <span>Subscribe</span>
+                    </button>
+                    <button type="button" class="btn btn-warning btn-icon btn-corner btn-xs m-b-10">
+                        <i class="fa fa-external-link"></i> &nbsp; <span>Share</span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-icon-round btn-xs m-b-5">
+                        <i class="fa fa-thumbs-o-up"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-icon-round btn-xs m-b-5">
+                        <i class="fa fa-thumbs-o-down"></i>
+                    </button>
                 </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
-                        <!-- 16:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xArnYj5TbX0" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="clearfix"></div>
-                        <br>
-                        <!-- 4:3 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-4by3">
-                            <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/60859933" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+                <div class="box-footer">
+                    <span class="footer-title">Tags</span>
+                    <div class="controls">
+                        <input type="text" ui-jq="tagsinput" class="form-control" id="tagsinput-1" value="Sample tag, Another tag, Awesome" placeholder="Add a tag" />
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-10 col-md-7">
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Responsive Video Embed</h2>
+
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                        <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                        <i class="box_close material-icons">close</i>
+                    </div>
+                </header>
+
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- 16:9 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xArnYj5TbX0" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="clearfix"></div>
+                            <br>
+                            <!-- 4:3 aspect ratio -->
+                            <div class="embed-responsive embed-responsive-4by3">
+                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/60859933" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+
+            <div class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+                <div class="wid-task-header">
+                    <div class="wid-icon">
+                        <i class="fa fa-tasks"></i>
+                    </div>
+                    <div class="wid-text">
+                        <h4>To do Tasks</h4>
+                        <span>Wed, <small>11<sup>th</sup> March 2015</small></span>
+                    </div>
+                </div>
+                <div class="wid-all-tasks">
+                    <perfect-scrollbar class="ps-todo-widget" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20">
+                        <ul class="list-unstyled">
+                            <li class="checked">
+                                <label class="icheck icheck-white form-label ">
+                                    <input type="checkbox" value="" checked>
+                                    <i></i> Complete Profile
+                                </label>
+                            </li>
+                            <li>
+                                <label class="icheck icheck-white form-label ">
+                                    <input type="checkbox" value="">
+                                    <i></i> Upload A Video
+                                </label>
+                            </li>
+                            <li>
+                                <label class="icheck icheck-white form-label ">
+                                    <input type="checkbox" value="">
+                                    <i></i> Add Payment Info
+                                </label>
+                            </li>
+                            <li>
+                                <label class="icheck icheck-white form-label ">
+                                    <input type="checkbox" value="">
+                                    <i></i> Get Subscribers
+                                </label>
+                            </li>
+                        </ul>
+                    </perfect-scrollbar>
+                </div>
+                <div class="wid-add-task">
+                    <input type="text" class="form-control" placeholder="Add task" />
+                </div>
             </div>
-        </section>
+
+
+            <section class="box">
+                <header class="panel_header">
+                    <h2 class="title pull-left">Special Perks!</h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                        <i class="box_close material-icons">close</i>
+                    </div>
+                </header>
+
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </div>
-    
 </div>

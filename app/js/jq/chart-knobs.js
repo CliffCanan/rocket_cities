@@ -1,4 +1,4 @@
-jQuery(function($) {
+jQuery(function ($) {
 
     'use strict';
 
@@ -7,40 +7,40 @@ jQuery(function($) {
     /*--------------------------------
         Knob Chart
      --------------------------------*/
-    COMPLETE_SETTINGS.chartKnob = function() {
+    COMPLETE_SETTINGS.chartKnob = function () {
 
-
-        if ($.isFunction($.fn.knob)) {
+        if ($.isFunction($.fn.knob))
+        {
 
             $(".knob").knob({
-                change: function(value) {
+                change: function (value) {
                     //console.log("change : " + value);
                 },
-                release: function(value) {
+                release: function (value) {
                     //console.log(this.$.attr('value'));
                     console.log("release : " + value);
                 },
-                cancel: function() {
+                cancel: function () {
                     console.log("cancel : ", this);
                 },
                 /*format : function (value) {
                     return value + '%';
                 },*/
-                draw: function() {
+                draw: function () {
 
                     // "tron" case
-                    if (this.$.data('skin') == 'tron') {
-
+                    if (this.$.data('skin') == 'tron')
+                    {
                         this.cursorExt = 0.3;
 
-                        var a = this.arc(this.cv) // Arc
-                            ,
-                            pa // Previous arc
-                            , r = 1;
+                        var a = this.arc(this.cv), // Arc
+                            pa, // Previous arc
+                            r = 1;
 
                         this.g.lineWidth = this.lineWidth;
 
-                        if (this.o.displayPrevious) {
+                        if (this.o.displayPrevious)
+                        {
                             pa = this.arc(this.v);
                             this.g.beginPath();
                             this.g.strokeStyle = this.pColor;
@@ -70,12 +70,12 @@ jQuery(function($) {
                 i = 0,
                 $idir = $("div.idir"),
                 $ival = $("div.ival"),
-                incr = function() {
+                incr = function () {
                     i++;
                     $idir.show().html("+").fadeOut();
                     $ival.html(i);
                 },
-                decr = function() {
+                decr = function () {
                     i--;
                     $idir.show().html("-").fadeOut();
                     $ival.html(i);
@@ -84,21 +84,31 @@ jQuery(function($) {
                 min: 0,
                 max: 20,
                 stopper: false,
-                change: function() {
-                    if (v > this.cv) {
-                        if (up) {
+                change: function () {
+                    if (v > this.cv)
+                    {
+                        if (up)
+                        {
                             decr();
                             up = 0;
-                        } else {
+                        }
+                        else
+                        {
                             up = 1;
                             down = 0;
                         }
-                    } else {
-                        if (v < this.cv) {
-                            if (down) {
+                    }
+                    else
+                    {
+                        if (v < this.cv)
+                        {
+                            if (down)
+                            {
                                 incr();
                                 down = 0;
-                            } else {
+                            }
+                            else
+                            {
                                 down = 1;
                                 up = 0;
                             }
@@ -108,10 +118,7 @@ jQuery(function($) {
                 }
             });
 
-
         }
-
-
     };
 
 
@@ -119,17 +126,16 @@ jQuery(function($) {
     /******************************
      initialize respective scripts 
      *****************************/
-    $(document).ready(function() {
+    $(document).ready(function () {
         COMPLETE_SETTINGS.chartKnob();
         knob_clock();
     });
 
-    $(window).resize(function() {});
+    $(window).resize(function () { });
 
-    $(window).load(function() {});
+    $(window).load(function () { });
 
 });
-
 
 
 function knob_clock() {

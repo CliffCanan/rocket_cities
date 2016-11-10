@@ -5,7 +5,23 @@
   "scripts": {
     "start": "node node_modules/http-server/bin/http-server -o"
   },
-  "keywords": [    "AngularJS", "admin", "widgets", "admin panel", "flat ui", "ui", "web app", "app", "backend", "angular", "dashboard", "bootstrap", "charts", "ui kit", "responsive"  ],
+  "keywords": [
+    "AngularJS",
+    "admin",
+    "widgets",
+    "admin panel",
+    "flat ui",
+    "ui",
+    "web app",
+    "app",
+    "backend",
+    "angular",
+    "dashboard",
+    "bootstrap",
+    "charts",
+    "ui kit",
+    "responsive"
+  ],
   "repository": "https://themepassion@bitbucket.org/themepassion/build.it.git",
   "author": "Cliff Canan",
   "license": "UNLICENSED",
@@ -21,6 +37,7 @@
     "grunt-contrib-htmlmin": "^0.3.0",
     "grunt-contrib-uglify": "^0.5.1",
     "grunt-recess": "^1.0.0",
+    "grunt-serve": "^0.1.6",
     "grunt-swig": "^0.2.1",
     "gruntfile-gtx": "^0.3.0",
     "http-server": "^0.6.1",

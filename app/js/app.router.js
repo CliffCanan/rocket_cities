@@ -165,39 +165,7 @@ angular.module('app')
                 url: '/ui',
                 template: '<div ui-view class=""></div>'
             })
-            .state('app.ui.accordion', {
-                url: '/accordion',
-                templateUrl: 'partials/ui-accordion.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.tabs', {
-                url: '/tabs',
-                templateUrl: 'partials/ui-tabs.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.buttons', {
-                url: '/buttons',
-                templateUrl: 'partials/ui-buttons.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
+
             .state('app.ui.notifications', {
                 url: '/notifications',
                 templateUrl: 'partials/ui-notifications.html',
@@ -219,15 +187,17 @@ angular.module('app')
             })
             .state('app.ui.videoembed', {
                 url: '/videoembed',
-                templateUrl: 'partials/ui-videoembed.html'
-            })
-            .state('app.ui.carousel', {
-                url: '/carousel',
-                templateUrl: 'partials/ui-carousel.html'
-            })
-            .state('app.ui.panels', {
-                url: '/panels',
-                templateUrl: 'partials/ui-panels.html'
+                templateUrl: 'partials/ui-videoembed.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'js/directives/ui-todowidget.js',
+                                '../bower_components/font-awesome/css/font-awesome.css'
+                            ]);
+                        }
+                    ]
+                }
             })
             .state('app.ui.tiles', {
                 url: '/tiles',
@@ -253,39 +223,6 @@ angular.module('app')
                 template: '<div ui-view class=""></div>'
             })
 
-            .state('app.form.elements', {
-                url: '/elements',
-                templateUrl: 'partials/form-elements.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.elementsgrid', {
-                url: '/elementsgrid',
-                templateUrl: 'partials/form-elements-grid.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.elementscheck', {
-                url: '/elementscheck',
-                templateUrl: 'partials/form-elements-check.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
             .state('app.form.premade', {
                 url: '/premade',
                 templateUrl: 'partials/form-premade.html',
@@ -312,124 +249,6 @@ angular.module('app')
                                     return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
                                 }
                             );
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentscolor', {
-                url: '/componentscolor',
-                templateUrl: 'partials/form-components-colorpicker.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('colorpicker.module').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/colorpicker.js');
-                                }
-                            ).then(
-                                function () {
-                                    return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsswitches', {
-                url: '/componentsswitches',
-                templateUrl: 'partials/form-components-switches.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsdate', {
-                url: '/componentsdate',
-                templateUrl: 'partials/form-components-datepicker.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstime', {
-                url: '/componentstime',
-                templateUrl: 'partials/form-components-timepicker.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsrating', {
-                url: '/componentsrating',
-                templateUrl: 'partials/form-components-rating.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstags', {
-                url: '/componentstags',
-                templateUrl: 'partials/form-components-tags.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentschosen', {
-                url: '/componentschosen',
-                templateUrl: 'partials/form-components-chosen.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsdaterange', {
-                url: '/componentsdaterange',
-                templateUrl: 'partials/form-components-daterange.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstype', {
-                url: '/componentstype',
-                templateUrl: 'partials/form-components-typeahead.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsspinner', {
-                url: '/componentsspinner',
-                templateUrl: 'partials/form-components-spinners.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
                         }
                     ]
                 }
@@ -546,21 +365,9 @@ angular.module('app')
                 url: '/timeline',
                 templateUrl: 'partials/ui-timeline.html'
             })
-            .state('app.ui.invoicelist', {
-                url: '/invoicelist',
-                templateUrl: 'partials/ui-invoice-list.html'
-            })
-            .state('app.ui.invoiceadd', {
-                url: '/invoice-add',
-                templateUrl: 'partials/ui-invoice-add.html'
-            })
-            .state('app.ui.invoiceedit', {
-                url: '/invoice-edit',
-                templateUrl: 'partials/ui-invoice-edit.html'
-            })
-            .state('app.ui.invoice', {
-                url: '/invoice',
-                templateUrl: 'partials/ui-invoice.html'
+            .state('app.ui.paymenthistory', {
+                url: '/paymenthistory',
+                templateUrl: 'partials/paymenthistory.html'
             })
 
             .state('app.ui.members', {

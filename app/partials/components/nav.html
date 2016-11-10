@@ -56,6 +56,48 @@
         </ul>
     </li>
 
+
+    <li class="menusection">Subscriber Only</li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.ui.search" class="nosub">
+            <i class="fa fa-edit"></i>
+            <span class="title">Search</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.ui.paymenthistory" class="nosub">
+            <i class="fa fa-money"></i>
+            <span class="title">Payment History</span>
+        </a>
+    </li>
+
+
+    <li class="menusection">Subscriber AND Influencer</li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.ui.profile" class="nosub">
+            <i class="fa fa-user"></i>
+            <span class="title">Profile ('Home')</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.ui.videoembed" class="nosub">
+            <i class="fa fa-video-camera"></i>
+            <span class="title">Single Video Pg</span>
+        </a>
+    </li>
+
+    <li ui-sref-active="active">
+        <a ui-sref="app.ui.members" class="nosub">
+            <i class="fa fa-edit"></i>
+            <span class="title">Explore Artists</span>
+        </a>
+    </li>
+
+
     <li class="menusection">Data Visulizations</li>
 
     <li href class="auto">
@@ -156,112 +198,64 @@
     <li href class="auto">
         <a href="javascript:;">
             <i class="fa fa-check-square-o"></i>
-            <span class="title">Forms elements</span>
+            <span class="title">Forms</span>
             <span class="arrow material-icons">keyboard_arrow_left</span>
         </a>
         <ul class="wraplist wraplist-sub sub-menu dk">
             <li ui-sref-active="active">
-                <a ui-sref="app.form.elements">Field Elements</a>
+                <a ui-sref="app.form.elements">
+                    <i class="fa fa-pencil"></i>
+                    <span class="title">Field Elements</span>
+                </a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="app.form.elementsgrid">Form Grid</a>
+                <a ui-sref="app.form.components">
+                    <i class="fa fa-sliders"></i>
+                    <span class="title">Forms Components</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.wizard" class="nosub">
+                    <i class="fa fa-dot-circle-o"></i>
+                    <span class="title">Form Wizard</span>
+                </a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="app.form.elementscheck">Checkbox & Radio</a>
+                <a ui-sref="app.form.validation" class="nosub">
+                    <i class="fa fa-warning"></i>
+                    <span class="title">Form Validations</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.editors" class="nosub">
+                    <i class="fa fa-text-width"></i>
+                    <span class="title">Form Editors</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.masks" class="nosub">
+                    <i class="fa fa-terminal"></i>
+                    <span class="title">Form Input Masks</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.editable" class="nosub">
+                    <i class="fa fa-pencil"></i>
+                    <span class="title">Form Xeditable</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.form.premade" class="nosub">
+                    <i class="fa fa-tasks"></i>
+                    <span class="title">Pre made Forms</span>
+                </a>
             </li>
         </ul>
     </li>
-
-
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-sliders"></i>
-            <span class="title">Forms Components</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentsdate">Date Picker</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentstime">Time Picker</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentsrating">Rating</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentstags">Tags</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentschosen">Chosen (Select Boxes)</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentsdaterange">Date Range</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentscolor">Color Picker</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentsspinner">Spinners</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentstype">Typeahead</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.form.componentsswitches">Switches</a>
-            </li>
-
-        </ul>
-    </li>
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.wizard" class="nosub">
-            <i class="fa fa-dot-circle-o"></i>
-            <span class="title">Form Wizard</span>
-        </a>
-    </li>
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.validation" class="nosub">
-            <i class="fa fa-warning"></i>
-            <span class="title">Form Validations</span>
-        </a>
-    </li>
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.editors" class="nosub">
-            <i class="fa fa-text-width"></i>
-            <span class="title">Form Editors</span>
-        </a>
-    </li>
-
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.masks" class="nosub">
-            <i class="fa fa-terminal"></i>
-            <span class="title">Form Input Masks</span>
-        </a>
-    </li>
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.editable" class="nosub">
-            <i class="fa fa-pencil"></i>
-            <span class="title">Form Xeditable</span>
-        </a>
-    </li>
-
-    <li ui-sref-active="active">
-        <a ui-sref="app.form.premade" class="nosub">
-            <i class="fa fa-tasks"></i>
-            <span class="title">Pre made Forms</span>
-        </a>
-    </li>
-
 
 
     <li class="menusection">Page Kits</li>
-
-
 
     <li href class="auto">
         <a href="javascript:;">
@@ -318,36 +312,6 @@
         </ul>
     </li>
 
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-edit"></i>
-            <span class="title">Search</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.search">Search</a>
-            </li>
-        </ul>
-    </li>
-
-
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-share-alt"></i>
-            <span class="title">Social Media</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
-
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.profile">User Profile</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.members">Members</a>
-            </li>
-        </ul>
-    </li>
 
     <li ui-sref-active="active">
         <a ui-sref="app.ui.timeline" class="nosub">
@@ -356,77 +320,12 @@
         </a>
     </li>
 
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-money"></i>
-            <span class="title">Invoicing</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
 
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.invoicelist">Invoice List</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.invoiceadd">Add Invoice</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.invoiceedit">Edit Invoice</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.invoice">View Invoice</a>
-            </li>
 
-        </ul>
-    </li>
+
+
 
     <li class="menusection">User Interface</li>
-
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-puzzle-piece"></i>
-            <span class="title">Components</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
-
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.accordion">Accordions</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.tabs">Tabs</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.buttons">Buttons</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.notifications">Notifications</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.carousel">Carousel Slider</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.breadcrumb">Breadcrumbs</a>
-            </li>
-
-        </ul>
-    </li>
-
-    <li href class="auto">
-        <a href="javascript:;">
-            <i class="fa fa-th-large"></i>
-            <span class="title">Appearance</span>
-            <span class="arrow material-icons">keyboard_arrow_left</span>
-        </a>
-        <ul class="wraplist wraplist-sub sub-menu dk">
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.videoembed">Video Embed</a>
-            </li>
-            <li ui-sref-active="active">
-                <a ui-sref="app.ui.panels">Section Panels</a>
-            </li>
-        </ul>
-    </li>
 
     <li href class="auto">
         <a href="javascript:;">
