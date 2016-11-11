@@ -1,148 +1,237 @@
-<div class='content-wrapper' ng-init="app.settings.pagetitle = ''; app.settings.showSideMenu = false;">
+<div class='content-wrapper' ng-init="app.settings.pagetitle = '';" ng-controller="VideoPlayCntrlr">
 
     <div class="container-fluid p-0 full-width">
 
-        <div class="alert alert-default alert-dismissible text-center m-b-0 fade in" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <strong>Hey there, Cliff!</strong> This is your public profile page. <a href>Add videos</a> to get started.
-        </div>
+        <div class="m-b-10">
 
-        <div class="profile-banner-bg">
+            <div class="profile-banner-bg" ng-if="userType == 'influencer'">
 
-            <img src="data/profile/profile.jpg" class="img-responsive">
+                <div class="alert bg-white alert-default alert-dismissible text-center m-b-0 fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Hey there, Cliff!</strong> This is your public profile page. <a href="">Add videos</a> to get started.
+                </div>
 
-            <div class="name-container">
-                <h2><strong>Cliff Canan</strong> | Video Game Reviews</h2>
+                <img src="data/profile/profile.jpg" class="img-responsive">
+
+                <div class="name-container">
+                    <h2><strong>Cliff Canan</strong> | Video Game Reviews</h2>
+                </div>
             </div>
+
+            <div class="sub-nav-bar">
+                <div>
+                    <div class="container-inner">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9">
+                                <div class="indent-left-lg">
+                                    <div class="relative">
+                                        <ul class="nav">
+                                            <li class="active">
+                                                <a href="#">
+                                                    <div>Videos</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <div>Posts</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <div>Messages</div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
     </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <section class="box">
+    <div class="container p-0">
+        <div class="row">
 
-                <div class="content-body p-10">
-                    <button type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5">
-                        <i class="fa fa-plus"></i> &nbsp; <span>Subscribe</span>
-                    </button>
-                    <button type="button" class="btn btn-warning btn-icon btn-corner btn-xs m-b-10">
-                        <i class="fa fa-external-link"></i> &nbsp; <span>Share</span>
-                    </button>
-                    <button type="button" class="btn btn-primary btn-icon-round btn-xs m-b-5">
-                        <i class="fa fa-thumbs-o-up"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger btn-icon-round btn-xs m-b-5">
-                        <i class="fa fa-thumbs-o-down"></i>
-                    </button>
-                </div>
+            <div class="col-xs-12 col-md-2 col-lg-3">
 
-                <div class="box-footer">
-                    <span class="footer-title">Tags</span>
-                    <div class="controls">
-                        <input type="text" ui-jq="tagsinput" class="form-control" id="tagsinput-1" value="Sample tag, Another tag, Awesome" placeholder="Add a tag" />
+                <section class="box">
+
+                    <div class="content-body p-10">
+                        <button type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5">
+                            <i class="fa fa-plus"></i> &nbsp; <span>Subscribe</span>
+                        </button>
+                        <button type="button" class="btn btn-warning btn-icon btn-corner btn-xs m-b-10">
+                            <i class="fa fa-external-link"></i> &nbsp; <span>Share</span>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-icon-round btn-xs m-b-5">
+                            <i class="fa fa-thumbs-o-up"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-icon-round btn-xs m-b-5">
+                            <i class="fa fa-thumbs-o-down"></i>
+                        </button>
                     </div>
-                </div>
-            </section>
 
-        </div>
-
-        <div class="col-xs-12 col-sm-10 col-md-7">
-            <section class="box">
-                <header class="panel_header">
-                    <h2 class="title pull-left">Responsive Video Embed</h2>
-
-                    <div class="actions panel_actions pull-right">
-                        <i class="box_toggle material-icons">expand_more</i>
-                        <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
-                        <i class="box_close material-icons">close</i>
-                    </div>
-                </header>
-
-                <div class="content-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <!-- 16:9 aspect ratio -->
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xArnYj5TbX0" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                            <div class="clearfix"></div>
-                            <br>
-                            <!-- 4:3 aspect ratio -->
-                            <div class="embed-responsive embed-responsive-4by3">
-                                <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/60859933" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-                            </div>
+                    <div class="box-footer">
+                        <span class="footer-title">Tags</span>
+                        <div class="controls">
+                            <input type="text" ui-jq="tagsinput" class="form-control" id="tagsinput-1" value="Sample tag, Another tag, Awesome" placeholder="Add a tag" />
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
 
-        <div class="col-xs-12 col-md-3">
-
-            <div class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
-                <div class="wid-task-header">
-                    <div class="wid-icon">
-                        <i class="fa fa-tasks"></i>
-                    </div>
-                    <div class="wid-text">
-                        <h4>To do Tasks</h4>
-                        <span>Wed, <small>11<sup>th</sup> March 2015</small></span>
-                    </div>
-                </div>
-                <div class="wid-all-tasks">
-                    <perfect-scrollbar class="ps-todo-widget" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20">
-                        <ul class="list-unstyled">
-                            <li class="checked">
-                                <label class="icheck icheck-white form-label ">
-                                    <input type="checkbox" value="" checked>
-                                    <i></i> Complete Profile
-                                </label>
-                            </li>
-                            <li>
-                                <label class="icheck icheck-white form-label ">
-                                    <input type="checkbox" value="">
-                                    <i></i> Upload A Video
-                                </label>
-                            </li>
-                            <li>
-                                <label class="icheck icheck-white form-label ">
-                                    <input type="checkbox" value="">
-                                    <i></i> Add Payment Info
-                                </label>
-                            </li>
-                            <li>
-                                <label class="icheck icheck-white form-label ">
-                                    <input type="checkbox" value="">
-                                    <i></i> Get Subscribers
-                                </label>
-                            </li>
-                        </ul>
-                    </perfect-scrollbar>
-                </div>
-                <div class="wid-add-task">
-                    <input type="text" class="form-control" placeholder="Add task" />
-                </div>
             </div>
 
+            <div class="col-xs-12 col-md-7 col-lg-6 post-feed">
 
-            <section class="box">
-                <header class="panel_header">
-                    <h2 class="title pull-left">Special Perks!</h2>
-                    <div class="actions panel_actions pull-right">
-                        <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
-                        <i class="box_close material-icons">close</i>
+                <section class="box" ng-repeat="video in videos" ng-mouseenter="mouseenterBox($event)" ng-mouseleave="mouseleaveBox($event)">
+                    <div class="bg-white" style="overflow:hidden">
+
+                        <div class="box_header">
+                            <div class="influencer_info">
+
+                                <a href="">
+                                    <div class="avatar" style="background-image: url(data/members/cliff.png)"></div>
+                                </a>
+
+                                <div class="post_info_container">
+                                    <a href="">
+                                        <div class="name">{{video.name}}</div>
+                                    </a>
+
+                                    <div class="post_info_detals">
+                                        <div class="">
+                                            <span class="fan_count">{{video.fan_count}} Fans</span>
+                                            <span class="divider">&bull;</span>
+                                            <a href="" class="timestamp">{{video.date_posted}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="access-container inline-block">
+                                    <button type="button" class="btn btn-sm btn-border btn-icon animated">
+                                        <i class="fa fa-lock"></i>
+                                        <span>Fans Only</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="content-body p-t-0">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <!-- 16:9 aspect ratio -->
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item" src="{{trustSrc(video.url)}}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                </header>
+                </section>
 
-                <div class="content-body">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
+            </div>
+
+            <div class="col-xs-12 col-md-3">
+
+                <div class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+                    <div class="wid-task-header">
+                        <div class="wid-icon">
+                            <i class="fa fa-tasks"></i>
+                        </div>
+                        <div class="wid-text">
+                            <h4>Build My City</h4>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
 
+                    <div class="wid-all-tasks">
+                        <perfect-scrollbar class="ps-todo-widget" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20">
+                            <ul class="list-unstyled">
+                                <li class="checked">
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="" checked>
+                                        <i></i> Complete Profile
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Upload A Video
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Add Payment Info
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Get Subscribers
+                                    </label>
+                                </li>
+                            </ul>
+                        </perfect-scrollbar>
+                    </div>
+                    <div class="wid-add-task">
+                        <input type="text" class="form-control" placeholder="Add task" />
+                    </div>
+                </div>
+
+                <section class="box" ng-controller="MembersCtrl">
+
+                    <header class="panel_header">
+                        <span class="title pull-left">Suggested</span>
+                    </header>
+
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <div class="media" ng-repeat="member in members">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="img-responsive media-object" ng-src="{{member.avatar}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="media-body gray">
+                                        <h4 class="media-heading">{{member.name}}</h4>
+                                        {{member.position}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="box">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Special Perks!</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                            <i class="box_close material-icons">close</i>
+                        </div>
+                    </header>
+
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
     </div>
 </div>

@@ -1,21 +1,20 @@
-jQuery(function($) {
+jQuery(function ($) {
 
     'use strict';
 
     var COMPLETE_SETTINGS = window.COMPLETE_SETTINGS || {};
 
-
-
     /*--------------------------------
          Other Form component Scripts
      --------------------------------*/
-    COMPLETE_SETTINGS.otherScripts = function() {
+    COMPLETE_SETTINGS.otherScripts = function () {
 
         /*---------------------------------*/
 
         // Slider
-        if ($.isFunction($.fn.slider)) {
-            $(".slider").each(function(i, el) {
+        if ($.isFunction($.fn.slider))
+        {
+            $(".slider").each(function (i, el) {
                 var $this = $(el),
                     $label_1 = $('<span class="ui-label"></span>'),
                     $label_2 = $label_1.clone(),
@@ -41,7 +40,8 @@ jQuery(function($) {
 
 
                 // Range Slider Options
-                if (is_range) {
+                if (is_range)
+                {
                     $this.slider({
                         range: true,
                         orientation: orientation,
@@ -49,7 +49,7 @@ jQuery(function($) {
                         max: max,
                         values: [min_val, max_val],
                         step: step,
-                        slide: function(e, ui) {
+                        slide: function (e, ui) {
                             var min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''),
                                 max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '');
 
@@ -61,8 +61,9 @@ jQuery(function($) {
 
                             reps++;
                         },
-                        change: function(ev, ui) {
-                            if (reps == 1) {
+                        change: function (ev, ui) {
+                            if (reps == 1)
+                            {
                                 var min_val = (prefix ? prefix : '') + ui.values[0] + (postfix ? postfix : ''),
                                     max_val = (prefix ? prefix : '') + ui.values[1] + (postfix ? postfix : '');
 
@@ -85,8 +86,9 @@ jQuery(function($) {
                     $label_2.html((prefix ? prefix : '') + max_val + (postfix ? postfix : ''));
                     $handles.last().append($label_2);
                 }
-                // Normal Slider
-                else {
+                    // Normal Slider
+                else
+                {
 
                     $this.slider({
                         range: getValue($this, 'basic', 0) ? false : "min",
@@ -95,7 +97,7 @@ jQuery(function($) {
                         max: max,
                         value: value,
                         step: step,
-                        slide: function(ev, ui) {
+                        slide: function (ev, ui) {
                             var val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '');
 
                             $label_1.html(val);
@@ -106,8 +108,9 @@ jQuery(function($) {
 
                             reps++;
                         },
-                        change: function(ev, ui) {
-                            if (reps == 1) {
+                        change: function (ev, ui) {
+                            if (reps == 1)
+                            {
                                 var val = (prefix ? prefix : '') + ui.value + (postfix ? postfix : '');
 
                                 $label_1.html(val);
@@ -135,7 +138,6 @@ jQuery(function($) {
         }
 
 
-
         /*------------- Color Slider widget---------------*/
 
         function hexFromRGB(r, g, b) {
@@ -144,8 +146,9 @@ jQuery(function($) {
                 g.toString(16),
                 b.toString(16)
             ];
-            $.each(hex, function(nr, val) {
-                if (val.length === 1) {
+            $.each(hex, function (nr, val) {
+                if (val.length === 1)
+                {
                     hex[nr] = "0" + val;
                 }
             });
@@ -161,9 +164,10 @@ jQuery(function($) {
         }
 
 
-        if ($.isFunction($.fn.slider)) {
+        if ($.isFunction($.fn.slider))
+        {
 
-            $(function() {
+            $(function () {
                 $("#slider-red, #slider-green, #slider-blue").slider({
                     orientation: "horizontal",
                     range: "min",
@@ -177,14 +181,13 @@ jQuery(function($) {
                 $("#slider-blue").slider("value", 60);
             });
         }
-
     };
-
 
 
     // Element Attribute Helper
     function getValue($el, data_var, default_val) {
-        if (typeof $el.data(data_var) != 'undefined') {
+        if (typeof $el.data(data_var) != 'undefined')
+        {
             return $el.data(data_var);
         }
 
@@ -195,14 +198,14 @@ jQuery(function($) {
     /******************************
      initialize respective scripts 
      *****************************/
-    $(document).ready(function() {
+    $(document).ready(function () {
         COMPLETE_SETTINGS.otherScripts();
     });
 
-    $(window).resize(function() {
+    $(window).resize(function () {
     });
 
-    $(window).load(function() {
+    $(window).load(function () {
     });
 
 });

@@ -52538,20 +52538,19 @@ angular.module('app', [
     'angular-loading-bar'
 ]);
 
-var app =  angular.module('app')
-  .config(
-    [        '$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
-    function ($controllerProvider,   $compileProvider,   $filterProvider,   $provide) {
-        
-        // lazy controller, directive and service
-        app.controller = $controllerProvider.register;
-        app.directive  = $compileProvider.directive;
-        app.filter     = $filterProvider.register;
-        app.factory    = $provide.factory;
-        app.service    = $provide.service;
-        app.constant   = $provide.constant;
-        app.value      = $provide.value;
-    }
+var app = angular.module('app')
+  .config(['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
+      function ($controllerProvider, $compileProvider, $filterProvider, $provide) {
+
+          // lazy controller, directive and service
+          app.controller = $controllerProvider.register;
+          app.directive = $compileProvider.directive;
+          app.filter = $filterProvider.register;
+          app.factory = $provide.factory;
+          app.service = $provide.service;
+          app.constant = $provide.constant;
+          app.value = $provide.value;
+      }
   ]);
 // lazyload config
 
@@ -52917,39 +52916,7 @@ angular.module('app')
                 url: '/ui',
                 template: '<div ui-view class=""></div>'
             })
-            .state('app.ui.accordion', {
-                url: '/accordion',
-                templateUrl: 'partials/ui-accordion.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.tabs', {
-                url: '/tabs',
-                templateUrl: 'partials/ui-tabs.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.buttons', {
-                url: '/buttons',
-                templateUrl: 'partials/ui-buttons.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
+
             .state('app.ui.notifications', {
                 url: '/notifications',
                 templateUrl: 'partials/ui-notifications.html',
@@ -52971,15 +52938,18 @@ angular.module('app')
             })
             .state('app.ui.videoembed', {
                 url: '/videoembed',
-                templateUrl: 'partials/ui-videoembed.html'
-            })
-            .state('app.ui.carousel', {
-                url: '/carousel',
-                templateUrl: 'partials/ui-carousel.html'
-            })
-            .state('app.ui.panels', {
-                url: '/panels',
-                templateUrl: 'partials/ui-panels.html'
+                templateUrl: 'partials/ui-videoembed.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'js/directives/ui-todowidget.js',
+                                'js/controllers/members.js',
+                                '../bower_components/font-awesome/css/font-awesome.css'
+                            ]);
+                        }
+                    ]
+                }
             })
             .state('app.ui.tiles', {
                 url: '/tiles',
@@ -53005,39 +52975,6 @@ angular.module('app')
                 template: '<div ui-view class=""></div>'
             })
 
-            .state('app.form.elements', {
-                url: '/elements',
-                templateUrl: 'partials/form-elements.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.elementsgrid', {
-                url: '/elementsgrid',
-                templateUrl: 'partials/form-elements-grid.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.elementscheck', {
-                url: '/elementscheck',
-                templateUrl: 'partials/form-elements-check.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
             .state('app.form.premade', {
                 url: '/premade',
                 templateUrl: 'partials/form-premade.html',
@@ -53064,124 +53001,6 @@ angular.module('app')
                                     return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
                                 }
                             );
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentscolor', {
-                url: '/componentscolor',
-                templateUrl: 'partials/form-components-colorpicker.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('colorpicker.module').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/colorpicker.js');
-                                }
-                            ).then(
-                                function () {
-                                    return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsswitches', {
-                url: '/componentsswitches',
-                templateUrl: 'partials/form-components-switches.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsdate', {
-                url: '/componentsdate',
-                templateUrl: 'partials/form-components-datepicker.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstime', {
-                url: '/componentstime',
-                templateUrl: 'partials/form-components-timepicker.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsrating', {
-                url: '/componentsrating',
-                templateUrl: 'partials/form-components-rating.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstags', {
-                url: '/componentstags',
-                templateUrl: 'partials/form-components-tags.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentschosen', {
-                url: '/componentschosen',
-                templateUrl: 'partials/form-components-chosen.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsdaterange', {
-                url: '/componentsdaterange',
-                templateUrl: 'partials/form-components-daterange.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentstype', {
-                url: '/componentstype',
-                templateUrl: 'partials/form-components-typeahead.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.componentsspinner', {
-                url: '/componentsspinner',
-                templateUrl: 'partials/form-components-spinners.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
                         }
                     ]
                 }
@@ -53298,21 +53117,9 @@ angular.module('app')
                 url: '/timeline',
                 templateUrl: 'partials/ui-timeline.html'
             })
-            .state('app.ui.invoicelist', {
-                url: '/invoicelist',
-                templateUrl: 'partials/ui-invoice-list.html'
-            })
-            .state('app.ui.invoiceadd', {
-                url: '/invoice-add',
-                templateUrl: 'partials/ui-invoice-add.html'
-            })
-            .state('app.ui.invoiceedit', {
-                url: '/invoice-edit',
-                templateUrl: 'partials/ui-invoice-edit.html'
-            })
-            .state('app.ui.invoice', {
-                url: '/invoice',
-                templateUrl: 'partials/ui-invoice.html'
+            .state('app.ui.paymenthistory', {
+                url: '/paymenthistory',
+                templateUrl: 'partials/paymenthistory.html'
             })
 
             .state('app.ui.members', {
@@ -53694,20 +53501,24 @@ angular.module('app')
     );
 
 'use strict';
-angular.module('app').controller('AppCtrl', ['$scope',
-    function ($scope) {
+angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
+    function ($scope, $rootScope) {
 
         var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
 
+        if (typeof $rootScope.userType == 'undefined')
+            $rootScope.userType = 'influencer';
+
+
         $scope.app = {
             name: 'Rocket Cities',
             version: '0.0.1',
-            type: 'general',
+            type: $rootScope.userType,
             color: {
-                primary: '#3f51b5',
+                primary: '#a30303',//'#3f51b5',
                 accent: '#E91E63',
-                info: '#26C6DA',
+                info: '#03A9F4',
                 success: '#46be8a',
                 warning: '#fdb45d',
                 danger: '#F44336',
@@ -53715,12 +53526,15 @@ angular.module('app').controller('AppCtrl', ['$scope',
                 text: '#767676'
             },
             settings: {
+                showSideMenu: true,
                 menuFolded: menufold,
                 chatFolded: true,
                 searchFocus: false,
                 pagetitle: 'Complete Amin \\ AngularJS',
             }
         }
+
+        console.log($scope.app.type);
 
         $scope.menuChatToggle = function (type, value) {
             if (type == "menu" && !value)
@@ -53911,70 +53725,80 @@ angular.module('ui.jq', ['ui.load']).
   value('uiJqConfig', {}).
   directive('uiJq', ['uiJqConfig', 'JQ_CONFIG', 'uiLoad', '$timeout', function uiJqInjectingFunction(uiJqConfig, JQ_CONFIG, uiLoad, $timeout) {
 
-  return {
-    restrict: 'A',
-    compile: function uiJqCompilingFunction(tElm, tAttrs) {
+      return {
+          restrict: 'A',
+          compile: function uiJqCompilingFunction(tElm, tAttrs) {
 
-      if (!angular.isFunction(tElm[tAttrs.uiJq]) && !JQ_CONFIG[tAttrs.uiJq]) {
-        throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
-      }
-      var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
+              if (!angular.isFunction(tElm[tAttrs.uiJq]) && !JQ_CONFIG[tAttrs.uiJq])
+              {
+                  throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
+              }
+              var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
 
-      return function uiJqLinkingFunction(scope, elm, attrs) {
+              return function uiJqLinkingFunction(scope, elm, attrs) {
 
-        function getOptions(){
-          var linkOptions = [];
+                  function getOptions() {
+                      var linkOptions = [];
 
-          // If ui-options are passed, merge (or override) them onto global defaults and pass to the jQuery method
-          if (attrs.uiOptions) {
-            linkOptions = scope.$eval('[' + attrs.uiOptions + ']');
-            if (angular.isObject(options) && angular.isObject(linkOptions[0])) {
-              linkOptions[0] = angular.extend({}, options, linkOptions[0]);
-            }
-          } else if (options) {
-            linkOptions = [options];
+                      // If ui-options are passed, merge (or override) them onto global defaults and pass to the jQuery method
+                      if (attrs.uiOptions)
+                      {
+                          linkOptions = scope.$eval('[' + attrs.uiOptions + ']');
+                          if (angular.isObject(options) && angular.isObject(linkOptions[0]))
+                          {
+                              linkOptions[0] = angular.extend({}, options, linkOptions[0]);
+                          }
+                      }
+                      else if (options)
+                      {
+                          linkOptions = [options];
+                      }
+                      return linkOptions;
+                  }
+
+                  // If change compatibility is enabled, the form input's "change" event will trigger an "input" event
+                  if (attrs.ngModel && elm.is('select,input,textarea'))
+                  {
+                      elm.bind('change', function () {
+                          elm.trigger('input');
+                      });
+                  }
+
+                  // Call jQuery method and pass relevant options
+                  function callPlugin() {
+                      $timeout(function () {
+                          elm[attrs.uiJq].apply(elm, getOptions());
+                      }, 0, false);
+                  }
+
+                  function refresh() {
+                      // If ui-refresh is used, re-fire the the method upon every change
+                      if (attrs.uiRefresh)
+                      {
+                          scope.$watch(attrs.uiRefresh, function () {
+                              callPlugin();
+                          });
+                      }
+                  }
+
+                  if (JQ_CONFIG[attrs.uiJq])
+                  {
+                      uiLoad.load(JQ_CONFIG[attrs.uiJq]).then(function () {
+                          callPlugin();
+                          refresh();
+                      }).catch(function () {
+
+                      });
+                  }
+                  else
+                  {
+                      callPlugin();
+                      refresh();
+                  }
+              };
           }
-          return linkOptions;
-        }
-
-        // If change compatibility is enabled, the form input's "change" event will trigger an "input" event
-        if (attrs.ngModel && elm.is('select,input,textarea')) {
-          elm.bind('change', function() {
-            elm.trigger('input');
-          });
-        }
-
-        // Call jQuery method and pass relevant options
-        function callPlugin() {
-          $timeout(function() {
-            elm[attrs.uiJq].apply(elm, getOptions());
-          }, 0, false);
-        }
-
-        function refresh(){
-          // If ui-refresh is used, re-fire the the method upon every change
-          if (attrs.uiRefresh) {
-            scope.$watch(attrs.uiRefresh, function() {
-              callPlugin();
-            });
-          }
-        }
-
-        if ( JQ_CONFIG[attrs.uiJq] ) {
-          uiLoad.load(JQ_CONFIG[attrs.uiJq]).then(function() {
-            callPlugin();
-            refresh();
-          }).catch(function() {
-            
-          });
-        } else {
-          callPlugin();
-          refresh();
-        }
       };
-    }
-  };
-}]);
+  }]);
 angular.module('app')
   .directive('uiModule', ['MODULE_CONFIG','uiLoad', '$compile', function(MODULE_CONFIG, uiLoad, $compile) {
     return {
@@ -53994,168 +53818,165 @@ angular.module('app')
     };
   }]);
 angular.module('app')
-  .directive('uiNav', ['$timeout', function($timeout) {
-    return {
-      restrict: 'AC',
-      link: function(scope, el, attr) {
+  .directive('uiNav', ['$timeout', function ($timeout) {
+      return {
+          restrict: 'AC',
+          link: function (scope, el, attr) {
 
-        var _window = $(window), 
-        _mb = 768, 
-        wrap = $('.app-aside'), 
-        next, 
-        backdrop = '.dropdown-backdrop';
-        // unfolded
-        el.on('click', 'a', function(e) {
-//          console.log("hi");
-          //next && next.trigger('mouseleave.wraplist');
-          var _this = $(this);
-          _this.parent().siblings( ".active" ).toggleClass('active');
-          _this.parent().toggleClass('active');
-          _this.next().is('ul') && _this.find(".arrow").toggleClass("open");
+              var _window = $(window),
+              _mb = 768,
+              wrap = $('.app-aside'),
+              next,
+              backdrop = '.dropdown-backdrop';
+              // unfolded
+              el.on('click', 'a', function (e) {
+                  var _this = $(this);
+                  _this.parent().siblings(".active").toggleClass('active');
+                  _this.parent().toggleClass('active');
+                  _this.next().is('ul') && _this.find(".arrow").toggleClass("open");
 
-          if(_this.next().is('ul') && _this.find(".arrow").html() == "keyboard_arrow_left"){
-              _this.find(".arrow").html("keyboard_arrow_down") &&  e.preventDefault();
-          } else {
-              _this.find(".arrow").html("keyboard_arrow_left") &&  e.preventDefault();
+                  if (_this.next().is('ul') && _this.find(".arrow").html() == "keyboard_arrow_left")
+                  {
+                      _this.find(".arrow").html("keyboard_arrow_down") && e.preventDefault();
+                  } else
+                  {
+                      _this.find(".arrow").html("keyboard_arrow_left") && e.preventDefault();
+                  }
+
+                  // mobile
+                  //_this.next().is('ul') || ( ( _window.width() < _mb ) && $('.app-aside').removeClass('show off-screen') );
+              });
+
           }
-
-          // mobile
-          //_this.next().is('ul') || ( ( _window.width() < _mb ) && $('.app-aside').removeClass('show off-screen') );
-        });
-
-      }
-    };
+      };
   }]);
 /* ------------------------------
    ui.bootstrap tooltip directive
 --------------------------------*/
 
 angular.module('app')
-  .directive('uiTooltip', ['$timeout', function($timeout) {
-    return {
-      restrict: 'AC',
-      link: function(scope, el, attr) {
+  .directive('uiTooltip', ['$timeout', function ($timeout) {
+      return {
+          restrict: 'AC',
+          link: function (scope, el, attr) {
 
-        el.on('mouseenter', '[tooltip]', function(e) {
-          //console.log("tooltip triggered");
-          var _this = $(this);
-          var id = angular.element(_this).attr('tooltip-class');
-          $(this).next(".tooltip").addClass(id);
-        });
+              el.on('mouseenter', '[tooltip]', function (e) {
+                  //console.log("tooltip triggered");
+                  var _this = $(this);
+                  var id = angular.element(_this).attr('tooltip-class');
+                  $(this).next(".tooltip").addClass(id);
+              });
 
-      }
-    };
+          }
+      };
   }]);
 
 
 
-  /* ------------------------------
-   ui.bootstrap popover directive
+/* ------------------------------
+ ui.bootstrap popover directive
 --------------------------------*/
 
 angular.module('app')
-  .directive('uiPopover', ['$timeout', function($timeout) {
-    return {
-      restrict: 'AC',
-      link: function(scope, el, attr) {
+  .directive('uiPopover', ['$timeout', function ($timeout) {
+      return {
+          restrict: 'AC',
+          link: function (scope, el, attr) {
 
-        el.on('mouseenter', '[popover]', function(e) {
-          //console.log("tooltip triggered");
-          var _this = $(this);
-          var id = angular.element(_this).attr('popover-class');
-          $(this).next(".popover").addClass(id);
-        });
+              el.on('mouseenter', '[popover]', function (e) {
+                  //console.log("tooltip triggered");
+                  var _this = $(this);
+                  var id = angular.element(_this).attr('popover-class');
+                  $(this).next(".popover").addClass(id);
+              });
 
-      }
-    };
+          }
+      };
   }]);
 
 
-  /* ------------------------------
-   ui.bootstrap breadcrumb auto hidden directive
+/* ------------------------------
+ ui.bootstrap breadcrumb auto hidden directive
 --------------------------------*/
 
 angular.module('app')
-  .directive('uiBreadcrumbAutoHidden', ['$timeout', function($timeout) {
-    return {
-      restrict: 'AC',
-      link: function(scope, el, attr) {
+  .directive('uiBreadcrumbAutoHidden', ['$timeout', function ($timeout) {
+      return {
+          restrict: 'AC',
+          link: function (scope, el, attr) {
 
-        el.on('mouseenter', '.breadcrumb.auto-hidden a', function(e) {
-          var _this = $(this);
-          $(this).removeClass("collapsed");
-        });
+              el.on('mouseenter', '.breadcrumb.auto-hidden a', function (e) {
+                  var _this = $(this);
+                  $(this).removeClass("collapsed");
+              });
 
-        el.on('mouseleave', '.breadcrumb.auto-hidden a', function(e) {
-          var _this = $(this);
-          $(this).addClass("collapsed");
-        });
-
-      }
-    };
+              el.on('mouseleave', '.breadcrumb.auto-hidden a', function (e) {
+                  var _this = $(this);
+                  $(this).addClass("collapsed");
+              });
+          }
+      };
   }]);
 
-
-
 angular.module('app')
-  .directive('uiChatwindow', ['$timeout', function($timeout) {
-    return {
-      restrict: 'AC',
-      link: function(scope, el, attr) {
-      
-        el.on('click', '.user-row', function(e) {
-            var _this = $(this);
-            $(".chaton").show() && e.preventDefault();
-        });
+  .directive('uiChatwindow', ['$timeout', function ($timeout) {
+      return {
+          restrict: 'AC',
+          link: function (scope, el, attr) {
 
-        el.on('click', '.closewindow', function(e) {
-            var _this = $(this);
-            $(".chaton").hide() && e.preventDefault();
-        });
+              el.on('click', '.user-row', function (e) {
+                  var _this = $(this);
+                  $(".chaton").show() && e.preventDefault();
+              });
 
-
-        el.on('keypress', '.wid-add-task input', function(e) {
-            if (e.keyCode == 13) {
-                var _this = $(this);
-                var msg = _this.val();
-                var msg = '<li><label class="icheck icheck-white form-label "><input type="checkbox" value=""><i></i> ' + msg + '</label></li>';
-                _this.parent().parent().find(".wid-all-tasks ul").append(msg);
-                _this.val("");
-                _this.focus();
-                console.log("entered");            
-            }
-        });
+              el.on('click', '.closewindow', function (e) {
+                  var _this = $(this);
+                  $(".chaton").hide() && e.preventDefault();
+              });
 
 
+              el.on('keypress', '.wid-add-task input', function (e) {
+                  if (e.keyCode == 13)
+                  {
+                      var _this = $(this);
+                      var msg = _this.val();
+                      var msg = '<li><label class="icheck icheck-white form-label "><input type="checkbox" value=""><i></i> ' + msg + '</label></li>';
+                      _this.parent().parent().find(".wid-all-tasks ul").append(msg);
+                      _this.val("");
+                      _this.focus();
+                      console.log("entered");
+                  }
+              });
+          }
 
-
-      }
-
-    };
+      };
   }]);
 angular.module('app')
-    .directive('uiSectionbox', ['$timeout', function($timeout) {
+    .directive('uiSectionbox', ['$timeout', function ($timeout) {
         return {
             restrict: 'AC',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
 
-                el.on('click', '.box header .actions i.box_toggle', function(e) {
+                el.on('click', '.box header .actions i.box_toggle', function (e) {
                     var _this = $(this);
                     var txt = _this.html();
-                    if(txt == "expand_more"){
+                    if (txt == "expand_more")
+                    {
                         _this.html("expand_less") && e.preventDefault();
-                    } else if(txt == "expand_less"){
+                    }
+                    else if (txt == "expand_less")
+                    {
                         _this.html("expand_more") && e.preventDefault();
                     }
                     _this.parent().parent().parent().toggleClass("collapsed");
                 });
 
-                el.on('click', '.box header .actions i.box_close', function(e) {
+                el.on('click', '.box header .actions i.box_close', function (e) {
                     var _this = $(this);
                     _this.parent().parent().parent().addClass("hide").hide() && e.preventDefault();
                 });
 
-                angular.element(document).ready(function() {});
+                angular.element(document).ready(function () { });
             }
 
         };
@@ -54163,20 +53984,22 @@ angular.module('app')
 
 
 
-angular.module('app').directive('menuheight', ['$timeout', function($window) {
-    return function(scope, element, attrs) {
+angular.module('app').directive('menuheight', ['$timeout', function ($window) {
+    return function (scope, element, attrs) {
         var w = angular.element($window);
-        var changeNavHeight = function() {
-            if (angular.element(".page-sidebar.collapseit").length || angular.element(".page-sidebar.chat_shift").length) {
-              var navHeight = angular.element("#main-content section.wrapper .content-wrapper").innerHeight() + 90;              
-            } else {
-              var navHeight = $(window).innerHeight() - 60;
-              //console.log("hi1 "+navHeight);
+        var changeNavHeight = function () {
+            if (angular.element(".page-sidebar.collapseit").length || angular.element(".page-sidebar.chat_shift").length)
+            {
+                var navHeight = angular.element("#main-content section.wrapper .content-wrapper").innerHeight() + 90;
             }
-            //console.log("hi "+navHeight);
+            else
+            {
+                var navHeight = $(window).innerHeight() - 60;
+            }
+
             element.height(navHeight);
         };
-        w.bind('resize', function() {
+        w.bind('resize', function () {
             changeNavHeight();
         });
         changeNavHeight();
@@ -54184,83 +54007,75 @@ angular.module('app').directive('menuheight', ['$timeout', function($window) {
 }]);
 
 angular.module('app')
-    .directive('searchgroup', ['$timeout', function($timeout) {
+    .directive('searchgroup', ['$timeout', function ($timeout) {
         return {
             restrict: 'AC',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
 
-                el.on('focus', 'input.form-control', function(e) {
+                el.on('focus', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().parent().parent().addClass("focus");
                 });
-                el.on('blur', 'input.form-control', function(e) {
+                el.on('blur', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().parent().parent().removeClass("focus");
                 });
 
-                el.on('click', '.input-focus', function(e) {
+                el.on('click', '.input-focus', function (e) {
                     var _this = $(this);
                     _this.parent().find(".form-control").focus();
                     _this.parent().parent().addClass("focus");
                 });
-
-
             }
-
         };
     }]);
 
 
 angular.module('app')
-    .directive('inputgroup', ['$timeout', function($timeout) {
+    .directive('inputgroup', ['$timeout', function ($timeout) {
         return {
             restrict: 'AC',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
 
-                el.on('focus', 'input.form-control', function(e) {
+                el.on('focus', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().addClass("focus");
                 });
-                el.on('blur', 'input.form-control', function(e) {
+                el.on('blur', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().removeClass("focus");
                 });
 
-                el.on('click', '.input-group-addon', function(e) {
+                el.on('click', '.input-group-addon', function (e) {
                     var _this = $(this);
                     _this.parent().find(".form-control").focus();
                     _this.parent().addClass("focus");
                 });
-
-
             }
-
         };
     }]);
 
 
 angular.module('app')
-    .directive('chatapifocus', ['$timeout', function($timeout) {
+    .directive('chatapifocus', ['$timeout', function ($timeout) {
         return {
             restrict: 'AC',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
 
-                el.on('focus', 'input.form-control', function(e) {
+                el.on('focus', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().find("i").addClass("primary");
                 });
-                el.on('blur', 'input.form-control', function(e) {
+                el.on('blur', 'input.form-control', function (e) {
                     var _this = $(this);
                     _this.parent().find("i").removeClass("primary");
                 });
 
-                el.on('click', 'i', function(e) {
+                el.on('click', 'i', function (e) {
                     var _this = $(this);
                     _this.parent().find(".form-control").focus();
                     _this.addClass("primary");
                 });
-
-
             }
 
         };
@@ -54268,12 +54083,12 @@ angular.module('app')
 
 
 angular.module('app')
-    .directive('verticalrhythm', ['$timeout', function($timeout) {
+    .directive('verticalrhythm', ['$timeout', function ($timeout) {
         return {
             restrict: 'AC',
-            link: function(scope, el, attr) {
+            link: function (scope, el, attr) {
 
-                el.on('click', 'i', function(e) {
+                el.on('click', 'i', function (e) {
                     var _this = $(this);
                     _this.parent().toggleClass("vertical-test-on");
                 });
@@ -54282,40 +54097,39 @@ angular.module('app')
         };
     }]);
 
-
 'use strict';
 
 /* Controllers */
 
-  // bootstrap controller
-  app.controller('AccordionDemoCtrl', ['$scope', function($scope) {
+// bootstrap controller
+app.controller('AccordionDemoCtrl', ['$scope', function ($scope) {
     $scope.oneAtATime = true;
 
     $scope.groups = [
       {
-        title: 'Accordion group header - #1',
-        content: 'Dynamic group body - #1'
+          title: 'Accordion group header - #1',
+          content: 'Dynamic group body - #1'
       },
       {
-        title: 'Accordion group header - #2',
-        content: 'Dynamic group body - #2'
+          title: 'Accordion group header - #2',
+          content: 'Dynamic group body - #2'
       }
     ];
 
     $scope.items = ['Item 1', 'Item 2', 'Item 3'];
 
-    $scope.addItem = function() {
-      var newItemNo = $scope.items.length + 1;
-      $scope.items.push('Item ' + newItemNo);
+    $scope.addItem = function () {
+        var newItemNo = $scope.items.length + 1;
+        $scope.items.push('Item ' + newItemNo);
     };
 
     $scope.status = {
-      isFirstOpen: true,
-      isFirstDisabled: false
+        isFirstOpen: true,
+        isFirstDisabled: false
     };
-  }])
-  ; 
-  app.controller('AlertDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('AlertDemoCtrl', ['$scope', function ($scope) {
     $scope.alerts = [
       { type: 'success', msg: 'Well done! You successfully read this important alert message.' },
       { type: 'info', msg: 'Heads up! This alert needs your attention, but it is ok.' },
@@ -54326,45 +54140,46 @@ angular.module('app')
       { type: 'default', msg: 'Well done! You successfully read this important alert message.' }
     ];
 
-    $scope.addAlert = function() {
-      $scope.alerts.push({type: 'primary', msg: 'Oh snap! Change a few things up and try submitting again.'});
+    $scope.addAlert = function () {
+        $scope.alerts.push({ type: 'primary', msg: 'Oh snap! Change a few things up and try submitting again.' });
     };
 
-    $scope.closeAlert = function(index) {
-      $scope.alerts.splice(index, 1);
+    $scope.closeAlert = function (index) {
+        $scope.alerts.splice(index, 1);
     };
-  }])
-  ; 
-  app.controller('ButtonsDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('ButtonsDemoCtrl', ['$scope', function ($scope) {
     $scope.singleModel = 1;
 
     $scope.radioModel = 'Middle';
 
     $scope.checkModel = {
-      left: false,
-      middle: true,
-      right: false
+        left: false,
+        middle: true,
+        right: false
     };
-  }])
-  ; 
-  app.controller('CarouselDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
-    $scope.addSlide = function() {
-      slides.push({
-        image: 'img/c' + [slides.length % 4] + '.png',
-        text: ['Carousels require the use of an id in the slide data caption',
-                'Contrast and Similarity in Graphic Design are necessary to go',
-                'Bacon ipsum dolor sit amet nulla dolor sit amet nulla',
-                'Responsive treatment of angular apps'][slides.length % 4]
-      });
+    $scope.addSlide = function () {
+        slides.push({
+            image: 'img/c' + [slides.length % 4] + '.png',
+            text: ['Carousels require the use of an id in the slide data caption',
+                    'Contrast and Similarity in Graphic Design are necessary to go',
+                    'Bacon ipsum dolor sit amet nulla dolor sit amet nulla',
+                    'Responsive treatment of angular apps'][slides.length % 4]
+        });
     };
-    for (var i=0; i<4; i++) {
-      $scope.addSlide();
+    for (var i = 0; i < 4; i++)
+    {
+        $scope.addSlide();
     }
-  }])
-  ; 
-  app.controller('DropdownDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('DropdownDemoCtrl', ['$scope', function ($scope) {
     $scope.items = [
       'The first choice!',
       'And another choice for you.',
@@ -54372,334 +54187,340 @@ angular.module('app')
     ];
 
     $scope.status = {
-      isopen: false
+        isopen: false
     };
 
-    $scope.toggled = function(open) {
-      //console.log('Dropdown is now: ', open);
+    $scope.toggled = function (open) {
+        //console.log('Dropdown is now: ', open);
     };
 
-    $scope.toggleDropdown = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-      $scope.status.isopen = !$scope.status.isopen;
+    $scope.toggleDropdown = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.status.isopen = !$scope.status.isopen;
     };
-  }])
-  ; 
-  app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', function($scope, $modalInstance, items) {
+}])
+;
+app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', function ($scope, $modalInstance, items) {
     $scope.items = items;
     $scope.selected = {
-      item: $scope.items[0]
+        item: $scope.items[0]
     };
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selected.item);
+        $modalInstance.close($scope.selected.item);
     };
 
     $scope.cancel = function () {
-      $modalInstance.dismiss('cancel');
+        $modalInstance.dismiss('cancel');
     };
-  }])
-  ; 
-  app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function($scope, $modal, $log) {
+}])
+;
+app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope, $modal, $log) {
     $scope.items = ['item1', 'item2', 'item3'];
-    $scope.open = function (size,windowClass) {
-      var modalInstance = $modal.open({
-        templateUrl: 'partials/ui-modal-list.html',
-        controller: 'ModalInstanceCtrl',
-        windowClass: windowClass,
-        size: size,
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
+    $scope.open = function (size, windowClass) {
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/ui-modal-list.html',
+            controller: 'ModalInstanceCtrl',
+            windowClass: windowClass,
+            size: size,
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
     };
 
 
     $scope.openform = function (type) {
-      var modalInstance = $modal.open({
-        templateUrl: 'partials/ui-modal-form'+type+'.html',
-        controller: 'ModalInstanceCtrl',
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/ui-modal-form' + type + '.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
     };
 
     $scope.section_modal = function () {
-      var modalInstance = $modal.open({
-        templateUrl: 'partials/ui-modal-section.html',
-        controller: 'ModalInstanceCtrl',
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/ui-modal-section.html',
+            controller: 'ModalInstanceCtrl',
+            resolve: {
+                items: function () {
+                    return $scope.items;
+                }
+            }
+        });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+        modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+        }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+        });
     };
 
 
 
 
-  }])
-  ; 
-  app.controller('PaginationDemoCtrl', ['$scope', '$log', function($scope, $log) {
+}])
+;
+app.controller('PaginationDemoCtrl', ['$scope', '$log', function ($scope, $log) {
     $scope.totalItems = 64;
     $scope.currentPage = 4;
 
     $scope.setPage = function (pageNo) {
-      $scope.currentPage = pageNo;
+        $scope.currentPage = pageNo;
     };
 
-    $scope.pageChanged = function() {
-      $log.info('Page changed to: ' + $scope.currentPage);
+    $scope.pageChanged = function () {
+        $log.info('Page changed to: ' + $scope.currentPage);
     };
 
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
-  }])
-  ; 
-  app.controller('PopoverDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('PopoverDemoCtrl', ['$scope', function ($scope) {
     $scope.dynamicPopover = 'Hello, World!';
     $scope.dynamicPopoverTitle = 'Title';
-  }])
-  ; 
-  app.controller('ProgressDemoCtrl', ['$scope', function($scope) {
+}])
+;
+app.controller('ProgressDemoCtrl', ['$scope', function ($scope) {
     $scope.max = 200;
 
-    $scope.random = function() {
-      var value = Math.floor((Math.random() * 100) + 1);
-      var type;
+    $scope.random = function () {
+        var value = Math.floor((Math.random() * 100) + 1);
+        var type;
 
-      if (value < 25) {
-        type = 'success';
-      } else if (value < 50) {
-        type = 'info';
-      } else if (value < 75) {
-        type = 'warning';
-      } else {
-        type = 'danger';
-      }
+        if (value < 25)
+        {
+            type = 'success';
+        } else if (value < 50)
+        {
+            type = 'info';
+        } else if (value < 75)
+        {
+            type = 'warning';
+        } else
+        {
+            type = 'danger';
+        }
 
-      $scope.showWarning = (type === 'danger' || type === 'warning');
+        $scope.showWarning = (type === 'danger' || type === 'warning');
 
-      $scope.dynamic = value;
-      $scope.type = type;
+        $scope.dynamic = value;
+        $scope.type = type;
     };
     $scope.random();
 
-    $scope.randomStacked = function() {
-      $scope.stacked = [];
-      var types = ['success', 'info', 'warning', 'danger'];
+    $scope.randomStacked = function () {
+        $scope.stacked = [];
+        var types = ['success', 'info', 'warning', 'danger'];
 
-      for (var i = 0, n = Math.floor((Math.random() * 4) + 1); i < n; i++) {
-          var index = Math.floor((Math.random() * 4));
-          $scope.stacked.push({
-            value: Math.floor((Math.random() * 30) + 1),
-            type: types[index]
-          });
-      }
+        for (var i = 0, n = Math.floor((Math.random() * 4) + 1) ; i < n; i++)
+        {
+            var index = Math.floor((Math.random() * 4));
+            $scope.stacked.push({
+                value: Math.floor((Math.random() * 30) + 1),
+                type: types[index]
+            });
+        }
     };
     $scope.randomStacked();
-  }])
-  ; 
-  app.controller('TabsDemoCtrl', ['$scope', function($scope) {
-    $scope.tabs = [
-      { title:'Profile', icon:'user', content:'You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap&apos;s first-class API and should be your first consideration when using in a plugin.' },
-      { title:'Messages', icon:'envelope', content:'That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to.', disabled: true  },
-      { title:'Settings', icon:'cog', content:'We also believe you should be able to use all Bootstrap plugins purely through the JavaScript API. All public APIs are single, chainable methods, and return the collection acted upon.' },
-    ];
-  }])
-  ; 
-  app.controller('RatingDemoCtrl', ['$scope', function($scope) {
+}]);
+
+app.controller('RatingDemoCtrl', ['$scope', function ($scope) {
     $scope.rate = 7;
     $scope.max = 10;
     $scope.isReadonly = false;
 
-    $scope.hoveringOver = function(value) {
-      $scope.overStar = value;
-      $scope.percent = 100 * (value / $scope.max);
+    $scope.hoveringOver = function (value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
     };
 
- $scope.ratingStates = [
-    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-    {stateOn: 'glyphicon-heart'},
-    {stateOff: 'glyphicon-off'}
-  ];
+    $scope.ratingStates = [
+       { stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle' },
+       { stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty' },
+       { stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle' },
+       { stateOn: 'glyphicon-heart' },
+       { stateOff: 'glyphicon-off' }
+    ];
+}]);
 
-  }])
-  ; 
-  app.controller('TooltipDemoCtrl', ['$scope', function($scope) {
-    $scope.dynamicTooltip = 'Hello, World!';
-    $scope.dynamicTooltipText = 'dynamic';
-    $scope.htmlTooltip = 'I\'ve been made <b>bold</b>!';
-  }])
-  ; 
-  app.controller('TypeaheadCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('TypeaheadCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.selected = undefined;
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     // Any function returning a promise object can be used to load values asynchronously
-    $scope.getLocation = function(val) {
-      return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          address: val,
-          sensor: false
-        }
-      }).then(function(res){
-        var addresses = [];
-        angular.forEach(res.data.results, function(item){
-          addresses.push(item.formatted_address);
+    $scope.getLocation = function (val) {
+        return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+            params: {
+                address: val,
+                sensor: false
+            }
+        }).then(function (res) {
+            var addresses = [];
+            angular.forEach(res.data.results, function (item) {
+                addresses.push(item.formatted_address);
+            });
+            return addresses;
         });
-        return addresses;
-      });
     };
-  }])
-  ; 
-
-app.controller('DatepickerDemoCtrl', ['$scope', function($scope) {
-  $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.clear = function () {
-    $scope.dt = null;
-  };
-
-  // Disable weekend selection
-  $scope.disabled = function(date, mode) {
-    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-  };
-
-  $scope.toggleMin = function() {
-    $scope.minDate = $scope.minDate ? null : new Date();
-  };
-  $scope.toggleMin();
-
-$scope.dtpick = {
-        opened: false,
-        opened2: false
-      }
-
-  $scope.open = function($event,type) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
-    $scope.dtpick[type] = true;
-  };
-
-  $scope.dateOptions = {
-    formatYear: 'yy',
-    startingDay: 1
-  };
-
-  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-  $scope.format = $scope.formats[0];
-
-  var tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
-  var afterTomorrow = new Date();
-  afterTomorrow.setDate(tomorrow.getDate() + 2);
-  $scope.events =
-    [
-      {
-        date: tomorrow,
-        status: 'full'
-      },
-      {
-        date: afterTomorrow,
-        status: 'partially'
-      }
-    ];
-
-  $scope.getDayClass = function(date, mode) {
-    if (mode === 'day') {
-      var dayToCheck = new Date(date).setHours(0,0,0,0);
-
-      for (var i=0;i<$scope.events.length;i++){
-        var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
-
-        if (dayToCheck === currentDay) {
-          return $scope.events[i].status;
-        }
-      }
-    }
-
-    return '';
-  };
 }]);
 
-  app.controller('TimepickerDemoCtrl', ['$scope', function($scope) {
+app.controller('DatepickerDemoCtrl', ['$scope', function ($scope) {
+    $scope.today = function () {
+        $scope.dt = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function () {
+        $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    $scope.disabled = function (date, mode) {
+        return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+    };
+
+    $scope.toggleMin = function () {
+        $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.dtpick = {
+        opened: false,
+        opened2: false
+    }
+
+    $scope.open = function ($event, type) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.dtpick[type] = true;
+    };
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1
+    };
+
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 2);
+    $scope.events =
+      [
+        {
+            date: tomorrow,
+            status: 'full'
+        },
+        {
+            date: afterTomorrow,
+            status: 'partially'
+        }
+      ];
+
+    $scope.getDayClass = function (date, mode) {
+        if (mode === 'day')
+        {
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+            for (var i = 0; i < $scope.events.length; i++)
+            {
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+
+                if (dayToCheck === currentDay)
+                {
+                    return $scope.events[i].status;
+                }
+            }
+        }
+
+        return '';
+    };
+}]);
+
+app.controller('TimepickerDemoCtrl', ['$scope', function ($scope) {
     $scope.mytime = new Date();
 
     $scope.hstep = 1;
     $scope.mstep = 15;
 
     $scope.options = {
-      hstep: [1, 2, 3],
-      mstep: [1, 5, 10, 15, 25, 30]
+        hstep: [1, 2, 3],
+        mstep: [1, 5, 10, 15, 25, 30]
     };
 
     $scope.ismeridian = true;
-    $scope.toggleMode = function() {
-      $scope.ismeridian = ! $scope.ismeridian;
+    $scope.toggleMode = function () {
+        $scope.ismeridian = !$scope.ismeridian;
     };
 
-    $scope.update = function() {
-      var d = new Date();
-      d.setHours( 14 );
-      d.setMinutes( 0 );
-      $scope.mytime = d;
+    $scope.update = function () {
+        var d = new Date();
+        d.setHours(14);
+        d.setMinutes(0);
+        $scope.mytime = d;
     };
 
     $scope.changed = function () {
-      //console.log('Time changed to: ' + $scope.mytime);
+        //console.log('Time changed to: ' + $scope.mytime);
     };
 
-    $scope.clear = function() {
-      $scope.mytime = null;
+    $scope.clear = function () {
+        $scope.mytime = null;
     };
-  }]);
+}]);
 app.controller('MessagesDropDownCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('data/messages.json').success(function(data) {
-      $scope.messages = data;
-    });
+      $http.get('data/messages.json').success(function (data) {
+          $scope.messages = data;
+      });
   }]);
-
 
 
 app.controller('NotificationsDropDownCtrl', ['$scope', '$http',
   function ($scope, $http) {
-    $http.get('data/notifications.json').success(function(data) {
-      $scope.notifications = data;
-    });
+      $http.get('data/notifications.json').success(function (data) {
+          $scope.notifications = data;
+      });
   }]);
+
+
+app.controller('NavBarCntrlr', ['$scope', '$rootScope', '$http',
+  function ($scope, $rootScope, $http, $apply) {
+      $('input[type=radio][name=user-type]').change(function () {
+          //console.log('NavBarCntlr --> Starting UserType is: ' + $rootScope.userType);
+
+          var val = this.value;
+
+          $scope.$apply(function () {
+              $rootScope.userType = val;
+          });
+      });
+  }]);
+
 app.controller('ChatCtrl', ['$scope', '$http',
   function ($scope, $http) {
     $http.get('data/chat-users.json').success(function(data) {

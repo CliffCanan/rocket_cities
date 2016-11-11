@@ -1,0 +1,30 @@
+[
+    {
+        "avatar": "data/members/person-1.png",
+        "fan_count": 42,
+        "url": "https://www.youtube.com/embed/xArnYj5TbX0",
+        "name": "Clarine Vassar",
+        "date_posted": "Nov 8 at 3:45pm"
+    },
+    {
+        "avatar": "data/members/person-3.png",
+        "fan_count": 42,
+        "url": "https://www.youtube.com/embed/xArnYj5TbX0",
+        "name": "Clementina Brodeur",
+        "date_posted": "Oct 7 at 9:58am"
+    },
+    {
+        "avatar": "data/members/person-4.png",
+        "fan_count": 42,
+        "url": "https://www.youtube.com/embed/xArnYj5TbX0",
+        "name": "Carri Busey",
+        "date_posted": "Sept 18 at 1:38pm"
+    },
+    {
+        "avatar": "data/members/person-7.png",
+        "fan_count": 42,
+        "url": "https://www.youtube.com/embed/xArnYj5TbX0",
+        "name": "Winford Krisp",
+        "date_posted": "Aug 1 at 8:21pm"
+    }
+]

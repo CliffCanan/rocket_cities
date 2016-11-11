@@ -43,24 +43,24 @@ module.exports = function (grunt) {
         'recess:style9',
 
         'concat:general',
-        'concat:hospital',
-        'concat:university',
-        'concat:music',
-        'concat:blog',
-        'concat:crm',
-        'concat:ecommerce',
-        'concat:socialmedia',
-        'concat:freelancing',
+        //'concat:hospital',
+        //'concat:university',
+        //'concat:music',
+        //'concat:blog',
+        //'concat:crm',
+        //'concat:ecommerce',
+        //'concat:socialmedia',
+        //'concat:freelancing',
 
         'uglify:general',
-        'uglify:hospital',
-        'uglify:university',
-        'uglify:music',
-        'uglify:blog',
-        'uglify:crm',
-        'uglify:ecommerce',
-        'uglify:socialmedia',
-        'uglify:freelancing'
+        //'uglify:hospital',
+        //'uglify:university',
+        //'uglify:music',
+        //'uglify:blog',
+        //'uglify:crm',
+        //'uglify:ecommerce',
+        //'uglify:socialmedia',
+        //'uglify:freelancing'
     ]);
 
     gtx.alias('release', ['bower-install-simple', 'build:dev', 'bump-commit']);

@@ -1,14 +1,19 @@
 'use strict';
-angular.module('app').controller('AppCtrl', ['$scope',
-    function ($scope) {
+angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
+    function ($scope, $rootScope) {
 
         var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
+        $rootScope.screenWidth = screenWidth;
+
+        if (typeof $rootScope.userType == 'undefined')
+            $rootScope.userType = 'influencer';
+
 
         $scope.app = {
             name: 'Rocket Cities',
             version: '0.0.1',
-            type: 'influencer',
+            type: $rootScope.userType,
             color: {
                 primary: '#a30303',//'#3f51b5',
                 accent: '#E91E63',
@@ -27,6 +32,8 @@ angular.module('app').controller('AppCtrl', ['$scope',
                 pagetitle: 'Complete Amin \\ AngularJS',
             }
         }
+
+        $rootScope.app = $scope.app;
 
         $scope.menuChatToggle = function (type, value) {
             if (type == "menu" && !value)

@@ -193,6 +193,8 @@ angular.module('app')
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
                                 'js/directives/ui-todowidget.js',
+                                'js/controllers/members.js',
+                                'js/controllers/video-play.js',
                                 '../bower_components/font-awesome/css/font-awesome.css'
                             ]);
                         }
