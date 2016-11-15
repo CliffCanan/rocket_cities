@@ -185,6 +185,10 @@ angular.module('app')
                 url: '/sortable',
                 templateUrl: 'partials/ui-sortable.html'
             })
+            .state('app.ui.tooltips', {
+                url: '/tooltips',
+                templateUrl: 'partials/ui-tooltips.html'
+            })
             .state('app.ui.videoembed', {
                 url: '/videoembed',
                 templateUrl: 'partials/ui-videoembed.html',

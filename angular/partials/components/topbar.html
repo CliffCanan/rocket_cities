@@ -13,16 +13,16 @@
         </ul>
     </div>
 
-    <div class="pull-left quickleft" style=''>
+    <div class="pull-left quickleft">
         <ul class="info-menu right-links list-inline list-unstyled">
 
             <li class="dropdown tab" uib-dropdown>
                 <a href class="dropdown-toggle toggle" uib-dropdown-toggle>
                     <i class="material-icons">email</i>
-                    <span class="badge badge-accent">7</span>
+                    <span class="badge">7</span>
                 </a>
 
-                <ul class="dropdown-menu  messages animated fadeIn">
+                <ul class="dropdown-menu messages animated fadeIn">
 
                     <li ng-controller="MessagesDropDownCtrl" class="list">
                         <perfect-scrollbar wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class='ps-scrollbar'>
@@ -58,7 +58,7 @@
             <li class="dropdown tab" uib-dropdown>
                 <a href class="dropdown-toggle toggle" uib-dropdown-toggle>
                     <i class="material-icons">notifications</i>
-                    <span class="badge badge-accent">3</span>
+                    <span class="badge">3</span>
                 </a>
 
                 <ul class="dropdown-menu notifications animated fadeIn">
@@ -119,10 +119,9 @@
 
             <li class="dropdown profile tab" uib-dropdown>
                 <a href class="dropdown-toggle toggle" uib-dropdown-toggle>
-                    <img ng-if="app.type == 'general'" src="data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
+                    <img src="data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
                     <span class="profile-status available"></span>
-
-                    <span class='hidden-sm hidden-xs'>Shane Taylor </span>
+                    <span class='hidden-sm hidden-xs'>Cliff Canan</span>
                     <i class="material-icons hidden-sm hidden-xs">expand_more</i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right profile animated fadeIn">
@@ -151,21 +150,21 @@
             <li class="chat-toggle-wrapper chat-slant">
                 <a href data-toggle="chatbar" class="toggle_chat" ng-click="app.settings.chatFolded = !app.settings.chatFolded; menuChatToggle('chat',app.settings.chatFolded) ">
                     <i class="fa fa-comments"></i>
-                    <span class="badge badge-accent">2</span>
+                    <span class="badge">2</span>
                 </a>
             </li>
         </ul>
     </div>
 
-    <div class="pull-right p-15 m-r-20" ng-controller="NavBarCntrlr">
+    <div class="pull-right p-15 m-r-20 hidden-sm" ng-controller="NavBarCntrlr">
         <div class="radio inline m-r-10">
-            <label class="icheck icheck-info c-white">
+            <label class="icheck icheck-white">
                 <input type="radio" name="user-type" value="influencer" checked>
                 <i></i> Influencer
             </label>
         </div>
         <div class="radio inline">
-            <label class="icheck icheck-info c-white">
+            <label class="icheck icheck-white">
                 <input type="radio" name="user-type" value="subscriber">
                 <i></i> Subscriber
             </label>

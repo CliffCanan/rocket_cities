@@ -4,6 +4,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
 
         var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
+        $rootScope.screenWidth = screenWidth;
 
         if (typeof $rootScope.userType == 'undefined')
             $rootScope.userType = 'influencer';
@@ -32,7 +33,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
             }
         }
 
-        console.log($scope.app.type);
+        $rootScope.app = $scope.app;
 
         $scope.menuChatToggle = function (type, value) {
             if (type == "menu" && !value)

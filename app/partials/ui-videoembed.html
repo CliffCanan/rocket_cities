@@ -1,4 +1,4 @@
-<div class='content-wrapper' ng-init="app.settings.pagetitle = '';" ng-controller="VideoPlayCntrlr">
+<div class="content-wrapper" ng-init="app.settings.pagetitle = '';" ng-controller="VideoPlayCntrlr">
 
     <div class="container-fluid p-0 full-width">
 
@@ -11,8 +11,6 @@
                     <strong>Hey there, Cliff!</strong> This is your public profile page. <a href="">Add videos</a> to get started.
                 </div>
 
-                <img src="data/profile/profile.jpg" class="img-responsive">
-
                 <div class="name-container">
                     <h2><strong>Cliff Canan</strong> | Video Game Reviews</h2>
                 </div>
@@ -20,6 +18,10 @@
 
             <div class="sub-nav-bar">
                 <div>
+                    <div class="sub-nav-profile-pic relative" ng-class="{ 'avatar-sm': userType != 'influencer'}">
+                        <img src="data/profile/profile.jpg" class="img-responsive">
+                    </div>
+
                     <div class="container-inner">
                         <div class="row">
                             <div class="col-xs-12 col-md-9">
@@ -45,6 +47,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="m-t-15">
+                                    <button class="btn btn-lg btn-icon btn-block btn-primary btn-corner" type="button">
+                                        <i class="fa fa-pencil"></i>&nbsp;
+                                        <span>Join This City</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,19 +71,58 @@
 
                 <section class="box">
 
-                    <div class="content-body p-10">
-                        <button type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5">
-                            <i class="fa fa-plus"></i> &nbsp; <span>Subscribe</span>
-                        </button>
-                        <button type="button" class="btn btn-warning btn-icon btn-corner btn-xs m-b-10">
-                            <i class="fa fa-external-link"></i> &nbsp; <span>Share</span>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-icon-round btn-xs m-b-5">
-                            <i class="fa fa-thumbs-o-up"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-icon-round btn-xs m-b-5">
-                            <i class="fa fa-thumbs-o-down"></i>
-                        </button>
+                    <div class="content-body p-15">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <button type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5 m-r-10">
+                                    <i class="fa fa-plus"></i>&nbsp;<span>Subscribe</span>
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-icon-round btn-border btn-xs m-b-5 m-r-5" ui-tooltip tooltip-class="success animated pulse" uib-tooltip="Like" data-placement="top">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-danger btn-icon-round btn-border btn-xs m-b-5" ui-tooltip tooltip-class="danger animated pulse" uib-tooltip="Dislike" data-placement="top">
+                                    <i class="fa fa-thumbs-o-down"></i>
+                                </button>
+
+                                <div class="dropdown pull-right" uib-dropdown>
+                                    <a href="" class="dropdown-toggle toggle" uib-dropdown-toggle ui-tooltip tooltip-class=" animated fadeIn" uib-tooltip="More" data-placement="top">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li class="dropdown-header">More</li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-external-link"></i> &nbsp;<span>Share</span>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-flag"></i> &nbsp;<span>Report</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-ban"></i> &nbsp;<span>Block</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="panel_subheader">Influencer Description</div>
+                                <div class="side-description">
+                                    <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="box-footer">
@@ -88,26 +137,39 @@
 
             <div class="col-xs-12 col-md-7 col-lg-6 post-feed">
 
-                <section class="box" ng-repeat="video in videos" ng-mouseenter="mouseenterBox($event)" ng-mouseleave="mouseleaveBox($event)">
-                    <div class="bg-white" style="overflow:hidden">
+                <div ng-if="userType != 'influencer'" class="alert minimal alert-primary alert-icon m-t-15 fade in" role="alert">
+                    <div class="row">
+                        <div class="col-xs-2 text-center">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="alert-text">
+                                <strong>Want more special premium content?</strong> Subscribe to get access to all of Cliff's <strong>28 videos</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="box" ng-repeat="post in videos" ng-mouseenter="mouseenterBox($event)" ng-mouseleave="mouseleaveBox($event)">
+                    <div class="bg-white">
 
                         <div class="box_header">
                             <div class="influencer_info">
 
                                 <a href="">
-                                    <div class="avatar" style="background-image: url(data/members/cliff.png)"></div>
+                                    <div class="avatar" style="background-image: url({{post.avatar}})"></div>
                                 </a>
 
                                 <div class="post_info_container">
                                     <a href="">
-                                        <div class="name">{{video.name}}</div>
+                                        <div class="name">{{post.name}}</div>
                                     </a>
 
                                     <div class="post_info_detals">
                                         <div class="">
-                                            <span class="fan_count">{{video.fan_count}} Fans</span>
+                                            <span class="fan_count">{{post.fan_count}} Fans</span>
                                             <span class="divider">&bull;</span>
-                                            <a href="" class="timestamp">{{video.date_posted}}</a>
+                                            <span class="timestamp">{{post.date_posted}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -122,13 +184,78 @@
                             </div>
                         </div>
 
-                        <div class="content-body p-t-0">
+                        <div class="content-body p-t-0 p-b-0" style="overflow:hidden">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <!-- 16:9 aspect ratio -->
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <iframe class="embed-responsive-item" src="{{trustSrc(video.url)}}" frameborder="0" allowfullscreen></iframe>
+
+                                    <div ng-if="post.type == 'video'">
+                                        <!-- 16:9 aspect ratio -->
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="{{trustSrc(post.url)}}" frameborder="0" allowfullscreen></iframe>
+                                        </div>
                                     </div>
+
+                                    <div ng-if="post.type == 'text'">
+                                        <div class="">
+                                            {{post.text}}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="postFooter">
+                            <div class="row">
+                                <div class="col-xs-12">
+
+                                    <div class="p-l-20 p-r-20">
+                                        <div class="postStats pull-left">
+                                            <div class="comments">
+                                                <a href="" class="">
+                                                    <i class="fa fa-comment-o"></i>&nbsp;
+                                                    <span>9 Comment<span ng-if="post.num_likes > 1">s</span></span>
+                                                </a>
+                                            </div>
+                                            <div class="likes">
+                                                <a href="" ui-tooltip tooltip-class="success animated pulse" uib-tooltip="Like" data-placement="top">
+                                                    <i class="fa fa-thumbs-o-up"></i>&nbsp;
+                                                    <span>{{post.num_likes}}</span>
+                                                </a>
+                                            </div>
+                                            <div class="dislikes">
+                                                <a href="" ui-tooltip tooltip-class="danger animated pulse" uib-tooltip="Dislike" data-placement="top">
+                                                    <i class="fa fa-thumbs-o-down"></i>&nbsp;
+                                                    <span>{{post.num_dislikes}}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown pull-right" uib-dropdown>
+                                            <a href="" class="dropdown-toggle toggle" uib-dropdown-toggle ui-tooltip tooltip-class="animated fadeIn" uib-tooltip="More" data-placement="top">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-external-link"></i> &nbsp;<span>Share</span>
+                                                    </a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-flag"></i> &nbsp;<span>Report</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-ban"></i> &nbsp;<span>Block</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -138,9 +265,35 @@
 
             </div>
 
+            <!-- RIGHT COLUMN -->
             <div class="col-xs-12 col-md-3">
 
-                <div class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+                <section class="box">
+
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <button type="button" class="btn btn-facebook btn-icon m-r-10 m-b-5">
+                                    <i class="fa fa-facebook-square"></i> &nbsp; <span>Share</span>
+                                </button>
+
+                                <button type="button" class="btn btn-twitter btn-icon m-b-5">
+                                    <i class="fa fa-twitter-square"></i> &nbsp; <span>Tweet</span>
+                                </button>
+
+                                <div ng-if="userType == 'influencer'" class="m-t-5 text-center small">
+                                    Spread the word to get more fans!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- To Do Widget -->
+                <div ng-if="userType == 'influencer'" class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+
                     <div class="wid-task-header">
                         <div class="wid-icon">
                             <i class="fa fa-tasks"></i>
@@ -180,12 +333,16 @@
                             </ul>
                         </perfect-scrollbar>
                     </div>
+
                     <div class="wid-add-task">
                         <input type="text" class="form-control" placeholder="Add task" />
                     </div>
+
                 </div>
 
-                <section class="box" ng-controller="MembersCtrl">
+
+                <!-- Suggested Influencers -->
+                <section ng-if="userType != 'influencer'" class="box" ng-controller="MembersCtrl">
 
                     <header class="panel_header">
                         <span class="title pull-left">Suggested</span>
@@ -212,24 +369,6 @@
                     </div>
                 </section>
 
-
-                <section class="box">
-                    <header class="panel_header">
-                        <h2 class="title pull-left">Special Perks!</h2>
-                        <div class="actions panel_actions pull-right">
-                            <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
-                            <i class="box_close material-icons">close</i>
-                        </div>
-                    </header>
-
-                    <div class="content-body">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
 
         </div>

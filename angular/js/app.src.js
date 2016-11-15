@@ -52936,6 +52936,10 @@ angular.module('app')
                 url: '/sortable',
                 templateUrl: 'partials/ui-sortable.html'
             })
+            .state('app.ui.sortable', {
+                url: '/tooltips',
+                templateUrl: 'partials/ui-tooltips.html'
+            })
             .state('app.ui.videoembed', {
                 url: '/videoembed',
                 templateUrl: 'partials/ui-videoembed.html',
@@ -52945,6 +52949,7 @@ angular.module('app')
                             return $ocLazyLoad.load([
                                 'js/directives/ui-todowidget.js',
                                 'js/controllers/members.js',
+                                'js/controllers/video-play.js',
                                 '../bower_components/font-awesome/css/font-awesome.css'
                             ]);
                         }
@@ -53506,6 +53511,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
 
         var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
+        $rootScope.screenWidth = screenWidth;
 
         if (typeof $rootScope.userType == 'undefined')
             $rootScope.userType = 'influencer';
@@ -53534,7 +53540,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
             }
         }
 
-        console.log($scope.app.type);
+        $rootScope.app = $scope.app;
 
         $scope.menuChatToggle = function (type, value) {
             if (type == "menu" && !value)

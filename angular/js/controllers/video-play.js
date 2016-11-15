@@ -11,7 +11,7 @@ app.controller('VideoPlayCntrlr', ['$http', '$scope', '$rootScope', '$templateCa
           });
 
       $scope.trustSrc = function (src) {
-          //console.log(src);
+          console.log(src);
           return $sce.trustAsResourceUrl(src);
       }
 
