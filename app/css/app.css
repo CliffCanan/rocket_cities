@@ -581,6 +581,25 @@ ul {
     font-size: .8rem;
 }
 
+.f-300 {
+    font-weight: 300 !important;
+}
+
+.f-400 {
+    font-weight: 400 !important;
+}
+
+.f-500 {
+    font-weight: 500 !important;
+}
+
+.f-600 {
+    font-weight: 600 !important;
+}
+
+.f-700 {
+    font-weight: 700 !important;
+}
 
 /*----------------------------------------
     Page Title and Breadcrumb  
@@ -3060,7 +3079,7 @@ slider span.pointer.active:after {
         }
 
 
-    .btn > i {
+    .btn:not(.btn-icon-round) > i {
         margin-right: 5px;
     }
     /*colors*/
@@ -5352,6 +5371,123 @@ fieldset[disabled] .btn {
 }
 
 
+
+/*---------------------------------------------
+     Portfolio Gallery
+----------------------------------------------*/
+
+#portfolio {
+    padding: 0;
+}
+
+    #portfolio .portfolio-filter {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 15px;
+        display: inline-block;
+    }
+
+        #portfolio .portfolio-filter > li {
+            float: left;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+            #portfolio .portfolio-filter > li a {
+                display: block;
+                position: relative;
+            }
+
+                #portfolio .portfolio-filter > li a:hover, #portfolio .portfolio-filter > li a.active {
+                    background-color: #673AB7;
+                }
+
+                    #portfolio .portfolio-filter > li a.active:after {
+                    }
+
+    #portfolio .portfolio-item {
+        /*  width: 33.2%;*/
+        float: left;
+        padding: 5px;
+    }
+
+        #portfolio .portfolio-item .portfolio-item-inner img {
+            width: 100%;
+        }
+
+        #portfolio .portfolio-item .portfolio-item-inner {
+            position: relative;
+            overflow: hidden;
+        }
+
+            #portfolio .portfolio-item .portfolio-item-inner .portfolio-info {
+                opacity: 0;
+                -moz-transition: opacity 400ms;
+                -o-transition: opacity 400ms;
+                transition: opacity 400ms;
+                -webkit-transition: opacity 400ms;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 10px;
+                background: #E91E63;
+                color: #fff;
+                display: none;
+            }
+
+    #portfolio.outside .portfolio-item .portfolio-item-inner .portfolio-info {
+        position: relative;
+        background: #eeeeee;
+        padding: 15px;
+        color: #757575;
+        display: block;
+        opacity: 1;
+    }
+
+        #portfolio.outside .portfolio-item .portfolio-item-inner .portfolio-info h3 {
+            color: #424242;
+        }
+
+        #portfolio.outside .portfolio-item .portfolio-item-inner .portfolio-info .desc {
+            color: #616161;
+        }
+
+    #portfolio .portfolio-item .portfolio-item-inner .portfolio-info h3 {
+        font-size: 15px;
+        line-height: 24px;
+        margin: 0;
+        color: #fff;
+        font-weight: 400;
+    }
+
+    #portfolio .portfolio-item .portfolio-item-inner .portfolio-info .desc {
+        font-size: 13px;
+        line-height: 21px;
+        margin: 0;
+        color: #eee;
+        font-weight: 400;
+    }
+
+    #portfolio .portfolio-item .portfolio-item-inner .portfolio-info .preview {
+        position: absolute;
+        top: -20px;
+        right: 20px;
+        background-image: none;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: #ffffff;
+        background-color: #673AB7;
+    }
+
+    #portfolio .portfolio-item:hover .portfolio-info {
+        opacity: 1;
+        display: block;
+    }
+
+
 /*-----------------------------------------
     Pricing Tables 
 ------------------------------------------*/
@@ -6165,10 +6301,40 @@ table.dataTable.no-footer {
     Login and Registration Page - Transparent Background Style
 ------------------------------------------------------------------*/
 
+.btn > .icon-separator {
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 100%;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.icon-separator + .button-content {
+    position: absolute;
+    top: 0;
+    left: 40px;
+    padding: 10px 0 0 8px;
+}
+
+.icon-separator {
+    border-right: rgba(255,255,255,.21) solid 1px;
+    background: rgba(255,255,255,.2);
+}
+
+.social-signup .btn {
+    height: 42px;
+}
+
 .loginpage {
-    padding: 70px 50px 80px 50px;
+    padding: 50px 20px 20px;
     background-color: transparent;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -6177,29 +6343,55 @@ table.dataTable.no-footer {
     }
 }
 
+@media (min-width: 992px) {
+    .social-signup {
+        margin-left: -5px;
+    }
+}
+
 .loginpage h1 a {
-    height: 92px;
-    margin: 0px auto 0px auto;
-    padding: 0;
+    color: #fff;
+    display: block;
+    font-size: 34px;
+    font-weight: 600;
+    height: auto;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
     text-decoration: none;
-    -moz-background-size: 345px 92px;
-    -o-background-size: 345px 92px;
-    background-size: 345px 92px;
-    background-color: transparent;
-    min-height: 92px;
     width: auto;
-    background-image: url("../img/login-logo.png");
-    background-position: center top;
-    background-repeat: no-repeat;
-    text-indent: -9999px;
+    background: transparent;
     outline: 0;
     overflow: hidden;
-    display: block;
+    text-shadow: 0 2px 10px rgba(0,0,0,.35), 0px 3px 0 rgba(0,0,0,.2);
 }
+
+    .loginpage h1 a i {
+        font-size: inherit;
+        margin-right: 10px;
+    }
 
 .social_media.loginpage h1 a {
     background-image: url("../img/soc-login-logo.png");
 }
+
+.login_page .panel {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+
+.login_page #nav a {
+    color: #23527c;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+    .login_page #nav a:hover,
+    .login_page #nav a:active {
+        color: #23527c;
+    }
 
 .loginpage form {
     margin-top: 30px;
@@ -6273,24 +6465,11 @@ table.dataTable.no-footer {
     font-weight: 400;
 }
 
-.loginpage #nav a,
-.loginpage a {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 16px;
-}
-
-    .loginpage #nav a:hover,
-    .loginpage a:hover,
-    .loginpage #nav a:active,
-    .loginpage a:active {
-        color: rgba(255, 255, 255, 1);
-    }
-
 .loginpage,
 .loginpage form label,
 .loginpage form,
 .loginpage .message {
-    color: rgba(255, 255, 255, 1);
+    color: #555;
 }
 
     .loginpage form .input,
@@ -6348,11 +6527,6 @@ body .login_page {
     height: 100%;
     overflow: auto;
     overflow-x: hidden;
-}
-
-#register,
-#forgotpass {
-    padding-bottom: 50px;
 }
 
 .login-wrapper {
@@ -10083,8 +10257,48 @@ border-left: 3px solid transparent;
         .profile-banner-bg .name-container > * {
             color: #fff;
             font-size: 30px;
-            text-shadow: 0 2px 12px rgba(30,31,32,.15), 0 1px 0 rgba(32,31,30,.2);
+            text-shadow: 0 2px 10px rgba(30,31,32,.2), 0 1px 0 rgba(32,31,30,.3);
         }
+
+#banner-hover-wrap {
+    background: rgba(0,0,0,.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    transition: .3s;
+}
+
+    #banner-hover-wrap > a {
+        background-color: rgba(0,0,0,.25);
+        border: 2px solid #fff;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin: 30px auto;
+        padding: 20px 10px;
+        width: 60%;
+        max-width: 190px;
+        text-decoration: none !important;
+    }
+
+    #banner-hover-wrap input {
+        position: relative;
+        left: -999px;
+        height: 1px;
+        width: 1px;
+    }
+
+.profile-banner-bg:hover #banner-hover-wrap {
+    opacity: 1;
+}
 
 .sub-nav-profile-pic img {
     height: 130px;
@@ -10111,6 +10325,27 @@ border-left: 3px solid transparent;
     bottom: -90px;
     left: 25px;
 }
+
+.social-btns {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.social-btns button {
+    margin: 0 7.5%;
+}
+
+@media (min-width: 992px) {
+
+    section.box {
+        margin-bottom: 25px;
+    }
+
+    #banner-hover-wrap > a {
+        margin: 90px auto 0;
+    }
+}
+
 
 /*-------------------------------------------------
     Widget - To Do Task List
@@ -10345,17 +10580,20 @@ border-left: 3px solid transparent;
 ------------------------------------------*/
 
 .wid-sparkgraph {
-    padding: 15px;
+    padding: 12px 15px;
     min-height: 110px;
     width: 100%;
-    margin-bottom: 30px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
+    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
+    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 
+.wid-sparkgraph .clearfix {
+    margin-bottom: 6px;
+}
 
 /*----------------------------------------
   Widget - Vector Map
@@ -10372,12 +10610,12 @@ border-left: 3px solid transparent;
     padding: 15px 30px;
 }
 
-.wid-vectormap .map_progress h4 {
+.wid-vectormap .progress_bars h4 {
     margin: 0 0 10px 0;
     color: #616161;
 }
 
-.wid-vectormap .map_progress .progress {
+.progress_bars .progress {
     margin: 10px 0;
     height: 10px;
 }
@@ -10400,334 +10638,6 @@ border-left: 3px solid transparent;
     text-align: center;
 }
 
-
-/*----------------------------------------
-  Widget - Weather
-------------------------------------------*/
-
-.wid-weather {
-    display: inline-block;
-    width: 100%;
-    min-height: 378px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-    .wid-weather .weekdays {
-        min-height: 378px;
-        display: inline-block;
-    }
-
-.wid-weather-small .weekdays .ps-weathersmall-widget {
-    overflow: hidden;
-    position: relative;
-    height: 200px;
-}
-
-.wid-weather .today {
-    display: inline-block;
-    color: #fff;
-    min-height: 378px;
-    padding: 30px;
-    background-image: url('../img/login-bg.png');
-    background-size: cover;
-}
-
-    .wid-weather .today .degree {
-        display: block;
-        width: 200px;
-        text-align: right;
-        margin: 60px auto 30px auto;
-        padding: 0 30px;
-    }
-
-        .wid-weather .today .degree i {
-            float: left;
-            margin-right: 15px;
-            margin-top: 10px;
-        }
-
-        .wid-weather .today .degree span {
-            display: inline-block;
-            float: left;
-            color: #efefef;
-            font-weight: bold;
-        }
-
-        .wid-weather .today .degree h3 {
-            display: inline-block;
-            float: left;
-            margin: 0px;
-            color: #f5f5f5;
-            font-size: 36px;
-        }
-
-        .wid-weather .today .degree .windspeed {
-            text-align: center;
-            margin: 10px 0 0 0px;
-            color: #f5f5f5;
-            white-space: nowrap;
-            width: 100%;
-        }
-
-            .wid-weather .today .degree .windspeed i {
-                margin: 5px 0px 0 0;
-                float: none;
-            }
-
-        .wid-weather .today .degree h4 {
-            text-align: center;
-            margin: 0px;
-            color: #f5f5f5;
-            margin: 10px 0 10px 0;
-            white-space: nowrap;
-        }
-
-    .wid-weather .today .location h3 {
-        color: #f5f5f5;
-        text-align: center;
-        display: block;
-        margin: 0 0 5px 0;
-        font-size: 35px;
-    }
-
-    .wid-weather .today .location span {
-        color: #efefef;
-        text-align: center;
-        display: block;
-        margin-top: 20px;
-        font-size: 16px;
-    }
-
-    .wid-weather .today .location {
-        width: 100%;
-        display: inline-block;
-        margin-top: 60px 0 30px 0;
-    }
-
-    .wid-weather .today .timings {
-        margin-top: 30px;
-        margin: 30px auto 30px auto;
-        width: 100%;
-    }
-
-        .wid-weather .today .timings li,
-        .wid-weather-small .today .timings li {
-            display: inline-block;
-            width: 65px;
-            margin: 15px 10px 0 0;
-            border-right: 1px solid rgba(200, 200, 200, 0.7);
-            color: #E0E0E0;
-            text-align: center;
-            padding: 0 20px 0 0;
-        }
-
-            .wid-weather .today .timings li:last-child {
-                border-color: transparent;
-            }
-
-        .wid-weather .today .timings .time,
-        .wid-weather-small .today .timings .time {
-            display: block;
-            margin: 0 0 5px 0;
-            color: #f5f5f5;
-            font-size: 16px;
-        }
-
-        .wid-weather .today .timings i,
-        .wid-weather-small .today .timings i {
-            color: #E0E0E0;
-        }
-
-        .wid-weather .today .timings .temp,
-        .wid-weather-small .today .timings .temp {
-            color: #E0E0E0;
-            display: block;
-            margin: 5px 0 0px 0;
-            color: #f5f5f5;
-        }
-
-.wid-weather .weekdays {
-    padding: 30px;
-    color: #999999;
-    margin: 0px;
-}
-
-    .wid-weather .weekdays ul {
-        margin: 0px;
-    }
-
-    .wid-weather .weekdays li {
-        display: inline-block;
-        padding: 10px 0;
-        border-bottom: 1px solid rgba(200, 200, 200, 0.4);
-        width: 100%;
-        height: 45px;
-    }
-
-        .wid-weather .weekdays li:last-child {
-            border-color: transparent;
-        }
-
-        .wid-weather .weekdays li .temp {
-            float: right;
-            color: #757575;
-            font-size: 90%;
-        }
-
-        .wid-weather .weekdays li i {
-            margin: 0 5px;
-        }
-
-        .wid-weather .weekdays li .day {
-            color: #757575;
-            display: inline-block;
-            min-width: 60px;
-            font-weight: 500;
-            width: 120px;
-            overflow: hidden;
-            -o-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            vertical-align: top;
-        }
-
-
-/*---- weather small widget ----*/
-
-.wid-weather-small {
-    padding: 0px 0 0px 0;
-    background-image: url('../img/login-bg.png');
-    background-size: cover;
-    display: inline-block;
-    width: 100%;
-    min-height: 378px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.0), 0 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-    .wid-weather-small .today .timings ul {
-        margin: 0px auto 60px auto;
-        width: 100%;
-        display: block;
-    }
-
-    .wid-weather-small .location span {
-        color: #efefef;
-        text-align: center;
-        display: block;
-        margin-top: 20px;
-        font-size: 16px;
-    }
-
-    .wid-weather-small .degree h3 {
-        display: inline-block;
-        float: left;
-        margin: 0px;
-        color: #fff;
-    }
-
-    .wid-weather-small .location {
-        padding: 60px 30px 0 30px;
-    }
-
-        .wid-weather-small .location h3 {
-            color: #f5f5f5;
-            text-align: center;
-            display: block;
-            margin: 0 0 5px 0;
-            font-size: 35px;
-        }
-
-    .wid-weather-small .degree {
-        display: block;
-        width: 200px;
-        text-align: right;
-        margin: 60px auto 30px auto;
-        padding: 0 30px;
-    }
-
-        .wid-weather-small .degree i {
-            float: left;
-            margin-right: 15px;
-            margin-top: 0px;
-        }
-
-        .wid-weather-small .degree span {
-            display: inline-block;
-            float: left;
-            color: #efefef;
-            font-weight: bold;
-            margin-top: -20px;
-        }
-
-        .wid-weather-small .degree h3 {
-            display: inline-block;
-            float: left;
-            margin: 0px;
-            color: #f5f5f5;
-            font-size: 36px;
-        }
-
-        .wid-weather-small .degree h4 {
-            text-align: center;
-            margin: 0px;
-            color: #f5f5f5;
-            margin: 15px 0 15px 0;
-            white-space: nowrap;
-        }
-
-    .wid-weather-small .weekdays ul {
-        overflow: hidden;
-        position: relative;
-        height: auto;
-    }
-
-    .wid-weather-small .weekdays {
-        padding: 15px 30px 15px 30px;
-        color: #999999;
-        margin: 0px;
-        min-height: 175px;
-    }
-
-        .wid-weather-small .weekdays ul {
-            margin: 0px;
-            padding-right: 10px;
-        }
-
-        .wid-weather-small .weekdays li {
-            display: inline-block;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(200, 200, 200, 0.4);
-            width: 100%;
-        }
-
-            .wid-weather-small .weekdays li .temp {
-                float: right;
-                color: #757575;
-                font-size: 90%;
-            }
-
-            .wid-weather-small .weekdays li i {
-                margin: 0 5px;
-            }
-
-            .wid-weather-small .weekdays li .day {
-                color: #757575;
-                display: inline-block;
-                min-width: 60px;
-                width: 120px;
-                overflow: hidden;
-                -o-text-overflow: ellipsis;
-                text-overflow: ellipsis;
-                vertical-align: top;
-                font-weight: 500;
-            }
 
 
 /*----------------------------------------

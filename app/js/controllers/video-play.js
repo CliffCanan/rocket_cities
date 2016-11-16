@@ -33,4 +33,13 @@ app.controller('VideoPlayCntrlr', ['$http', '$scope', '$rootScope', '$templateCa
                  .addClass('btn-border')
                  .find('span').text('Fans Only');
       }
+
+
+      // Trigger File Input for BG Cover Image Upload
+      $scope.clickUploadCoverPic = function () {
+          setTimeout(function () {
+              document.getElementById('coverPicUpload').click()
+              $scope.clicked = true;
+          }, 0);
+      };
   }]);

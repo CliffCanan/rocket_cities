@@ -185,9 +185,23 @@ angular.module('app')
                 url: '/sortable',
                 templateUrl: 'partials/ui-sortable.html'
             })
-            .state('app.ui.sortable', {
+            .state('app.ui.tooltips', {
                 url: '/tooltips',
                 templateUrl: 'partials/ui-tooltips.html'
+            })
+            .state('app.store', {
+                url: '/store',
+                templateUrl: 'partials/store.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                '../node_modules/isotope-layout/dist/isotope.pkgd.min',
+                                'js/controllers/store.js',
+                            ]);
+                        }
+                    ]
+                }
             })
             .state('app.ui.videoembed', {
                 url: '/videoembed',
