@@ -28,8 +28,8 @@ app.controller('AccordionDemoCtrl', ['$scope', function ($scope) {
         isFirstOpen: true,
         isFirstDisabled: false
     };
-}])
-;
+}]);
+
 app.controller('AlertDemoCtrl', ['$scope', function ($scope) {
     $scope.alerts = [
       { type: 'success', msg: 'Well done! You successfully read this important alert message.' },
@@ -48,8 +48,8 @@ app.controller('AlertDemoCtrl', ['$scope', function ($scope) {
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
-}])
-;
+}]);
+
 app.controller('ButtonsDemoCtrl', ['$scope', function ($scope) {
     $scope.singleModel = 1;
 
@@ -60,8 +60,8 @@ app.controller('ButtonsDemoCtrl', ['$scope', function ($scope) {
         middle: true,
         right: false
     };
-}])
-;
+}]);
+
 app.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
@@ -78,8 +78,8 @@ app.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
     {
         $scope.addSlide();
     }
-}])
-;
+}]);
+
 app.controller('DropdownDemoCtrl', ['$scope', function ($scope) {
     $scope.items = [
       'The first choice!',
@@ -100,8 +100,8 @@ app.controller('DropdownDemoCtrl', ['$scope', function ($scope) {
         $event.stopPropagation();
         $scope.status.isopen = !$scope.status.isopen;
     };
-}])
-;
+}]);
+
 app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', function ($scope, $modalInstance, items) {
     $scope.items = items;
     $scope.selected = {
@@ -115,10 +115,11 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', fun
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-}])
-;
+}]);
+
 app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope, $modal, $log) {
     $scope.items = ['item1', 'item2', 'item3'];
+
     $scope.open = function (size, windowClass) {
         var modalInstance = $modal.open({
             templateUrl: 'partials/ui-modal-list.html',
@@ -142,7 +143,7 @@ app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope
 
     $scope.openform = function (type) {
         var modalInstance = $modal.open({
-            templateUrl: 'partials/ui-modal-form' + type + '.html',
+            templateUrl: 'partials/ui-modal-form1.html',
             controller: 'ModalInstanceCtrl',
             resolve: {
                 items: function () {
@@ -175,12 +176,8 @@ app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope
             $log.info('Modal dismissed at: ' + new Date());
         });
     };
+}]);
 
-
-
-
-}])
-;
 app.controller('PaginationDemoCtrl', ['$scope', '$log', function ($scope, $log) {
     $scope.totalItems = 64;
     $scope.currentPage = 4;
@@ -196,13 +193,13 @@ app.controller('PaginationDemoCtrl', ['$scope', '$log', function ($scope, $log) 
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
-}])
-;
+}]);
+
 app.controller('PopoverDemoCtrl', ['$scope', function ($scope) {
     $scope.dynamicPopover = 'Hello, World!';
     $scope.dynamicPopoverTitle = 'Title';
-}])
-;
+}]);
+
 app.controller('ProgressDemoCtrl', ['$scope', function ($scope) {
     $scope.max = 200;
 

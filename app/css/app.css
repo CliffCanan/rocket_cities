@@ -4161,8 +4161,8 @@ fieldset[disabled] .btn {
 }
 
 .tooltip-inner {
-    padding: 5px 13px;
-    background-color: #616161;
+    padding: 4px 13px;
+    background-color: #555;
     border-radius: 0px;
     -o-border-radius: 0px;
     -ms-border-radius: 0px;
@@ -6332,9 +6332,9 @@ table.dataTable.no-footer {
 }
 
 .loginpage {
-    padding: 50px 20px 20px;
+    padding: 40px 20px 20px;
     background-color: transparent;
-    margin-top: 3%;
+    margin-top: 2%;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -6381,6 +6381,14 @@ table.dataTable.no-footer {
     margin: 0 auto;
 }
 
+.login_page .forgot_pw_page .panel {
+    max-width: 440px;
+}
+
+.login_page .form-group,
+.login_page .input-group {
+    margin-bottom: 20px;
+}
 
 .login_page #nav a {
     color: #23527c;
@@ -10331,9 +10339,9 @@ border-left: 3px solid transparent;
     width: 100%;
 }
 
-.social-btns button {
-    margin: 0 7.5%;
-}
+    .social-btns button {
+        margin: 0 7.5%;
+    }
 
 @media (min-width: 992px) {
 
@@ -10346,6 +10354,19 @@ border-left: 3px solid transparent;
     }
 }
 
+
+
+.media .avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+    .media .avatar img {
+        border-radius: 50%;
+        width: 100%;
+        display: block;
+    }
 
 /*-------------------------------------------------
     Widget - To Do Task List
@@ -10591,9 +10612,9 @@ border-left: 3px solid transparent;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-.wid-sparkgraph .clearfix {
-    margin-bottom: 6px;
-}
+    .wid-sparkgraph .clearfix {
+        margin-bottom: 6px;
+    }
 
 /*----------------------------------------
   Widget - Vector Map

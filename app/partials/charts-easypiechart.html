@@ -1,5 +1,6 @@
 <div class='content-wrapper' ng-init="app.settings.pagetitle = 'Easy Pie Charts';">
     <div class="col-lg-12">
+
         <section class="box ">
             <header class="panel_header">
                 <h2 class="title pull-left">Easy Pie Charts</h2>
@@ -77,6 +78,96 @@
                   }">
                                 <div>
                                     <span class="text-primary h4">72%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Knobs</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle material-icons">expand_more</i>
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                    <i class="box_close material-icons">close</i>
+                </div>
+            </header>
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h3>Styles</h3>
+                        <br>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input class="knob" data-width="80%" data-displayinput=false value="59" data-fgcolor="{{app.color.primary}}" ui-jq="knob">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input class="knob" data-width="80%" data-cursor=true data-fgcolor="{{app.color.primary}}" data-thickness=.3 value="79" ui-jq="knob">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input class="knob" data-width="80%" data-angleoffset=90 data-linecap=round value="65" data-fgcolor="{{app.color.primary}}" ui-jq="knob">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input class="knob" data-width="80%" data-angleoffset=-125 data-anglearc=250 data-fgcolor="{{app.color.primary}}" data-rotation="anticlockwise" value="75" ui-jq="knob">
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <br>
+                        <h3>Sizes & Thickness</h3>
+                        <br>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="60%" data-fgcolor="{{app.color.success}}" data-thickness=.1 value="65">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="70%" data-fgcolor="{{app.color.success}}" data-thickness=.2 value="65">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="80%" data-fgcolor="{{app.color.success}}" data-thickness=.3 value="65">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="90%" data-fgcolor="{{app.color.success}}" data-thickness=.4 value="65">
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <h3>Previous value indicator</h3>
+                        <br>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="80%" data-width="75" data-displayprevious=true data-fgcolor="{{app.color.accent}}" data-skin="tron" data-cursor=true value="75" data-thickness=".2">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="80%" data-width="150" data-displayprevious=true data-fgcolor="{{app.color.accent}}" data-skin="tron" data-thickness=".2" value="75">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="80%" data-width="150" data-angleoffset="180" data-fgcolor="{{app.color.accent}}" data-skin="tron" data-thickness=".2" value="35">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 bottom15">
+                            <input ui-jq="knob" class="knob" data-width="80%" data-min="-10000" data-angleoffset=-125 data-anglearc=250 data-displayprevious=true data-max="10000" data-fgcolor="{{app.color.accent}}" data-step=".1" value="1130" data-thickness=".3">
+                        </div>
+                        <div class="clearfix"></div>
+                        <br>
+                        <br>
+                        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 bottom15">
+                            <h3>Reverse Direction</h3>
+                            <br>
+                            <input ui-jq="knob" class="knob" data-width="80%" data-angleoffset=-125 data-fgcolor="{{app.color.primary}}" data-rotation="anticlockwise" value="35">
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 bottom15">
+                            <h3>Read only mode</h3>
+                            <br>
+                            <input ui-jq="knob" class="knob" data-width="80%" readonly data-fgcolor="{{app.color.primary}}" value="22">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 bottom15">
+                            <h3>Ipod click wheel</h3>
+                            <br>
+                            <div class="demo" style="height:200px;">
+                                <div style="float:left;width:;height:200px;width:40%;text-align:center;">
+                                    <input class="infinite" value="0" data-width="95%" data-thickness=".4" data-fgcolor="{{app.color.primary}}" data-bgcolor="#f5f5f5" data-displayinput="false" data-cursor=true>
+                                </div>
+                                <div style="float:left;margin-top:40px;">
+                                    <div class="ival" style="margin: 10px;text-align:center;font-size:40px;color:{{app.color.primary}}">0</div>
+                                    <div class="idir" style="margin: 10px;text-align:center;font-size:40px;"></div>
                                 </div>
                             </div>
                         </div>

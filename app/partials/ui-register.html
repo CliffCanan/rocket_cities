@@ -30,16 +30,22 @@
 
                                 <div class="form-group">
                                     <label for="signup-name">Full Name:</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-addon addon-inside bg-white font-primary"><i class="fa fa-user"></i></span>
+                                    <div class="input-group input-group-lg" inputgroup>
+                                        <span class="input-group-addon">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-user"></i>
+                                        </span>
                                         <input type="text" class="form-control" ng-model="user.name" placeholder="Full Name" id="signup-name" value="" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="signup-em">Email Address:</label>
-                                    <div class="input-group input-group-lg">
-                                        <span class="input-group-addon addon-inside bg-white font-primary"><i class="fa fa-envelope-o"></i></span>
+                                    <div class="input-group input-group-lg" inputgroup>
+                                        <span class="input-group-addon">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
                                         <input type="email" class="form-control" ng-model="user.email" placeholder="Email Address" id="signup-email" value="" required>
                                     </div>
                                 </div>
@@ -100,11 +106,6 @@
 
                     </div>
 
-                    <div class="row">
-                        <div class="col-xs-12">
-                            
-                        </div>
-                    </div>
                 </div>
             </div>
         

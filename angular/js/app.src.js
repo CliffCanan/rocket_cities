@@ -52793,50 +52793,11 @@ angular.module('app')
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
-                                'js/controllers/vectormap.js',
-                                'js/controllers/messages-widget.js',
-                                '../bower_components/font-awesome/css/font-awesome.css'
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetssocialmedia', {
-                url: '/widgetssocialmedia',
-                templateUrl: 'partials/widgets-socialmedia.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['countTo',
+                                'countTo',
                                 'js/controllers/countto.js',
                                 'js/controllers/vectormap.js',
-                                'js/directives/ui-todowidget.js',
+                                'js/controllers/vectormap.js',
                                 'js/controllers/messages-widget.js',
-                                '../bower_components/font-awesome/css/font-awesome.css'
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetsgraphs', {
-                url: '/widgetsgraphs',
-                templateUrl: 'partials/widgets-graphs.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetstodo', {
-                url: '/widgetstodo',
-                templateUrl: 'partials/widgets-todo.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
                                 'js/directives/ui-todowidget.js',
                                 '../bower_components/font-awesome/css/font-awesome.css'
                             ]);
@@ -52947,7 +52908,7 @@ angular.module('app')
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
-                                '../node_modules/isotope-layout/dist/isotope.pkgd.min',
+                                '../node_modules/isotope-layout/dist/isotope.pkgd.min.js',
                                 'js/controllers/store.js',
                             ]);
                         }
@@ -53136,7 +53097,7 @@ angular.module('app')
                 url: '/timeline',
                 templateUrl: 'partials/ui-timeline.html'
             })
-            .state('app.ui.paymenthistory', {
+            .state('app.paymenthistory', {
                 url: '/paymenthistory',
                 templateUrl: 'partials/paymenthistory.html'
             })
@@ -53192,13 +53153,13 @@ angular.module('app')
             .state('app.mail', {
                 abstract: true,
                 url: '/mail',
-                //template: '<div ui-view class=""></div>',
                 templateUrl: 'partials/mail.html',
-                // use resolve to load other dependences
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css', 'js/controllers/mail.js',
+                            return uiLoad.load([
+                                '../bower_components/font-awesome/css/font-awesome.css',
+                                'js/controllers/mail.js',
                                 'js/services/mail-service.js',
                                 JQ_CONFIG.moment
                             ]);
@@ -54147,8 +54108,8 @@ app.controller('AccordionDemoCtrl', ['$scope', function ($scope) {
         isFirstOpen: true,
         isFirstDisabled: false
     };
-}])
-;
+}]);
+
 app.controller('AlertDemoCtrl', ['$scope', function ($scope) {
     $scope.alerts = [
       { type: 'success', msg: 'Well done! You successfully read this important alert message.' },
@@ -54167,8 +54128,8 @@ app.controller('AlertDemoCtrl', ['$scope', function ($scope) {
     $scope.closeAlert = function (index) {
         $scope.alerts.splice(index, 1);
     };
-}])
-;
+}]);
+
 app.controller('ButtonsDemoCtrl', ['$scope', function ($scope) {
     $scope.singleModel = 1;
 
@@ -54179,8 +54140,8 @@ app.controller('ButtonsDemoCtrl', ['$scope', function ($scope) {
         middle: true,
         right: false
     };
-}])
-;
+}]);
+
 app.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
@@ -54197,8 +54158,8 @@ app.controller('CarouselDemoCtrl', ['$scope', function ($scope) {
     {
         $scope.addSlide();
     }
-}])
-;
+}]);
+
 app.controller('DropdownDemoCtrl', ['$scope', function ($scope) {
     $scope.items = [
       'The first choice!',
@@ -54219,8 +54180,8 @@ app.controller('DropdownDemoCtrl', ['$scope', function ($scope) {
         $event.stopPropagation();
         $scope.status.isopen = !$scope.status.isopen;
     };
-}])
-;
+}]);
+
 app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', function ($scope, $modalInstance, items) {
     $scope.items = items;
     $scope.selected = {
@@ -54234,10 +54195,11 @@ app.controller('ModalInstanceCtrl', ['$scope', '$uibModalInstance', 'items', fun
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-}])
-;
+}]);
+
 app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope, $modal, $log) {
     $scope.items = ['item1', 'item2', 'item3'];
+
     $scope.open = function (size, windowClass) {
         var modalInstance = $modal.open({
             templateUrl: 'partials/ui-modal-list.html',
@@ -54261,7 +54223,7 @@ app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope
 
     $scope.openform = function (type) {
         var modalInstance = $modal.open({
-            templateUrl: 'partials/ui-modal-form' + type + '.html',
+            templateUrl: 'partials/ui-modal-form1.html',
             controller: 'ModalInstanceCtrl',
             resolve: {
                 items: function () {
@@ -54294,12 +54256,8 @@ app.controller('ModalDemoCtrl', ['$scope', '$uibModal', '$log', function ($scope
             $log.info('Modal dismissed at: ' + new Date());
         });
     };
+}]);
 
-
-
-
-}])
-;
 app.controller('PaginationDemoCtrl', ['$scope', '$log', function ($scope, $log) {
     $scope.totalItems = 64;
     $scope.currentPage = 4;
@@ -54315,13 +54273,13 @@ app.controller('PaginationDemoCtrl', ['$scope', '$log', function ($scope, $log) 
     $scope.maxSize = 5;
     $scope.bigTotalItems = 175;
     $scope.bigCurrentPage = 1;
-}])
-;
+}]);
+
 app.controller('PopoverDemoCtrl', ['$scope', function ($scope) {
     $scope.dynamicPopover = 'Hello, World!';
     $scope.dynamicPopoverTitle = 'Title';
-}])
-;
+}]);
+
 app.controller('ProgressDemoCtrl', ['$scope', function ($scope) {
     $scope.max = 200;
 

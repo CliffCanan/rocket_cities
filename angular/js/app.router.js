@@ -42,50 +42,11 @@ angular.module('app')
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
-                                'js/controllers/vectormap.js',
-                                'js/controllers/messages-widget.js',
-                                '../bower_components/font-awesome/css/font-awesome.css'
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetssocialmedia', {
-                url: '/widgetssocialmedia',
-                templateUrl: 'partials/widgets-socialmedia.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['countTo',
+                                'countTo',
                                 'js/controllers/countto.js',
                                 'js/controllers/vectormap.js',
-                                'js/directives/ui-todowidget.js',
+                                'js/controllers/vectormap.js',
                                 'js/controllers/messages-widget.js',
-                                '../bower_components/font-awesome/css/font-awesome.css'
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetsgraphs', {
-                url: '/widgetsgraphs',
-                templateUrl: 'partials/widgets-graphs.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.widgetstodo', {
-                url: '/widgetstodo',
-                templateUrl: 'partials/widgets-todo.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
                                 'js/directives/ui-todowidget.js',
                                 '../bower_components/font-awesome/css/font-awesome.css'
                             ]);
@@ -196,7 +157,7 @@ angular.module('app')
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
-                                '../node_modules/isotope-layout/dist/isotope.pkgd.min',
+                                '../node_modules/isotope-layout/dist/isotope.pkgd.min.js',
                                 'js/controllers/store.js',
                             ]);
                         }
@@ -385,7 +346,7 @@ angular.module('app')
                 url: '/timeline',
                 templateUrl: 'partials/ui-timeline.html'
             })
-            .state('app.ui.paymenthistory', {
+            .state('app.paymenthistory', {
                 url: '/paymenthistory',
                 templateUrl: 'partials/paymenthistory.html'
             })
@@ -441,13 +402,13 @@ angular.module('app')
             .state('app.mail', {
                 abstract: true,
                 url: '/mail',
-                //template: '<div ui-view class=""></div>',
                 templateUrl: 'partials/mail.html',
-                // use resolve to load other dependences
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css', 'js/controllers/mail.js',
+                            return uiLoad.load([
+                                '../bower_components/font-awesome/css/font-awesome.css',
+                                'js/controllers/mail.js',
                                 'js/services/mail-service.js',
                                 JQ_CONFIG.moment
                             ]);

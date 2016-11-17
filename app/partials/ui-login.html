@@ -1,43 +1,106 @@
 <div class="login_page">
-<div class="login-wrapper" ng-controller="LoginFormController">
-    <div id="login" class="login loginpage col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8">
-        <h1><a href="#" title="Login Page" tabindex="-1">Complete Admin - Angular</a></h1>
+    <div class="login-wrapper" ng-controller="LoginFormController">
 
-        <form name="form" class="form-validation">
-    
-          <div class="text-danger text-center message" ng-show="authError">
-              {{authError}}
-          </div>
+        <div id="login" class="login loginpage col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8">
+            <h1>
+                <a href="#" title="Login Page" tabindex="-1">
+                    <i class="fa fa-rocket fa-2x"></i>
+                    <span>Rocket Cities</span>
+                </a>
+            </h1>
+        </div>
 
-            <p>
-                    <input type="email" name="email" id="user_login" class="input" ng-model="user.email" placeholder="Email" required/></label>
-            </p>
-            <p>
-                    <input type="password" name="pwd" id="user_login" class="input" ng-model="user.password" placeholder="Password" required/></label>
-            </p>
-            <p class="forgetmenot">
+        <div class="clearfix"></div>
 
-                            <label class="icheck icheck-white" for="rememberme">
-                                <input type="checkbox" value="forever" name="rememberme" checked id="rememberme">
-                                <i></i> Remember me
-                            </label>
-            </p>
+        <div class="m-b-20 p-5">
 
+            <div class="panel panel-primary clearfix">
+                <div class="panel-heading p-10 p-l-20">Login</div>
 
+                <div class="panel-body">
 
-            <p class="submit">
-            <button type="submit" ng-click="login()" ng-disabled='form.$invalid' class="btn btn-accent btn-block">Sign In</button>
-            </p>
-        </form>
+                    <div class="row">
+                        <form id="login-validation" class="col-md-7">
 
-        <p id="nav">
-            <a class="pull-left" ui-sref="access.forgotpwd" title="Password Lost and Found">Forgot password?</a>
-            <a class="pull-right" ui-sref="access.register" title="Sign Up">Sign Up</a>
-        </p>
+                            <div class="text-danger wrapper text-center" ng-show="authError">
+                                {{authError}}
+                            </div>
 
+                            <div class="p-10">
 
+                                <div class="form-group">
+                                    <label for="signup-em">Email Address:</label>
+                                    <div class="input-group input-group-lg" inputgroup>
+                                        <span class="input-group-addon">
+                                            <span class="arrow"></span>
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                        <input type="email" name="email" id="user_login" class="form-control" ng-model="user.email" placeholder="Email Address" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="signup-pw">Password:</label>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-addon addon-inside bg-white font-primary"><i class="fa fa-lock"></i></span>                                        
+                                        <input type="password" name="pwd" id="user_pw" class="form-control" ng-model="user.password" placeholder="Password" value="" required>
+                                    </div>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label class="icheck icheck-sm" for="rememberme">
+                                        <input type="checkbox" value="forever" name="rememberme" checked id="rememberme">
+                                        <i></i> Remember me
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" name="wp-submit" id="wp-submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Sign Up</button>
+                                </div>
+
+                                <p id="nav">
+                                    <a class="pull-left" ui-sref="access.forgotpwd" title="Password Lost and Found">Forgot Password?</a>
+                                    <a class="pull-right" ui-sref="access.register" title="Sign Up">Sign Up</a>
+                                </p>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </form>
+
+                        <div class="col-md-5">
+                            <div class="social-signup p-10">
+
+                                <a href="#" class="btn btn-block btn-md btn-facebook m-b-10">
+                                    <span class="icon-separator">
+                                        <i class="fa fa-facebook"></i>
+                                    </span>
+                                    <span class="button-content">Connect with Facebook</span>
+                                </a>
+                                <a href="#" class="btn btn-block btn-md btn-twitter m-b-10">
+                                    <span class="icon-separator">
+                                        <i class="fa fa-twitter"></i>
+                                    </span>
+                                    <span class="button-content">Connect with Twitter</span>
+                                </a>
+                                <a href="#" class="btn btn-block btn-md btn-primary">
+                                    <span class="icon-separator">
+                                        <i class="fa fa-google-plus"></i>
+                                    </span>
+                                    <span class="button-content">Connect with Google+</span>
+                                </a>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
     </div>
-</div>
 </div>
 
 

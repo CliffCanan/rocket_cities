@@ -1,9 +1,10 @@
 <div class='content-wrapper' ng-init="app.settings.pagetitle = 'Dashboard'; app.settings.showSideMenu = true; ">
-    <section class="box nobox margin-top-15 margin-bottom-0">
+
+    <section class="box nobox m-t-15 m-b-0">
         <div class="content-body">
 
             <div class="row">
-                <div class="col-xs-12 ">
+                <div class="col-xs-12">
 
                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ">
                         <div class="r4_counter wid-stats db_box">
@@ -54,11 +55,66 @@
                         </div>
                     </div>
 
+
+                    <div class="col-xs-12 col-md-6 m-t-20">
+
+                        <div class="wid-sparkgraph bg-success">
+                            <span class='bold'>28.95%</span>
+                            <span class='pull-right'>
+                                <small>Income Earned</small>
+                            </span>
+                            <div class="clearfix"></div>
+                            <div ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2, 8, 3, 4, 5, 10, 8, 7, 4, 7]" ui-jq="sparkline" ui-options="{{data2}}, {
+                type: 'bar',
+                barColor: '#fff',
+                height: '52',
+                barWidth: '18',
+                barSpacing: 4,
+                }" class="sparkline inline">
+                                Loading...
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 m-t-20">
+
+                        <div class="wid-sparkgraph bg-info">
+
+                            <span class='bold'>542 / 115</span>
+
+                            <span class='pull-right'>
+                                <small>Total / Unique visitors</small>
+                            </span>
+
+                            <div class="clearfix"></div>
+
+                            <div ng-init="data4=[
+                [1, 2],[2, 3],[4, 2],[4, 5],[4, 1],[6, 4],[3, 2],[3, 6],[2, 2],[6, 2],[7, 4],[3, 4],[6, 4],[3, 2],[3, 6],[2, 2],[6, 2],[2, 2],[6, 2],[7, 4],[3, 4],[3, 7]
+            ]" ui-jq="sparkline" ui-options="{{data4}}, {
+                type: 'bar',
+                barColor: '#f5f5f5',
+                height: '52',
+                barWidth: '16',
+                barSpacing: 3,
+                zeroAxis: false,
+                negBarColor: '{{app.color.primary}}',
+                zeroColor: '#666',
+                stackedBarColor: ['#ffffff', '#1a8b99'],
+                }" class="sparkline inline">
+                                Loading...
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
+
         </div>
 
     </section>
+
 
     <div class="col-xs-12">
         <section class="box">
@@ -69,7 +125,7 @@
 
             <div class="content-body p-t-20">
                 <div class="row">
-                    
+
                     <div class="col-sm-8 col-xs-12 p-l-0 p-r-0">
                         <div class="r1_maingraph db_box">
 
@@ -102,19 +158,19 @@
         </section>
     </div>
 
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-sm-6 col-md-8">
         <section class="box">
             <header class="panel_header">
                 <h2 class="title pull-left">Page Views / Unique Visitors</h2>
             </header>
 
-            <div class="content-body padding-top-45">
+            <div class="content-body p-t-45">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12 padding-left-0 padding-right-0">
+                    <div class="col-xs-12 p-l-0 p-r-0">
                         <div class="r1_maingraph db_box">
 
                             <div class='graph-wrapper'>
-                                <div class="col-md-12 col-sm-12 col-xs-12 padding-right-0" ng-controller="DashboardLineCtrl" style="overflow:hidden;">
+                                <div class="col-xs-12 p-r-0" ng-controller="DashboardLineCtrl" style="overflow:hidden;">
                                     <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-options="options" chart-legend="false" chart-series="series" chart-click="onClick" chart-colours="colours" style="width: 100% !important;height: 230px"></canvas>
                                 </div>
                             </div>
@@ -125,92 +181,59 @@
         </section>
     </div>
 
-    <div class="clearfix"></div>
+    <!-- To Do Widget -->
+    <div class="col-xs-12 col-sm-6 col-md-4">
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <section class="box">
-            <header class="panel_header">
-                <h2 class="title pull-left">Visitor's Statistics</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle material-icons">expand_more</i>
-                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
-                    <i class="box_close material-icons">close</i>
+        <div class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+
+            <div class="wid-task-header">
+                <div class="wid-icon">
+                    <i class="fa fa-tasks"></i>
                 </div>
-            </header>
-            <div class="content-body padding-top-45">
-                <div class="">
-                    <div class="">
-                        <div class="wid-vectormap">
-                            <div class="row">
-                                <div class="col-md-9 col-sm-9 col-xs-12 padding-left-10">
-                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-left-0" ng-controller="JVectorMapDemoCtrl">
-                                        <div style="width: 100%; height: 300px;" ui-jq="vectorMap" ui-options="{
-                        map: 'world_mill_en',
-                        markers: {{world_markers}},
-                        normalizeFunction: 'polynomial',
-                        zoomOnScroll: false,
-                        scaleColors: ['#1fb5ac', '#1fb5ac'],
-                        hoverOpacity: 0.7,
-                        hoverColor: false,
-                        regionsSelectable: true,
-                        markersSelectable: true,
-                        markersSelectableOne: true,
-                        panOnDrag: true,
-
-                        focusOn: {
-                            x: 0.5,
-                            y: 0.5,
-                            scale: 1,
-                            animate: true
-                        },
-                        regionStyle: {
-                            initial: {
-                                fill: '#E91E63',
-                                'fill-opacity': 0.8,
-                                stroke: '#E91E63',
-                                'stroke-width': 0,
-                                'stroke-opacity': 0
-                            },
-                            hover: {
-                                fill: '{{app.color.accent}}',
-                                'fill-opacity': 1,
-                                cursor: 'pointer'
-                            },
-                            selected: {
-                                fill: '{{app.color.accent}}'
-                            },
-                            selectedHover: {}
-                        },
-                        markerStyle: {
-                            initial: {
-                                fill: '#3f51b5',
-                                stroke: '#3f51b5',
-                                r: 6
-                            },
-                            hover: {
-                                stroke: '{{app.color.warning}}',
-                                'stroke-width': 2,
-                                cursor: 'pointer'
-                            },
-                            selected: {
-                                fill: '{{app.color.warning}}',
-                                'stroke-width': 0,
-                            },
-                        },
-                        backgroundColor: '',
-
-          }">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="wid-text">
+                    <h4>Build My City</h4>
                 </div>
             </div>
-        </section>
+
+            <div class="wid-all-tasks">
+                <perfect-scrollbar class="ps-todo-widget" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20">
+                    <ul class="list-unstyled">
+                        <li class="checked">
+                            <label class="icheck icheck-label icheck-white form-label ">
+                                <input type="checkbox" value="" checked>
+                                <i></i> Complete Profile
+                            </label>
+                        </li>
+                        <li>
+                            <label class="icheck icheck-label icheck-white form-label ">
+                                <input type="checkbox" value="">
+                                <i></i> Upload A Video
+                            </label>
+                        </li>
+                        <li>
+                            <label class="icheck icheck-label icheck-white form-label ">
+                                <input type="checkbox" value="">
+                                <i></i> Add Payment Info
+                            </label>
+                        </li>
+                        <li>
+                            <label class="icheck icheck-label icheck-white form-label ">
+                                <input type="checkbox" value="">
+                                <i></i> Get Subscribers
+                            </label>
+                        </li>
+                    </ul>
+                </perfect-scrollbar>
+            </div>
+
+            <div class="wid-add-task">
+                <input type="text" class="form-control" placeholder="Add task" />
+            </div>
+
+        </div>
+
     </div>
+
     <div class="clearfix"></div>
 
 </div>
