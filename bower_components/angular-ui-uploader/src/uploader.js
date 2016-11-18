@@ -31,13 +31,17 @@ function uiUploader($log) {
 
     function startUpload(options) {
         self.options = options;
+
+        //headers are not shared by requests
+        var headers = options.headers || {};
+
         for (var i = 0; i < self.files.length; i++) {
             if (self.activeUploads == self.options.concurrency) {
                 break;
             }
             if (self.files[i].active)
                 continue;
-            ajaxUpload(self.files[i], self.options.url, self.options.data);
+            ajaxUpload(self.files[i], self.options.url, self.options.data, headers);
         }
     }
 
@@ -64,12 +68,8 @@ function uiUploader($log) {
         return (bytes / Math.pow(1024, i)).toFixed(i ? 1 : 0) + ' ' + sizes[isNaN(bytes) ? 0 : i + 1];
     }
 
-    function isFunction(entity) {
-        return typeof(entity) === typeof(Function);
-    }
-
-    function ajaxUpload(file, url, data) {
-        var xhr, formData, prop, key = '' || 'file';
+    function ajaxUpload(file, url, data, headers) {
+        var xhr, formData, prop, key = 'file';
         data = data || {};
 
         self.activeUploads += 1;
@@ -83,6 +83,14 @@ function uiUploader($log) {
 
         formData = new window.FormData();
         xhr.open('POST', url);
+
+        if (headers) {
+            for (var headerKey in headers) {
+                if (headers.hasOwnProperty(headerKey)) {
+                    xhr.setRequestHeader(headerKey, headers[headerKey]);
+                }
+            }
+        }
 
         // Triggered when upload starts:
         xhr.upload.onloadstart = function() {
@@ -99,31 +107,44 @@ function uiUploader($log) {
             //console.info(event.loaded);
             file.loaded = event.loaded;
             file.humanSize = getHumanSize(event.loaded);
-            if (isFunction(self.options.onProgress)) {
+            if (angular.isFunction(self.options.onProgress)) {
                 self.options.onProgress(file);
             }
         };
 
-        // Triggered when upload is completed:
-        xhr.onload = function() {
-            self.activeUploads -= 1;
-            self.uploadedFiles += 1;
-            startUpload(self.options);
-            if (isFunction(self.options.onCompleted)) {
-                self.options.onCompleted(file, xhr.responseText, xhr.status);
-            }            
-            if (self.uploadedFiles === self.files.length) {
-                self.uploadedFiles = 0;
-                if (isFunction(self.options.onCompletedAll)) {
-                    self.options.onCompletedAll(self.files);
-                }
+        // Triggered when the upload is successful (the server may not have responded yet).
+        xhr.upload.onload = function() {
+
+            if (angular.isFunction(self.options.onUploadSuccess)) {
+                self.options.onUploadSuccess(file);
             }
         };
 
         // Triggered when upload fails:
-        xhr.onerror = function(e) {
-            if (isFunction(self.options.onError)) {
+        xhr.upload.onerror = function(e) {
+            if (angular.isFunction(self.options.onError)) {
                 self.options.onError(e);
+            }
+        };
+
+        // Triggered when the upload has completed AND the server has responded. Equivalent to
+        // listening for the readystatechange event when xhr.readyState === XMLHttpRequest.DONE.
+        xhr.onload = function () {
+
+            self.activeUploads -= 1;
+            self.uploadedFiles += 1;
+
+            startUpload(self.options);
+
+            if (angular.isFunction(self.options.onCompleted)) {
+                self.options.onCompleted(file, xhr.responseText, xhr.status);
+            }
+
+            if (self.activeUploads === 0) {
+                self.uploadedFiles = 0;
+                if (angular.isFunction(self.options.onCompletedAll)) {
+                    self.options.onCompletedAll(self.files);
+                }
             }
         };
 

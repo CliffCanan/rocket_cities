@@ -1,6 +1,7 @@
 <div class='content-wrapper' ng-init="app.settings.pagetitle = 'Settings';">
 
     <div class="col-lg-12">
+
         <div class="media m-b-20">
             <div class="media-left media-middle p-r-20">
                 <div class="avatar">
@@ -10,11 +11,11 @@
             <div class="media-body">
                 <h3 class="f-300 m-b-0 m-t-5">
                     <a href="profile-details.html">
-                        <span>Sydnee Ledner</span>
+                        <span>Cliff Canan</span>
                     </a>
                     <span class="text-muted">
                         <span class="m-r-5 m-l-5">/</span>
-                    </span> Profile Edit
+                    </span>&nbsp;<small>Profile Edit</small>
                 </h3>
                 <p class="m-t-0">
                     <span class="label label-primary label-outline text-uppercase m-r-5">Premium</span> Edit Your Name, Avatar, etc.
@@ -22,401 +23,946 @@
             </div>
         </div>
 
-
         <section class="box nobox">
 
-            <div class="content-body">
-                <div class="row">
+            <uib-tabset vertical="true" type="pills" class="tab-container vertical">
 
-                    <div class="col-md-3 col-sm-4 col-xs-12 p-r-0">
+                <uib-tab>
 
-                        <div class=" uprofile-wrapper">
-                            <div class="uprofile-image">
-                                <img src="data/profile/profile.jpg" class="img-responsive">
-                            </div>
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-user"></i>&nbsp;Profile
+                    </uib-tab-heading>
 
-                            <div class="uprofile-name">
-                                <h3>
-                                    <span>Shane Taylor</span>
-                                    <span class="uprofile-status online"></span>
-                                </h3>
-                                <p class="uprofile-title">Web Developer</p>
-                                <p class="text-light profile-text">Hello, I am John. I love making awesome videos about how to tie great ties and other fun stuff.</p>
-                                <p class="margin-top-30">
-                                    <a href="#" class="btn btn-default btn-md text-light"><i class="fa fa-dribbble icon-xs"></i></a>
-                                    <a href="#" class="btn btn-default btn-md text-light"><i class="fa fa-google-plus icon-xs"></i></a>
-                                    <a href="#" class="btn btn-default btn-md text-light"><i class="fa fa-twitter icon-xs"></i></a>
-                                    <a href="#" class="btn btn-default btn-md text-light"><i class="fa fa-facebook icon-xs"></i></a>
-                                </p>
-                                <br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Edit Profile</h4>
+                        </div>
 
-                                <a class="btn btn-md btn-primary btn-block">Subscribe</a>
+                        <div class="panel-body">
 
-                                <div class="margin-top-10">
-                                    <div class="col-xs-4 bg-white">
-                                        <strong class="uprofile-count">760</strong>
-                                        <span>Fans</span>
-                                    </div>
-                                    <div class="col-xs-4 bg-white">
-                                        <strong class="uprofile-count">280</strong>
-                                        <span>Videos</span>
-                                    </div>
-                                    <div class="col-xs-4 bg-white">
-                                        <strong class="uprofile-count">4104</strong>
-                                        <span>Posts</span>
+                            <form class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Avatar</label>
+                                    <div class="col-sm-6">
+                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
+                                            <div class="panel-body">
+                                                <p class="text-center">
+                                                    <i class="fa fa-3x fa-user text-gray-light text-center"></i>
+                                                    <br>
+                                                </p>
+                                                <h5 class="text-center">Upload Your Avatar...</h5>
+                                                <p class="text-center">
+                                                    Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
+                                                    <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
+                                                </p>
+                                                <p></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="uprofile-buttons margin-0 padding-top-0 text-center">
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-9 col-sm-8 col-xs-12 padding-left-10">
+                                <div class="form-group">
+                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="profile-edit-legal-name" placeholder="Legal Name">
+                                    </div>
+                                </div>
 
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <uib-tabset class="tab-container primary">
+                                <div class="form-group">
+                                    <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="profile-edit-display-name" placeholder="Display Name">
+                                    </div>
+                                </div>
 
-                                    <uib-tab>
-                                        <uib-tab-heading>
-                                            <i class="fa fa-home"></i> Newsfeed
-                                        </uib-tab-heading>
-                                        <div class="uprofile-content padding-top-30">
+                                <div class="form-group">
+                                    <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="profile-edit-email" placeholder="Email Address">
+                                    </div>
+                                </div>
 
-                                            <div class="clearfix"></div>
+                                <div class="form-group">
+                                    <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="profile-edit-job-type">
+                                            <option>Human Intranet Developer</option>
+                                            <option>Dynamic Tactics Specialist</option>
+                                            <option>Global Configuration Consultant</option>
+                                            <option>Principal Directives Orchestrator</option>
+                                            <option>Corporate Usability Consultant</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                                            <div class="uprofile_wall_posts col-md-12 col-sm-12 col-xs-12">
-                                                <div class="pic-wrapper col-md-1 col-sm-1 col-xs-2 text-center">
-                                                    <img src="data/profile/avatar-2.png" class="" alt="">
-                                                </div>
-                                                <div class="info-wrapper col-md-11 col-sm-11 col-xs-10">
-                                                    <div class="username">
-                                                        <span class="bold">John Smith</span> post in group <span class="bold">work</span>
-                                                    </div>
-                                                    <div class="info text-muted">
-                                                        "Balance" is a concept based on human perception and the complex nature of the human senses of weight and proportion.
-                                                    </div>
-                                                    <div class="info-details">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li><a href="#" class="text-muted">15 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-comment"></i> 584</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-heart"></i> 12k</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-reply"></i> Reply</a></li>
-                                                        </ul>
-                                                    </div>
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Availability</strong></h6>
+                                </div>
 
-                                                </div>
-                                            </div>
-
-                                            <div class="clearfix"></div>
-
-                                            <hr>
-
-                                            <div class="clearfix"></div>
-
-                                            <div class="uprofile_wall_posts col-md-12 col-sm-12 col-xs-12">
-                                                <div class="pic-wrapper col-md-1 col-sm-1 col-xs-2 text-center">
-                                                    <img src="data/profile/avatar-1.png" class="" alt="">
-                                                </div>
-                                                <div class="info-wrapper col-md-11 col-sm-11 col-xs-10">
-                                                    <div class="username">
-                                                        <span class="bold">John Smith</span> post in group <span class="bold">work</span>
-                                                    </div>
-
-                                                    <div class="info text-muted">
-                                                        Humans can evaluate these visual elements in several situations to find a sense of balance.
-                                                        <div class="clearfix"></div>
-                                                        <div class="col-md-8 row margin-top-15 margin-bottom-15">
-                                                            <div class="row">
-                                                                <div class="col-md-6"><img src='img/c0.png' class="img-responsive"></div>
-                                                                <div class="col-md-6"><img src='img/c1.png' class="img-responsive"></div>
-                                                                <div class="clearfix"></div>
-                                                                <div style="height:30px;width:100%;"></div>
-                                                                <div class="col-md-6"><img src='img/c2.png' class="img-responsive"></div>
-                                                                <div class="col-md-6"><img src='img/c3.png' class="img-responsive"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-
-                                                    <div class="info-details">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li><a href="#" class="text-muted">15 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-comment"></i> 584</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-heart"></i> 12k</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-reply"></i> Reply</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="clearfix"></div>
-
-                                                    <div class="comment">
-                                                        <div class="pic-wrapper col-md-1 col-sm-1 col-xs-2 text-center">
-                                                            <img data-src-retina="data/profile/avatar-2.png" data-src="data/profile/avatar-2.png" src="data/profile/avatar-2.png" alt="">
-                                                        </div>
-                                                        <div class="info-wrapper col-md-11 col-sm-11 col-xs-10">
-                                                            <div class="username">
-                                                                <span class="bold">Fin</span>
-                                                            </div>
-                                                            <div class="info text-muted">
-                                                                Perfect info for the project. Great work :)
-                                                            </div>
-                                                            <div class="info-details">
-                                                                <ul class="list-unstyled list-inline">
-                                                                    <li><a href="#" class="text-muted">10 Minutes ago</a></li>
-                                                                    <li><a href="#" class="text-muted"><i class="fa fa-heart-o"></i> Like</a></li>
-                                                                    <li><a href="#" class="text-muted">More</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-
-                                                    <div class="clearfix"></div>
-
-                                                    <div class="comment">
-                                                        <div class="pic-wrapper col-md-1 col-sm-1 col-xs-2 text-center">
-                                                            <img data-src-retina="data/profile/avatar-3.png" data-src="data/profile/avatar-3.png" src="data/profile/avatar-3.png" alt="">
-                                                        </div>
-                                                        <div class="info-wrapper col-xs-10">
-                                                            <div class="username">
-                                                                <span class="bold">Arun</span>
-                                                            </div>
-                                                            <div class="info text-muted">
-                                                                Keep it up. Much appreciated effort.
-                                                            </div>
-                                                            <div class="info-details">
-                                                                <ul class="list-unstyled list-inline">
-                                                                    <li><a href="#" class="text-muted">8 Minutes ago</a></li>
-                                                                    <li><a href="#" class="text-muted"><i class="fa fa-heart"></i> Liked</a></li>
-                                                                    <li><a href="#" class="text-muted">More</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-
-                                                    <div class="comment comment-input">
-                                                        <div class="pic-wrapper col-md-1 col-sm-1 col-xs-2 text-center">
-                                                            <img data-src-retina="data/profile/profile.jpg" data-src="data/profile/profile.jpg" src="data/profile/profile.jpg" alt="">
-                                                        </div>
-                                                        <div class="info-wrapper col-xs-10">
-                                                            <div class="input-group primary ">
-                                                                <input type="text" class="form-control" placeholder="Post a comment">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-rocket"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                            <div class="clearfix"></div>
-
-                                            <div class="uprofile_wall_posts col-xs-12">
-                                                <div class="pic-wrapper col-sm-1 col-xs-2 text-center">
-                                                    <img src="data/profile/avatar-4.png" class="" alt="">
-                                                </div>
-                                                <div class="info-wrapper col-xs-10">
-                                                    <div class="username">
-                                                        <span class="bold">John Smith</span> post in group <span class="bold">work</span>
-                                                    </div>
-                                                    <div class="info text-muted">
-                                                        "Balance" is a concept based on human perception and the complex nature of the human senses of weight and proportion.
-                                                    </div>
-                                                    <div class="info-details">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li><a href="#" class="text-muted">15 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-comment"></i> 584</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-heart"></i> 12k</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-reply"></i> Reply</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                            <div class="clearfix"></div>
-
-                                            <div class="uprofile_wall_posts col-xs-12">
-                                                <div class="pic-wrapper col-sm-1 col-xs-2 text-center">
-                                                    <img src="data/profile/avatar-2.png" class="" alt="">
-                                                </div>
-                                                <div class="info-wrapper col-xs-10">
-                                                    <div class="username">
-                                                        <span class="bold">John Smith</span> post in group <span class="bold">work</span>
-                                                    </div>
-                                                    <div class="info text-muted">
-                                                        "Balance" is a concept based on human perception and the complex nature of the human senses of weight and proportion.
-                                                        <div class="row">
-                                                            <br>
-                                                            <div class="col-md-4">
-                                                                <img src="img/c4.png" class="img-responsive">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <h4>Posted on blog</h4>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="info-details">
-                                                        <ul class="list-unstyled list-inline">
-                                                            <li><a href="#" class="text-muted">15 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-comment"></i> 584</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-heart"></i> 12</a></li>
-                                                            <li><a href="#" class="text-muted"><i class="fa fa-reply"></i> Reply</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                            <div class="clearfix"></div>
-
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">After Logging</label>
+                                    <div class="col-sm-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
+                                                <span class="label label-outline label-success">Available</span>
+                                            </label>
                                         </div>
-
-                                    </uib-tab>
-
-                                    <uib-tab>
-                                        <uib-tab-heading>
-                                            <i class="fa fa-rocket"></i> Timeline
-                                        </uib-tab-heading>
-
-                                        <div class="row">
-                                            <div class="col-xs-12">
-
-                                                <ul class="timeline">
-                                                    <li>
-                                                        <div class="timeline-badge animated fadeIn"><i class="material-icons">person</i></div>
-                                                        <div class="timeline-panel animated fadeIn">
-                                                            <div class="timeline-time pull-right">
-                                                                2 hours ago
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="timeline-img">
-                                                                <img src="img/c2.png" class='img-responsive'>
-                                                            </div>
-                                                            <div class="timeline-heading">
-                                                                <h3 class="timeline-title">Graphic Design</h3>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p class='date'>17th July 2015</p>
-                                                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                                                                <br>
-                                                                <a class='btn btn-primary btn-border btn-xs'>Read more</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="timeline-inverted">
-                                                        <div class="timeline-badge animated fadeIn"><i class="material-icons">dashboard</i></div>
-                                                        <div class="timeline-panel animated fadeIn">
-                                                            <div class="timeline-time pull-left">
-                                                                2 hours ago
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="timeline-img">
-                                                                <img src="img/c1.png" class='img-responsive'>
-                                                            </div>
-                                                            <div class="timeline-heading">
-                                                                <h3 class="timeline-title">Contrast concepts</h3>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p class='date'>17th July 2015</p>
-                                                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                                                                <br>
-                                                                <a class='btn btn-primary btn-border btn-xs'>Read more</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-badge animated fadeIn"><i class="material-icons">album</i></div>
-                                                        <div class="timeline-panel animated fadeIn">
-                                                            <div class="timeline-time pull-right">
-                                                                2 hours ago
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="timeline-img">
-                                                                <img src="img/c3.png" class='img-responsive'>
-                                                            </div>
-                                                            <div class="timeline-heading">
-                                                                <h3 class="timeline-title">Graphic Design</h3>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p class='date'>17th July 2015</p>
-                                                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                                                                <br>
-                                                                <a class='btn btn-primary btn-border btn-xs'>Read more</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-
-                                                    <li class="timeline-inverted">
-                                                        <div class="timeline-badge animated fadeIn"><i class="material-icons">backup</i></div>
-                                                        <div class="timeline-panel animated fadeIn">
-                                                            <div class="timeline-time pull-left">
-                                                                2 hours ago
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="timeline-img">
-                                                                <img src="img/c4.png" class='img-responsive'>
-                                                            </div>
-                                                            <div class="timeline-heading">
-                                                                <h3 class="timeline-title">Graphic Design</h3>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p class='date'>17th July 2015</p>
-                                                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                                                                <br>
-                                                                <a class='btn btn-primary btn-border btn-xs'>Read more</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="timeline-badge animated fadeIn"><i class="material-icons">brightness_5</i></div>
-                                                        <div class="timeline-panel animated fadeIn">
-                                                            <div class="timeline-time pull-right">
-                                                                2 hours ago
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <div class="timeline-img">
-                                                                <img src="img/c2.png" class='img-responsive'>
-                                                            </div>
-                                                            <div class="timeline-heading">
-                                                                <h3 class="timeline-title">Graphic Design</h3>
-                                                            </div>
-                                                            <div class="timeline-body">
-                                                                <p class='date'>17th July 2015</p>
-                                                                <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
-                                                                <br>
-                                                                <a class='btn btn-primary btn-border btn-xs'>Read more</a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-
-                                            </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosInactive" value="option2">
+                                                <span class="label label-outline label-warning">Inactive</span>
+                                            </label>
                                         </div>
-                                    </uib-tab>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosBusy" value="option3">
+                                                <span class="label label-outline label-danger">Busy</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosOffline" value="option2">
+                                                <span class="label label-outline label-gray">Offline</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                </uib-tabset>
-                            </div>
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Add Profile</strong></h6>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="panel-footer text-right">
+                            <button type="button" class="btn btn-primary">Update Profile</button>
                         </div>
 
                     </div>
 
-                </div>
-            </div>
+                </uib-tab>
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-address-card-o"></i>&nbsp;Page Details
+                    </uib-tab-heading>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Edit Profile</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Avatar</label>
+                                    <div class="col-sm-6">
+                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
+                                            <div class="panel-body">
+                                                <p class="text-center">
+                                                    <i class="fa fa-3x fa-user text-gray-light text-center"></i>
+                                                    <br>
+                                                </p>
+                                                <h5 class="text-center">Upload Your Avatar...</h5>
+                                                <p class="text-center">
+                                                    Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
+                                                    <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
+                                                </p>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="profile-edit-legal-name" placeholder="Legal Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="profile-edit-display-name" placeholder="Display Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="profile-edit-email" placeholder="Email Address">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="profile-edit-job-type">
+                                            <option>Human Intranet Developer</option>
+                                            <option>Dynamic Tactics Specialist</option>
+                                            <option>Global Configuration Consultant</option>
+                                            <option>Principal Directives Orchestrator</option>
+                                            <option>Corporate Usability Consultant</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Availability</strong></h6>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">After Logging</label>
+                                    <div class="col-sm-6">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
+                                                <span class="label label-outline label-success">Available</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosInactive" value="option2">
+                                                <span class="label label-outline label-warning">Inactive</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosBusy" value="option3">
+                                                <span class="label label-outline label-danger">Busy</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosOffline" value="option2">
+                                                <span class="label label-outline label-gray">Offline</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Add Profile</strong></h6>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
+                                    <div class="col-sm-6">
+                                        <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="panel-footer text-right">
+                            <button type="button" class="btn btn-primary">Update Profile</button>
+                        </div>
+
+                    </div>
+
+                </uib-tab>
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-home"></i>&nbsp;Account
+                    </uib-tab-heading>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"> Account Edit</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <!-- START All Forms -->
+                            <form class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label for="account-edit-old-password" class="col-sm-3 control-label">Old Password</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="account-edit-old-password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="account-edit-new-password" class="col-sm-3 control-label">New Password</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="account-edit-new-password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="account-edit-confirm-new-password" class="col-sm-3 control-label">Confirm New Password</label>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control" id="account-edit-confirm-new-password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label"></label>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default">Update Password</button>
+                                        <a role="button" class="btn btn-link" href="../pages/forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <div class="panel-footer">
+                            <i class="fa fa-fw fa-support m-r-1"></i> If you need help, contact us. <a href="../apps/faq.html">We Can Help</a>.
+                        </div>
+
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Change Username</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Changing the username is not recommended. But if you really want to change it, <a href="mailto:support@rocketcities.com" target="_blank">let us know</a> and we can update it for you.</p>
+                            <button type="button" class="btn btn-primary btn-border">Change Username</button>
+                        </div>
+                    </div>
+
+                    <!-- START Panel Delete Account -->
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Delete Account</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>Deleting your account is permanent and cannot be un-done!</p>
+                            <button type="button" class="btn btn-danger btn-outline">Delete Your Account</button>
+                        </div>
+                    </div>
+                    <!-- END Panell Delete Account -->
+
+                </uib-tab>
+
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-bank"></i>&nbsp;Payment Info
+                    </uib-tab-heading>
+
+                    <!-- START Panel Billing Method -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Billing Edit</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <!-- START All Forms -->
+                            <form class="form-horizontal">
+
+                                <!-- START Your Plan -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Your Plan</label>
+                                    <div class="col-sm-9">
+
+                                        <!-- START Media with Left -->
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <p><span class="text-white">Premium </span> - You use <strong>37%</strong> of the available space</p>
+
+                                                <!-- START Progress Bars -->
+                                                <div class="progress b-r-a-0 m-b-1 h-3">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 35%">
+                                                        <span class="sr-only">35% Complete (success)</span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-info" style="width: 20%">
+                                                        <span class="sr-only">20% Complete (warning)</span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-success" style="width: 10%">
+                                                        <span class="sr-only">10% Complete (danger)</span>
+                                                    </div>
+                                                </div>
+                                                <!-- END Progress Bars -->
+                                                <!-- START Legend  -->
+                                                <dl class="dl-horizontal">
+                                                    <dt>Amount of Space</dt>
+                                                    <dd class="text-white"> 214,8 GB / 1,03 TB</dd>
+                                                    <dt>Regular Files</dt>
+                                                    <dd class="text-white"><i class="fa fa-square text-primary m-r-1"></i> 177,8 GB</dd>
+                                                    <dt>Shared Files</dt>
+                                                    <dd class="text-white"><i class="fa fa-square text-info m-r-1"></i> 37 GB</dd>
+                                                    <dt>Available Space</dt>
+                                                    <dd class="text-white"><i class="fa fa-square text-success m-r-1"></i> 177,8 GB</dd>
+                                                </dl>
+                                                <!-- END Legend  -->
+
+                                                <button type="button" class="btn btn-default m-t-1 hidden-lg hidden-md hidden-sm" data-toggle="modal" data-target=".modal-select-plan">Change Plan</button>
+
+                                            </div>
+
+                                            <!-- START Button Change Plan -->
+                                            <div class="media-right p-l-3 hidden-xs">
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".modal-select-plan">Change Plan</button>
+                                            </div>
+                                            <!-- END Button Change Plan -->
+
+                                        </div>
+                                        <!-- END Media with Left -->
+
+                                    </div>
+                                </div>
+                                <!-- END Your Plan -->
+
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Payment</strong></h6>
+                                </div>
+
+                                <!-- START Payment Method -->
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Payment Method</label>
+
+                                    <div class="col-sm-9">
+
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <p class="form-control-static">
+                                                    <i class="fa fa-fw fa-paypal text-primary m-r-1"></i> <span class="text-white">PayPal</span> - PayPal Account: <span>Hyman15@hotmail.com</span>
+                                                </p>
+                                                <!-- START Payment Details  -->
+                                                <dl class="dl-horizontal">
+                                                    <dt>Next Payment Due</dt>
+                                                    <dd class="text-white"> 2016-05-21 </dd>
+                                                    <dt>Amount</dt>
+                                                    <dd class="text-white">$ 13.00</dd>
+                                                </dl>
+                                                <!-- END Payment Details  -->
+
+                                                <button type="button" class="btn btn-default hidden-lg hidden-md hidden-sm m-t-1" data-toggle="modal" data-target=".modal-payment-sm">Change Payment</button>
+
+                                            </div>
+
+                                            <div class="media-right p-l-3 hidden-xs">
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target=".modal-payment-sm">Change Payment</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END  Payment Method -->
+
+                            </form>
+
+                        </div>
+
+                        <div class="panel-footer">
+                            <i class="fa fa-fw fa-support m-r-1"></i> If you want to personalize the notification settings, go <a href="../apps/settings-edit.html">here</a>.
+                        </div>
+
+                    </div>
+                    <!-- END Panel Billing Method -->
+                    <!-- START Panel Paymeny History -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Payment History</h4>
+                        </div>
+
+                        <!-- START Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>#</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>ID</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Date</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Amount</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Description</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Payment Method</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase text-right">
+                                            <strong>Receipt</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- START ROW Payment Success PayPal -->
+                                    <tr>
+                                        <td class="v-a-m">
+
+                                            <i class="fa fa-check text-success" data-toggle="tooltip" data-placement="left" title="" data-original-title="Success"></i>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <samp><span>28581</span></samp>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            2016-04-21
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <span>$ 970.00</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="label label-primary label-outline text-uppercase">Premium</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-paypal text-primary m-r-1"></i> <span class="text-white"><span>Maude90@hotmail.com</span></span>
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download"><i class="fa fa-cloud-download"></i></a>
+
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Payment Success PayPal -->
+                                    <!-- START ROW Payment Success CreditCard -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-check text-success" data-toggle="tooltip" data-placement="left" title="" data-original-title="Success"></i>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <samp><span>77910</span></samp>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            2011-09-13
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <span>$ 745.00</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="label label-info label-outline text-uppercase">Basic</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-credit-card-alt text-gray m-r-1"></i> Visa 4*** **** **** 9221
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="top" title="" data-original-title="Download"><i class="fa fa-cloud-download"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Payment Success CreditCard -->
+                                    <!-- START ROW Payment Failed PayPal -->
+                                    <tr>
+                                        <td class="v-a-m">
+
+                                            <i class="fa fa-close text-danger" data-toggle="tooltip" data-placement="left" title="" data-original-title="Failed"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span>90153</span></samp>
+                                        </td>
+                                        <td class="v-a-m">
+                                            2016-04-21
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>$ 689.00</span>
+
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="label label-warning label-outline text-uppercase">Pro</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-paypal text-gray m-r-1"></i> <span>Brennon_Quitzon@gmail.com</span>
+                                        </td>
+                                        <td class="v-a-m text-right"></td>
+                                    </tr>
+                                    <!-- END ROW Payment Failed PayPal -->
+                                    <!-- START ROW Payment Failed CreditCard -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-close text-danger" data-toggle="tooltip" data-placement="left" title="" data-original-title="Failed"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span>49030</span></samp>
+                                        </td>
+                                        <td class="v-a-m">
+                                            2011-09-16
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>$ 706.00</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="label label-danger label-outline text-uppercase">Advanced</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-credit-card-alt text-gray m-r-1"></i> Mastercard 4*** **** **** 9221
+                                        </td>
+                                        <td class="v-a-m text-right"></td>
+                                    </tr>
+                                    <!-- END ROW Payment Failed CreditCard -->
+                                    <!-- START ROW Payment Success PayPal -->
+                                    <tr>
+                                        <td class="v-a-m">
+
+                                            <i class="fa fa-check text-success" data-toggle="tooltip" data-placement="left" title="" data-original-title="Success"></i>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <samp><span>55691</span></samp>
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            2016-04-21
+                                        </td>
+                                        <td class="v-a-m text-white">
+                                            <span>$ 81.00</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="label label-gray-lighter label-outline text-uppercase">Free</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-paypal text-primary m-r-1"></i> <span class="text-white"><span>Garfield_Wilderman@hotmail.com</span></span>
+                                        </td>
+                                        <td class="v-a-m text-right"></td>
+                                    </tr>
+                                    <!-- END ROW Payment Success PayPal -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END Table -->
+
+                    </div>
+                    <!-- END Panel Paymeny History -->
+
+                </uib-tab>
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-bell"></i>&nbsp;Notifications
+                    </uib-tab-heading>
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Settings Edit</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5>Monthly Newsletter</h5>
+                                    <p>Do you want receive our monthly newsletter about new products and offers?</p>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value=""> Notify Me
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5>Private Message</h5>
+                                    <p>Do you want notify you by email whenever contacts send you a message?</p>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="inlineRadioOptions" value="option1" checked="checked"> Yes
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" name="inlineRadioOptions" value="option2"> No
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="media m-t-3">
+                                <div class="media-body">
+                                    <h5>Publication Email Subscriptions</h5>
+                                    <p>Control the emails that publications send to you.</p>
+                                    <button class="btn btn-default m-b-2" type="button">Manage Publications</button>
+                                </div>
+                            </div>
+
+                            <div class="media">
+                                <div class="media-body">
+                                    <h5>Activity Notifications</h5>
+                                    <p>Notify me via email when</p>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" value="option1" checked="checked"> Someone Comments
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" value="option2"> Someone Mentions Me
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" value="option2"> Someone Joins My City
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="panel-footer">
+                            <i class="fa fa-fw fa-support m-r-1"></i> If you have trouble with the configuration, you can contact us. <a href="faq.html">We Can Help</a>.
+                        </div>
+
+                    </div>
+                </uib-tab>
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-laptop"></i>&nbsp;Sessions
+                    </uib-tab-heading>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Sessions Edit</h4>
+                        </div>
+
+                        <!-- START Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>#</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Browser &amp; OS</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>IP</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Location</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase">
+                                            <strong>Signed In</strong>
+                                        </th>
+                                        <th class="small text-muted text-uppercase text-right">
+                                            <strong>Action</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <!-- START ROW Session ON -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-circle text-success"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <!-- START Browser & OS Version -->
+                                            <div class="media">
+                                                <div class="media-left media-middle">
+                                                    <i class="fa fa-fw fa-2x fa-desktop text-muted"></i>
+                                                </div>
+                                                <div class="media-body media-auto">
+                                                    <span class="text-white">Safari <span class="text-muted">/</span> 534.2.0</span>
+                                                    <br> OS X 10.11.3
+                                                </div>
+                                            </div>
+                                            <!-- END Browser & OS Version  -->
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span class="text-white">71.89.181.133</span></samp>
+                                            <br> Your Current Session
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="text-white">East Eltonburgh</span>
+                                            <br>
+                                            <span>Missouri, Mongolia</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="text-white">23 August, Monday, 2016</span>
+                                            <br> 12:43 PM
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Revoke"><i class="fa fa-close text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Session ON -->
+                                    <!-- START ROW Session OFF -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-circle text-danger"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <!-- START Browser & OS Version -->
+                                            <div class="media">
+                                                <div class="media-left media-middle">
+                                                    <i class="fa fa-fw fa-2x fa-laptop text-muted"></i>
+                                                </div>
+                                                <div class="media-body media-auto">
+                                                    <span class="text-white">Mozilla <span class="text-muted">/</span> 5.0</span>
+                                                    <br> Windows NT 6.0
+                                                </div>
+                                            </div>
+                                            <!-- END Browser & OS Version  -->
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span class="text-white">151.95.73.32</span></samp>
+                                            <br> -
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="text-white">East Brandy</span>
+                                            <br>
+                                            <span>New Mexico, Marshall Islands</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span class="text-white">01 October, Friday, 2016</span>
+                                            <br> 09:11 AM
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Revoke"><i class="fa fa-close text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Session OFF -->
+                                    <!-- START ROW Session IDLE -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-circle text-muted"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <!-- START Browser & OS Version -->
+                                            <div class="media">
+                                                <div class="media-left media-middle">
+                                                    <i class="fa fa-fw fa-2x fa-mobile text-muted"></i>
+                                                </div>
+                                                <div class="media-body media-auto">
+                                                    <span>Chrome <span class="text-muted">/</span> 20.0.844.0</span>
+                                                    <br> iOS 7.1
+                                                </div>
+                                            </div>
+                                            <!-- END Browser & OS Version  -->
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span>17.207.208.74</span></samp>
+                                            <br> -
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>Lake Velvaborough</span>
+                                            <br>
+                                            <span>Mississippi, Togo</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>01 December, Wednesday, 2016</span>
+                                            <br> 09:11 AM
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Revoke"><i class="fa fa-close text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Session IDLE -->
+                                    <!-- START ROW Session IDLE -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-circle text-muted"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <!-- START Browser & OS Version -->
+                                            <div class="media">
+                                                <div class="media-left media-middle">
+                                                    <i class="fa fa-fw fa-2x fa-tablet text-muted"></i>
+                                                </div>
+                                                <div class="media-body media-auto">
+                                                    <span>AppleWebKit <span class="text-muted">/</span> 534.2.0</span>
+                                                    <br> iOS 9.1
+                                                </div>
+                                            </div>
+                                            <!-- END Browser & OS Version  -->
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span>150.93.178.103</span></samp>
+                                            <br> -
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>Port Fredrick</span>
+                                            <br>
+                                            <span>Missouri, Estonia</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>01 November, Monday, 2016</span>
+                                            <br> 09:11 AM
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Revoke"><i class="fa fa-close text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Session IDLE -->
+                                    <!-- START ROW Session IDLE -->
+                                    <tr>
+                                        <td class="v-a-m">
+                                            <i class="fa fa-fw fa-circle text-muted"></i>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <!-- START Browser & OS Version -->
+                                            <div class="media">
+                                                <div class="media-left media-middle">
+                                                    <i class="fa fa-fw fa-2x fa-server text-muted"></i>
+                                                </div>
+                                                <div class="media-body media-auto">
+                                                    <span>Safari <span class="text-muted">/</span> 533.1.0</span>
+                                                    <br> OSX Server 4
+                                                </div>
+                                            </div>
+                                            <!-- END Browser & OS Version  -->
+                                        </td>
+                                        <td class="v-a-m">
+                                            <samp><span>159.64.1.4</span></samp>
+                                            <br> -
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>Dejahstad</span>
+                                            <br>
+                                            <span>Delaware, Jordan</span>
+                                        </td>
+                                        <td class="v-a-m">
+                                            <span>01 July, Friday, 2016</span>
+                                            <br> 09:11 AM
+                                        </td>
+                                        <td class="v-a-m text-right">
+                                            <a href="javascript: void(0)" data-toggle="tooltip" data-placement="left" title="" data-original-title="Revoke"><i class="fa fa-close text-danger"></i></a>
+                                        </td>
+                                    </tr>
+                                    <!-- END ROW Session IDLE -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END Table -->
+
+                    </div>
+
+                </uib-tab>
+
+            </uib-tabset>
+
         </section>
     </div>
 </div>

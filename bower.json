@@ -1,10 +1,10 @@
 {
   "name": "rocketcities",
   "version": "0.0.1",
-  "authors": ["themebuilder"],
+  "authors": ["Cliff Canan"],
   "description": "Super fandom.",
   "keywords": [
-    "AngularJS", "admin", "widgets", "admin panel", "flat ui", "ui", "web app", "app", "backend", "angular", "dashboard", "bootstrap", "charts", "ui kit", "responsive"
+    "AngularJS", "influencer", "video", "fan", "rocket", "angular", "dashboard", "bootstrap", "charts", "ui kit", "responsive"
   ],
   "license": "UNLICENSED",
   "homepage": "https://wrapbootstrap.com/theme/complete-admin-responsive-theme-WB0K88500",
@@ -55,7 +55,7 @@
         "flot.tooltip": "~0.8.4",
         "flot.orderbars": "*",
         "flot-spline": "0.0.1",
-        "font-awesome": "~4.6.1",
+        "font-awesome": "~4.7.0",
         "fullcalendar": "~2.3.1",
         "html5sortable": "*",
         "jquery": "~2.2.3",

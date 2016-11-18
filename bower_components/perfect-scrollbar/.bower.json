@@ -25,7 +25,7 @@
     "tag": "0.5.9",
     "commit": "f6af3e071110bc09294fb950959051a079897582"
   },
-  "_source": "git://github.com/noraesae/perfect-scrollbar-bower.git",
-  "_target": "~0.5.1",
+  "_source": "https://github.com/noraesae/perfect-scrollbar-bower.git",
+  "_target": "~0.5.9",
   "_originalSource": "perfect-scrollbar"
 }

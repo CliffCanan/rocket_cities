@@ -875,6 +875,10 @@ a {
     color: #757575;
 }
 
+.bg-gray-light {
+    background: #ddd;
+    color: #777;
+}
 
 /*-------------------------------
   Page Loading Progress Bar
@@ -4919,6 +4923,7 @@ fieldset[disabled] .btn {
     background-color: #fff;
     border-top: 0px;
 }
+
 
 
 /*---------------------------------------------
@@ -10352,9 +10357,25 @@ border-left: 3px solid transparent;
     #banner-hover-wrap > a {
         margin: 90px auto 0;
     }
+
+    .tab-container.vertical .nav-stacked {
+        float: left;
+        width: 16.66667%;
+    }
+
+    .tab-container.vertical .tab-content {
+        background: transparent;
+        border: none;
+        padding-top: 0;
+        float: left;
+        width: 83.33333%;
+    }
 }
 
 
+/*--------------------------------------
+        SETTINGS PAGE
+----------------------------------------*/
 
 .media .avatar {
     position: relative;
@@ -10367,6 +10388,14 @@ border-left: 3px solid transparent;
         width: 100%;
         display: block;
     }
+
+.panel .panel-heading {
+    padding: 10px 15px;
+}
+
+.panel .panel-body {
+    padding: 15px;
+}
 
 /*-------------------------------------------------
     Widget - To Do Task List
