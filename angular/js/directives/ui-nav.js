@@ -19,13 +19,11 @@ angular.module('app')
                   if (_this.next().is('ul') && _this.find(".arrow").html() == "keyboard_arrow_left")
                   {
                       _this.find(".arrow").html("keyboard_arrow_down") && e.preventDefault();
-                  } else
+                  }
+                  else
                   {
                       _this.find(".arrow").html("keyboard_arrow_left") && e.preventDefault();
                   }
-
-                  // mobile
-                  //_this.next().is('ul') || ( ( _window.width() < _mb ) && $('.app-aside').removeClass('show off-screen') );
               });
 
           }

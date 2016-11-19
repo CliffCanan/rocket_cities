@@ -271,22 +271,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.editable', {
-                url: '/editable',
-                templateUrl: 'partials/form-editable.html',
-                controller: 'FormXeditableCtrl',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('xeditable').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/form-xeditable.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.form.editors', {
                 url: '/editors',
                 templateUrl: 'partials/form-editors.html',
@@ -342,13 +326,34 @@ angular.module('app')
                     ]
                 }
             })
+            .state('app.form.editable', {
+                url: '/editable',
+                templateUrl: 'partials/form-editable.html',
+                controller: 'SettingsCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('xeditable').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/settings.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
             .state('app.settings', {
                 url: '/settings',
                 templateUrl: 'partials/settings.html',
+                controller: 'SettingsCtrl',
                 resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('xeditable').then(
+                                function () {
+                                    return $ocLazyLoad.load(['js/controllers/settings.js', '../bower_components/font-awesome/css/font-awesome.css']);
+                                }
+                            );
                         }
                     ]
                 }

@@ -2262,7 +2262,7 @@ angular.module('xeditable').factory('editableThemes', function() {
       //bs3 specific prop to change buttons class: btn-sm, btn-lg
       buttonsClass: '',
       //bs3 specific prop to change standard inputs class: input-sm, input-lg
-      inputClass: '',
+      inputClass: 'input-lg',
       postrender: function() {
         //apply `form-control` class to std inputs
         switch(this.directiveName) {

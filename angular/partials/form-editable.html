@@ -1,6 +1,8 @@
 <div class='content-wrapper' ng-init="app.settings.pagetitle = 'Form Xeditable';">
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <div class="col-md-6 col-xs-12">
+
         <section class="box ">
+
             <header class="panel_header">
                 <h2 class="title pull-left">HTML5 Input Fields</h2>
                 <div class="actions panel_actions pull-right">
@@ -9,9 +11,10 @@
                     <i class="box_close material-icons">close</i>
                 </div>
             </header>
-            <div class="content-body padding-bottom-0">
+            
+            <div class="content-body p-b-0">
                 <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xs-12">
                         <div class="form-group">
                             <label class="form-label">Email</label>
                             <div class="controls"> <a editable-email="html5.email">{{ html5.email || 'empty' }}</a></div>
@@ -82,7 +85,7 @@
                             <label class="form-label" for="field-2">Text</label>
                             <div class="controls">
                                 <p class="form-control-static">
-                                    <a editable-text="user.name">{{ user.name || 'empty' }}</a>
+                                    <a editable-text="user.name">{{ user.name || 'empty' }}</a>d
                                 </p>
                             </div>
                         </div>
@@ -101,8 +104,8 @@
                             <div class="controls">
                                 <p class="form-control-static">
                                     <a editable-select="user.status" e-ng-options="s.value as s.text for s in statuses">
-                        {{ showStatus(user) }}
-                    </a>
+                                        {{ showStatus(user) }}
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -111,8 +114,8 @@
                             <div class="controls">
                                 <p class="form-control-static">
                                     <a editable-textarea="user.desc" e-rows="7">
-                                    {{ user.desc || 'no description' }}
-                                  </a>
+                                        {{ user.desc || 'no description' }}
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -121,8 +124,8 @@
                             <div class="controls">
                                 <p class="form-control-static">
                                     <a editable-checkbox="user.remember" e-title="Remember?">
-                                    {{ user.remember && "Remember me!" || "Don't remember" }}
-                                  </a>
+                                        {{ user.remember && "Remember me!" || "Don't remember" }}
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -131,8 +134,8 @@
                             <div class="controls">
                                 <p class="form-control-static">
                                     <a editable-radiolist="user.agenda" e-ng-options="s.value as s.text for s in agenda">
-                                    {{ showAgenda() }}
-                                  </a>
+                                        {{ showAgenda() }}
+                                    </a>
                                 </p>
                             </div>
                         </div>

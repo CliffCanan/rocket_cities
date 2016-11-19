@@ -271,22 +271,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.editable', {
-                url: '/editable',
-                templateUrl: 'partials/form-editable.html',
-                controller: 'FormXeditableCtrl',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('xeditable').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/form-xeditable.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.form.editors', {
                 url: '/editors',
                 templateUrl: 'partials/form-editors.html',
@@ -338,6 +322,38 @@ angular.module('app')
                     deps: ['uiLoad',
                         function (uiLoad) {
                             return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
+            })
+            .state('app.form.editable', {
+                url: '/editable',
+                templateUrl: 'partials/form-editable.html',
+                controller: 'SettingsCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('xeditable').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/settings.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.settings', {
+                url: '/settings',
+                templateUrl: 'partials/settings.html',
+                controller: 'SettingsCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('xeditable').then(
+                                function () {
+                                    return $ocLazyLoad.load(['js/controllers/settings.js', '../bower_components/font-awesome/css/font-awesome.css']);
+                                }
+                            );
                         }
                     ]
                 }
@@ -492,21 +508,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.charts.chartjsradar', {
-                url: '/chartjsradar',
-                templateUrl: 'partials/charts-chartjs-radar.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('chart.js').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/chartjs.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.charts.flotcomposite', {
                 url: '/flotcomposite',
                 templateUrl: 'partials/charts-flot-composite.html',
@@ -540,28 +541,9 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.charts.flotstacked', {
-                url: '/flotstacked',
-                templateUrl: 'partials/charts-flot-stacked.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['js/controllers/flot-chart.js']);
-                        }
-                    ]
-                }
-            })
             .state('app.charts.easypiechart', {
                 url: '/easypiechart',
                 templateUrl: 'partials/charts-easypiechart.html'
-            })
-            .state('app.charts.knobs', {
-                url: '/knobs',
-                templateUrl: 'partials/charts-knobs.html'
-            })
-            .state('app.charts.knobsclock', {
-                url: '/knobsclock',
-                templateUrl: 'partials/charts-knobsclock.html'
             })
             .state('app.charts.rickshawinteractive', {
                 url: '/rickshawinteractive',
@@ -583,40 +565,6 @@ angular.module('app')
             .state('app.charts.rickshawline', {
                 url: '/rickshawline',
                 templateUrl: 'partials/charts-rickshaw-line.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['../bower_components/d3/d3.min.js', 'angular-rickshaw'], {
-                                serie: true
-                            }).then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/rickshaw.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.rickshawbar', {
-                url: '/rickshawbar',
-                templateUrl: 'partials/charts-rickshaw-bar.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['../bower_components/d3/d3.min.js', 'angular-rickshaw'], {
-                                serie: true
-                            }).then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/rickshaw.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.rickshawrealtime', {
-                url: '/rickshawrealtime',
-                templateUrl: 'partials/charts-rickshaw-realtime.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {

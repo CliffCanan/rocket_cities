@@ -12097,8 +12097,30 @@ videogular vg-mute-button .mute:before,
 }
 
 
-
 @media (min-width: 768px) {
+    /*.form-horizontal .controls .editable:not(.editable-hide) {
+        padding-top: 7px;
+        margin-bottom: 0;
+    }*/
+
+    .form-group .controls {
+        margin-bottom: 0;
+    }
+
+    .form-group .controls .form-control-static {
+        padding-bottom: 0;
+    }
+
+    .form-horizontal .editable-controls.form-group {
+        margin-left: 0;
+    }
+
+    .form-horizontal .editable-controls input {
+        font-size: inherit;
+        padding-top: 0;
+        height: 30px;
+    }
+
     .sub-nav-profile-pic img {
         left: 6%;
     }

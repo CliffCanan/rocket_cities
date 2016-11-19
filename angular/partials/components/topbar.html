@@ -124,9 +124,14 @@
                     <span class='hidden-sm hidden-xs'>Cliff Canan</span>
                     <i class="material-icons hidden-sm hidden-xs">expand_more</i>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right profile animated fadeIn">
+                <ul class="dropdown-menu dropdown-menu-right profile">
+                    <li ng-if="userType == 'influencer'">
+                        <a ui-sref="app.settings">
+                            <i class="fa fa-fw fa-video-camera"></i> My Videos
+                        </a>
+                    </li>
                     <li>
-                        <a ui-sref="app.dashboard">
+                        <a ui-sref="app.settings">
                             <i class="material-icons">settings</i> Settings
                         </a>
                     </li>
