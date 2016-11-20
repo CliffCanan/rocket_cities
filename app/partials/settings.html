@@ -40,13 +40,14 @@
 
                         <div class="panel-body">
 
-                            <div class="form-horizontal" >
+                            <div class="form-horizontal">
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Avatar</label>
-                                    <div class="col-sm-6">
-                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
-                                            <div class="panel-body">
+                                    <div class="col-sm-8" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+                                        <div ng-show="uploader.isHTML5">
+                                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                            <div class="well bg-gray-light m-b-0" nv-file-over="" uploader="uploader">
                                                 <p class="text-center">
                                                     <i class="fa fa-3x fa-user text-gray-light text-center"></i>
                                                     <br>
@@ -56,15 +57,71 @@
                                                     Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
                                                     <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
                                                 </p>
-                                                <p></p>
                                             </div>
+
+                                            <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                            <!--<div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                                                <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well">
+                                                    Another drop zone with its own settings
+                                                </div>
+                                            </div>-->
                                         </div>
+
+                                        <table class="table" ng-show="uploader.queue.length > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Name</th>
+                                                    <th ng-show="uploader.isHTML5">Size</th>
+                                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in uploader.queue">
+                                                    <td><strong>{{ item.file.name }}</strong></td>
+                                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                    <td ng-show="uploader.isHTML5">
+                                                        <div class="progress m-b-0">
+                                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span ng-show="item.isSuccess"><i class="fa fa-check"></i></span>
+                                                        <span ng-show="item.isCancel"><i class="fa fa-ban"></i></span>
+                                                        <span ng-show="item.isError"><i class="fa fa-remove"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-xs m-b-5" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                            <span class="fa fa-upload"></span> Upload
+                                                        </button>
+                                                        <!--<button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                                            <span class="fa fa-ban"></span> Cancel
+                                                        </button>-->
+                                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            Queue progress:
+                                                            <div class="progress" style="">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <div class="controls">
                                             <p class="form-control-static">
                                                 <a editable-text="user.name">{{ user.name || 'empty' }}</a>
@@ -75,7 +132,7 @@
 
                                 <div class="form-group">
                                     <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <div class="controls">
                                             <p class="form-control-static">
                                                 <a editable-text="user.display_name">{{ user.display_name || 'empty' }}</a>
@@ -86,7 +143,7 @@
 
                                 <div class="form-group">
                                     <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <div class="controls">
                                             <p class="form-control-static">
                                                 <a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-email="user.email">{{ user.email || 'empty' }}</a>
@@ -96,8 +153,71 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="profile-edit-city" class="col-sm-3 control-label"> City</label>
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.name">{{ user.name || 'empty' }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group wysiwyg">
+
+                                    <label for="profile-edit-about" class="col-sm-3 control-label"> About</label>
+
+                                    <div class="col-sm-9">
+
+                                        <div class="btn-toolbar m-b-5 btn-editor" data-role="editor-toolbar" data-target="#editor">
+                                            <div class="btn-group btn-group-xs dropdown" uib-dropdown>
+                                                <a class="btn btn-default btn-border" uib-dropdown-toggle data-toggle="dropdown" uib-tooltip="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href data-edit="fontSize 5" style="font-size:24px">Huge</a></li>
+                                                    <li><a href data-edit="fontSize 3" style="font-size:18px">Normal</a></li>
+                                                    <li><a href data-edit="fontSize 1" style="font-size:14px">Small</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="btn-group btn-group-xs">
+                                                <a class="btn btn-default btn-border" data-edit="bold" uib-tooltip="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="italic" uib-tooltip="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="strikethrough" uib-tooltip="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="underline" uib-tooltip="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="insertunorderedlist" uib-tooltip="Bullet list"><i class="fa fa-list-ul"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="insertorderedlist" uib-tooltip="Number list"><i class="fa fa-list-ol"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="justifyleft" uib-tooltip="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="justifycenter" uib-tooltip="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="justifyright" uib-tooltip="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="justifyfull" uib-tooltip="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                                            </div>
+                                            <div class="btn-group btn-group-xs dropdown" uib-dropdown>
+                                                <a class="btn btn-default btn-border" uib-dropdown-toggle uib-tooltip="Hyperlink"><i class="fa fa-link"></i></a>
+                                                <div class="dropdown-menu">
+                                                    <div class="input-group m-l-xs m-r-xs">
+                                                        <input class="form-control input-sm" id="LinkInput" placeholder="URL" type="text" data-edit="createLink" />
+                                                        <div class="input-group-btn">
+                                                            <button class="btn btn-sm btn-default btn-border" type="button">Add</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a class="btn btn-default btn-border" data-edit="unlink" uib-tooltip="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                                            </div>
+                                            <div class="btn-group btn-group-xs">
+                                                <a class="btn btn-default btn-border" uib-tooltip="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                                                <input type="file" data-edit="insertImage" style="position:absolute; opacity:0; width:41px; height:34px" />
+                                                <a class="btn btn-default btn-border" data-edit="undo" uib-tooltip="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                                                <a class="btn btn-default btn-border" data-edit="redo" uib-tooltip="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                                            </div>
+                                        </div>
+                                        <div ui-jq="wysiwyg" class="form-control wysiwyg-editor" style="overflow:scroll;height:150px;max-height:200px">
+                                            Enter text here&hellip;
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <select class="form-control" id="profile-edit-job-type">
                                             <option>Human Intranet Developer</option>
                                             <option>Dynamic Tactics Specialist</option>
@@ -114,7 +234,246 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">After Logging</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
+                                                <span class="label label-outline label-success">Available</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosInactive" value="option2">
+                                                <span class="label label-outline label-warning">Inactive</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosBusy" value="option3">
+                                                <span class="label label-outline label-danger">Busy</span>
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadiosOffline" value="option2">
+                                                <span class="label label-outline label-gray">Offline</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Add Profile</strong></h6>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
+                                    <div class="col-sm-7">
+                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="panel-footer">
+                            <button type="button" class="btn btn-primary">Update Profile</button>
+                        </div>
+
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><i class="fa fa-fw fa-globe"></i> Location</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="col-xs-12" ng-controller="MapCtrl">
+                                <div id="map_canvas" style="min-height:400px" ui-map="myMap" ui-event="{'map-click': 'addMarker($event, $params)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }" ui-options="mapOptions">
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <br>
+
+                                <div class="map-toolbar">
+                                    <h4 class="m-t-none">Click on a place in Map to add a marker!</h4>
+                                    <p>{{zoomMessage}}</p>
+                                    <ul class="list-unstyled list-inline">
+                                        <li ng-repeat="marker in myMarkers">
+                                            <a class="btn btn-default " ng-click="myMap.panTo(marker.getPosition())">
+                                                Go to Marker {{$index}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!-- this is the confusing part. we have to point the map marker directive
+            at an existing google.maps.Marker object, so it can hook up events -->
+                                    <div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]" ui-event="{'map-click': 'openMarkerInfo(marker)'}">
+                                    </div>
+                                    <div ui-map-info-window="myInfoWindow">
+                                        <div class="">Marker</div>
+                                        <div class="">
+                                            <div class="pull-left">Latitude: </div>
+                                            <input ng-model="currentMarkerLat" class="form-control input-sm">
+                                        </div>
+                                        <div class="">
+                                            <div class="pull-left m-t-xs">Longitude: </div>
+                                            <input ng-model="currentMarkerLng" class="form-control input-sm">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="panel-footer">
+                            <i class="fa fa-fw fa-support m-r-1"></i> If you need help, contact us. <a href="../apps/faq.html">We Can Help</a>.
+                        </div>
+
+                    </div>
+
+                </uib-tab>
+
+
+                <uib-tab>
+
+                    <uib-tab-heading>
+                        <i class="fa fa-fw fa-address-card-o"></i>&nbsp;Page Details
+                    </uib-tab-heading>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Edit Your Public Page</h4>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Banner Image</label>
+
+                                    <div class="col-sm-8" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+
+                                        <div ng-show="uploader.isHTML5">
+                                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                            <div class="well bg-gray-light m-b-0" nv-file-over="" uploader="uploader">
+                                                <p class="text-center">
+                                                    <i class="fa fa-3x fa-image text-gray-light text-center"></i>
+                                                    <br>
+                                                </p>
+                                                <h5 class="text-center">Upload An Image...</h5>
+                                                <p class="text-center">
+                                                    Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
+                                                    <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                        <table class="table" ng-show="uploader.queue.length > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Name</th>
+                                                    <th ng-show="uploader.isHTML5">Size</th>
+                                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in uploader.queue">
+                                                    <td><strong>{{ item.file.name }}</strong></td>
+                                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                    <td ng-show="uploader.isHTML5">
+                                                        <div class="progress m-b-0">
+                                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span ng-show="item.isSuccess"><i class="fa fa-check"></i></span>
+                                                        <span ng-show="item.isCancel"><i class="fa fa-ban"></i></span>
+                                                        <span ng-show="item.isError"><i class="fa fa-remove"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-xs m-b-5" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                            <span class="fa fa-upload"></span> Upload
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            Queue progress:
+                                                            <div class="progress" style="">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.name">{{ user.name || 'empty' }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.display_name">{{ user.display_name || 'empty' }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-email="user.email">{{ user.email || 'empty' }}</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control" id="profile-edit-job-type">
+                                            <option>Human Intranet Developer</option>
+                                            <option>Dynamic Tactics Specialist</option>
+                                            <option>Global Configuration Consultant</option>
+                                            <option>Principal Directives Orchestrator</option>
+                                            <option>Corporate Usability Consultant</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="hr-text hr-text-left">
+                                    <h6 class="text-white"><strong>Availability</strong></h6>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">After Logging</label>
+                                    <div class="col-sm-7">
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
@@ -148,14 +507,14 @@
 
                                 <div class="form-group">
                                     <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
                                     </div>
                                 </div>
@@ -172,138 +531,6 @@
 
                 </uib-tab>
 
-                <uib-tab>
-
-                    <uib-tab-heading>
-                        <i class="fa fa-fw fa-address-card-o"></i>&nbsp;Page Details
-                    </uib-tab-heading>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">Edit Profile</h4>
-                        </div>
-
-                        <div class="panel-body">
-
-                            <form class="form-horizontal">
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Avatar</label>
-                                    <div class="col-sm-6">
-                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
-                                            <div class="panel-body">
-                                                <p class="text-center">
-                                                    <i class="fa fa-3x fa-user text-gray-light text-center"></i>
-                                                    <br>
-                                                </p>
-                                                <h5 class="text-center">Upload Your Avatar...</h5>
-                                                <p class="text-center">
-                                                    Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
-                                                    <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
-                                                </p>
-                                                <p></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-legal-name" placeholder="Legal Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-display-name" placeholder="Display Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="profile-edit-email" placeholder="Email Address">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
-                                    <div class="col-sm-6">
-                                        <select class="form-control" id="profile-edit-job-type">
-                                            <option>Human Intranet Developer</option>
-                                            <option>Dynamic Tactics Specialist</option>
-                                            <option>Global Configuration Consultant</option>
-                                            <option>Principal Directives Orchestrator</option>
-                                            <option>Corporate Usability Consultant</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="hr-text hr-text-left">
-                                    <h6 class="text-white"><strong>Availability</strong></h6>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">After Logging</label>
-                                    <div class="col-sm-6">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
-                                                <span class="label label-outline label-success">Available</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadiosInactive" value="option2">
-                                                <span class="label label-outline label-warning">Inactive</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadiosBusy" value="option3">
-                                                <span class="label label-outline label-danger">Busy</span>
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadiosOffline" value="option2">
-                                                <span class="label label-outline label-gray">Offline</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="hr-text hr-text-left">
-                                    <h6 class="text-white"><strong>Add Profile</strong></h6>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
-                                    <div class="col-sm-6">
-                                        <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </div>
-
-                        <div class="panel-footer text-right">
-                            <button type="button" class="btn btn-primary">Update Profile</button>
-                        </div>
-
-                    </div>
-
-                </uib-tab>
 
                 <uib-tab>
 
@@ -318,7 +545,6 @@
 
                         <div class="panel-body">
 
-                            <!-- START All Forms -->
                             <form class="form-horizontal">
 
                                 <div class="form-group">
@@ -673,6 +899,7 @@
 
                 </uib-tab>
 
+
                 <uib-tab>
 
                     <uib-tab-heading>
@@ -745,6 +972,7 @@
 
                     </div>
                 </uib-tab>
+
 
                 <uib-tab>
 

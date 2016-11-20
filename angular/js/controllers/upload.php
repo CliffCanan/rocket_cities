@@ -11,11 +11,9 @@ if ( !empty( $_FILES ) ) {
     $json = json_encode( $answer );
 
     echo $json;
-
-} else {
-
+}
+else {
     echo 'No files';
-
 }
 
 ?>

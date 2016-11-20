@@ -40,13 +40,14 @@
 
                         <div class="panel-body">
 
-                            <form class="form-horizontal">
+                            <div class="form-horizontal" >
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Avatar</label>
-                                    <div class="col-sm-6">
-                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
-                                            <div class="panel-body">
+                                    <div class="col-sm-8" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+                                        <div ng-show="uploader.isHTML5">
+                                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                            <div class="well bg-gray-light m-b-0" nv-file-over="" uploader="uploader">
                                                 <p class="text-center">
                                                     <i class="fa fa-3x fa-user text-gray-light text-center"></i>
                                                     <br>
@@ -56,40 +57,104 @@
                                                     Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
                                                     <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
                                                 </p>
-                                                <p></p>
                                             </div>
+
+                                            <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                                            <!--<div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
+                                                <div nv-file-over="" uploader="uploader" over-class="another-file-over-class" class="well">
+                                                    Another drop zone with its own settings
+                                                </div>
+                                            </div>-->
+                                        </div>
+
+                                        <table class="table" ng-show="uploader.queue.length > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Name</th>
+                                                    <th ng-show="uploader.isHTML5">Size</th>
+                                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in uploader.queue">
+                                                    <td><strong>{{ item.file.name }}</strong></td>
+                                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                    <td ng-show="uploader.isHTML5">
+                                                        <div class="progress m-b-0">
+                                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span ng-show="item.isSuccess"><i class="fa fa-check"></i></span>
+                                                        <span ng-show="item.isCancel"><i class="fa fa-ban"></i></span>
+                                                        <span ng-show="item.isError"><i class="fa fa-remove"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-xs m-b-5" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                            <span class="fa fa-upload"></span> Upload
+                                                        </button>
+                                                        <!--<button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                                            <span class="fa fa-ban"></span> Cancel
+                                                        </button>-->
+                                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            Queue progress:
+                                                            <div class="progress" style="">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.name">{{ user.name || 'empty' }}</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <div class="controls"> <a editable-email="html5.email">{{ html5.email || 'empty' }}</a></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-legal-name" placeholder="Legal Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-display-name" placeholder="Display Name">
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.display_name">{{ user.display_name || 'empty' }}</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="profile-edit-email" placeholder="Email Address">
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-email="user.email">{{ user.email || 'empty' }}</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <select class="form-control" id="profile-edit-job-type">
                                             <option>Human Intranet Developer</option>
                                             <option>Dynamic Tactics Specialist</option>
@@ -106,7 +171,7 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">After Logging</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
@@ -140,19 +205,19 @@
 
                                 <div class="form-group">
                                     <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
                                     </div>
                                 </div>
 
-                            </form>
+                            </div>
 
                         </div>
 
@@ -172,57 +237,119 @@
 
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Edit Profile</h4>
+                            <h4 class="panel-title">Edit Your Public Page</h4>
                         </div>
 
                         <div class="panel-body">
 
-                            <form class="form-horizontal">
+                            <div class="form-horizontal">
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Avatar</label>
-                                    <div class="col-sm-6">
-                                        <div class="panel panel-default bg-gray-light b-dashed m-b-0">
-                                            <div class="panel-body">
+                                    <label class="col-sm-3 control-label">Banner Image</label>
+
+                                    <div class="col-sm-8" ng-controller="FileUploadCtrl" nv-file-drop="" uploader="uploader" filters="queueLimit, customFilter">
+
+                                        <div ng-show="uploader.isHTML5">
+                                            <!-- 3. nv-file-over uploader="link" over-class="className" -->
+                                            <div class="well bg-gray-light m-b-0" nv-file-over="" uploader="uploader">
                                                 <p class="text-center">
-                                                    <i class="fa fa-3x fa-user text-gray-light text-center"></i>
+                                                    <i class="fa fa-3x fa-image text-gray-light text-center"></i>
                                                     <br>
                                                 </p>
-                                                <h5 class="text-center">Upload Your Avatar...</h5>
+                                                <h5 class="text-center">Upload An Image...</h5>
                                                 <p class="text-center">
                                                     Drag a file here or <a href="javascript: void(0)"> browse</a> for a file to upload.
                                                     <small class="block">JPG, JPEG or PNG. 2GB file size limit.</small>
                                                 </p>
-                                                <p></p>
                                             </div>
+
                                         </div>
+
+                                        <table class="table" ng-show="uploader.queue.length > 0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50%">Name</th>
+                                                    <th ng-show="uploader.isHTML5">Size</th>
+                                                    <th ng-show="uploader.isHTML5">Progress</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in uploader.queue">
+                                                    <td><strong>{{ item.file.name }}</strong></td>
+                                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                                    <td ng-show="uploader.isHTML5">
+                                                        <div class="progress m-b-0">
+                                                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span ng-show="item.isSuccess"><i class="fa fa-check"></i></span>
+                                                        <span ng-show="item.isCancel"><i class="fa fa-ban"></i></span>
+                                                        <span ng-show="item.isError"><i class="fa fa-remove"></i></span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success btn-xs m-b-5" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                                            <span class="fa fa-upload"></span> Upload
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                                            <span class="fa fa-trash"></span> Remove
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">
+                                                        <div>
+                                                            Queue progress:
+                                                            <div class="progress" style="">
+                                                                <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-legal-name" class="col-sm-3 control-label"> Legal Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-legal-name" placeholder="Legal Name">
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.name">{{ user.name || 'empty' }}</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-display-name" class="col-sm-3 control-label"><span class="text-danger">*</span> Display Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="profile-edit-display-name" placeholder="Display Name">
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a editable-text="user.display_name">{{ user.display_name || 'empty' }}</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-email" class="col-sm-3 control-label"><span class="text-danger">*</span> Email</label>
-                                    <div class="col-sm-6">
-                                        <input type="email" class="form-control" id="profile-edit-email" placeholder="Email Address">
+                                    <div class="col-sm-7">
+                                        <div class="controls">
+                                            <p class="form-control-static">
+                                                <a ng-click="$form.$show()" e-ng-blur="$form.$hide()" editable-email="user.email">{{ user.email || 'empty' }}</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="profile-edit-job-type" class="col-sm-3 control-label"><span class="text-danger">*</span> Job Type</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <select class="form-control" id="profile-edit-job-type">
                                             <option>Human Intranet Developer</option>
                                             <option>Dynamic Tactics Specialist</option>
@@ -239,7 +366,7 @@
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">After Logging</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <div class="radio">
                                             <label>
                                                 <input type="radio" name="optionsRadios" id="optionsRadios" value="option1" checked="checked">
@@ -273,19 +400,19 @@
 
                                 <div class="form-group">
                                     <label for="profile-edit-profile" class="col-sm-3 control-label">Profile</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <textarea class="form-control" rows="4" placeholder="Please Describe Your Profile..." id="profile-edit-profile"></textarea><grammarly-btn><div style="visibility: hidden; z-index: 2;" class="_9b5ef6-textarea_btn _9b5ef6-not_focused" data-grammarly-reactid=".0"><div class="_9b5ef6-transform_wrap" data-grammarly-reactid=".0.0"><div title="Protected by Grammarly" class="_9b5ef6-status" data-grammarly-reactid=".0.0.0">&nbsp;</div></div></div></grammarly-btn>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-3 control-label">Add Labels</label>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-7">
                                         <input type="email" class="form-control" id="inputEmail3" placeholder="Add Here...">
                                     </div>
                                 </div>
 
-                            </form>
+                            </div>
 
                         </div>
 

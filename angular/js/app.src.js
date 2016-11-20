@@ -53807,21 +53807,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.fileupload', {
-                url: '/fileupload',
-                templateUrl: 'partials/form-fileupload.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('angularFileUpload').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/file-upload.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.form.editors', {
                 url: '/editors',
                 templateUrl: 'partials/form-editors.html',
@@ -53900,9 +53885,28 @@ angular.module('app')
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('xeditable').then(
+                            return $ocLazyLoad.load(['xeditable','angularFileUpload']).then(
                                 function () {
-                                    return $ocLazyLoad.load(['js/controllers/settings.js', '../bower_components/font-awesome/css/font-awesome.css']);
+                                    return $ocLazyLoad.load([
+                                        'js/controllers/settings.js',
+                                        'js/controllers/file-upload.js',
+                                        '../bower_components/font-awesome/css/font-awesome.css'
+                                    ]);
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.form.fileupload', {
+                url: '/fileupload',
+                templateUrl: 'partials/form-fileupload.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('angularFileUpload').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/file-upload.js');
                                 }
                             );
                         }
@@ -54096,40 +54100,6 @@ angular.module('app')
                 url: '/easypiechart',
                 templateUrl: 'partials/charts-easypiechart.html'
             })
-            .state('app.charts.rickshawinteractive', {
-                url: '/rickshawinteractive',
-                templateUrl: 'partials/charts-rickshaw-interactive.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['../bower_components/d3/d3.min.js', 'angular-rickshaw'], {
-                                serie: true
-                            }).then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/rickshaw.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.rickshawline', {
-                url: '/rickshawline',
-                templateUrl: 'partials/charts-rickshaw-line.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['../bower_components/d3/d3.min.js', 'angular-rickshaw'], {
-                                serie: true
-                            }).then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/rickshaw.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.tables', {
                 url: '/tables',
                 template: '<div ui-view class=""></div>'
@@ -54225,8 +54195,7 @@ angular.module('app')
                 templateUrl: 'partials/layout-chat.html'
             })
     }
-    ]
-    );
+    ]);
 
 'use strict';
 angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
