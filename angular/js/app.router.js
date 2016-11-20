@@ -117,10 +117,6 @@ angular.module('app')
                 url: '/offline',
                 templateUrl: 'partials/ui-offline.html',
             })
-            .state('access.lockscreen', {
-                url: '/lockscreen',
-                templateUrl: 'partials/ui-lockscreen.html'
-            })
 
             .state('app.ui', {
                 url: '/ui',
@@ -256,29 +252,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.editors', {
-                url: '/editors',
-                templateUrl: 'partials/form-editors.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-                /*,
-                                        controller: 'FormEditorCtrl',
-                                        resolve:  {
-                                            deps: ['$ocLazyLoad',
-                                              function( $ocLazyLoad ){
-                                                return $ocLazyLoad.load('textAngular').then(
-                                                    function(){
-                                                        return $ocLazyLoad.load('js/controllers/form-editor.js');
-                                                    }
-                                                );
-                                            }]
-                                        }*/
-            })
             .state('app.form.masks', {
                 url: '/masks',
                 templateUrl: 'partials/form-masks.html'
@@ -337,10 +310,16 @@ angular.module('app')
                             return $ocLazyLoad.load(['xeditable','angularFileUpload']).then(
                                 function () {
                                     return $ocLazyLoad.load([
-                                        'js/controllers/settings.js',
+                                        'js/map/load-google-maps.js',
+                                        'js/map/ui-map.js',
                                         'js/controllers/file-upload.js',
+                                        'js/controllers/settings.js',
                                         '../bower_components/font-awesome/css/font-awesome.css'
-                                    ]);
+                                    ]).then(
+                                        function () {
+                                            return loadGoogleMaps();
+                                        }
+                                    );;
                                 }
                             );
                         }
@@ -361,10 +340,6 @@ angular.module('app')
                         }
                     ]
                 }
-            })
-            .state('app.ui.timeline', {
-                url: '/timeline',
-                templateUrl: 'partials/ui-timeline.html'
             })
             .state('app.paymenthistory', {
                 url: '/paymenthistory',
@@ -467,39 +442,9 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.charts.chartjsline', {
-                url: '/chartjsline',
-                templateUrl: 'partials/charts-chartjs-line.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('chart.js').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/chartjs.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.chartjsbar', {
-                url: '/chartjsbar',
-                templateUrl: 'partials/charts-chartjs-bar.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('chart.js').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/chartjs.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.chartjspie', {
+            .state('app.charts.chartjs', {
                 url: '/chartjspie',
-                templateUrl: 'partials/charts-chartjs-pie.html',
+                templateUrl: 'partials/charts-chartjs.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
@@ -508,39 +453,6 @@ angular.module('app')
                                     return $ocLazyLoad.load('js/controllers/chartjs.js');
                                 }
                             );
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.flotcomposite', {
-                url: '/flotcomposite',
-                templateUrl: 'partials/charts-flot-composite.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['js/controllers/flot-chart.js']);
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.flotline', {
-                url: '/flotline',
-                templateUrl: 'partials/charts-flot-line.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['js/controllers/flot-chart.js']);
-                        }
-                    ]
-                }
-            })
-            .state('app.charts.flotpie', {
-                url: '/flotpie',
-                templateUrl: 'partials/charts-flot-pie.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['js/controllers/flot-chart.js']);
                         }
                     ]
                 }

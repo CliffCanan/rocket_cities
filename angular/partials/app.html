@@ -3,14 +3,12 @@
 </div>
 <!-- / header -->
 <!-- START CONTAINER -->
-
 <div class="page-container row-fluid" ui-sectionbox ng-controller="ModalDemoCtrl">
 
     <!-- leftbar -->
     <div ng-if="app.type == 'influencer' && app.settings.showSideMenu == true" data-ng-include=" 'partials/components/leftbar.html' " class="page-sidebar {{app.settings.menuFolded ? 'collapseit' : 'expandit'}}  {{app.settings.chatFolded ? '' : 'chat_shift'}}"></div>
     <div ng-if="app.type == 'subscriber'" data-ng-include=" 'partials/components/leftbar.freelancing.html' " class="page-sidebar {{app.settings.menuFolded ? 'collapseit' : 'expandit'}}  {{app.settings.chatFolded ? '' : 'chat_shift'}}"></div>
     <!-- / leftbar -->
-
     <!-- START CONTENT -->
     <section id="main-content" class="{{app.settings.menuFolded ? 'sidebar_shift' : ''}} {{!app.settings.showSideMenu ? 'sidebar_shift_hidden' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}">
         <div class="pull-left mobile-pagetitle"><h1>{{app.settings.pagetitle}}</h1></div>
@@ -28,7 +26,6 @@
         <section class="wrapper main-wrapper" style='' ui-view></section>
     </section>
     <!-- END CONTENT -->
-
     <!-- rightsidebar start-->
     <div data-ng-include=" 'partials/components/rightbar.html' " class="page-chatapi {{app.settings.chatFolded ? 'hideit' : 'showit'}}">
     </div>
@@ -36,7 +33,7 @@
     <div class="chatapi-windows {{app.settings.chatFolded ? 'hideit' : 'showit'}}"></div>
     <!-- rightsidebar end -->
     <!-- footer -->
-    <div ng-if="app.type != 'music'" class="app-footer app-footer-fixed {{app.settings.menuFolded ? 'sidebar_shift' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}" data-ng-include=" 'partials/components/music.player.html' ">
+    <div ng-if="app.type != 'music'" class="app-footer app-footer-fixed {{app.settings.menuFolded ? 'sidebar_shift' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}">
     </div>
     <!-- / footer -->
 
