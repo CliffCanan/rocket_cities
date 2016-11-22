@@ -89,7 +89,8 @@
     "videogular-poster": "~1.2.8",
     "videogular-ima-ads": "~1.2.8",
     "angular-echarts": "~0.3.5",
-    "echarts": "~2.2.7"
+    "echarts": "~2.2.7",
+    "sweetalert2": "^6.1.1"
   },
   "resolutions": {
     "angular": "~1.5.5"
