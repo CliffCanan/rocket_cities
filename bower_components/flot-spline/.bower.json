@@ -26,7 +26,7 @@
     "tag": "0.0.1",
     "commit": "e2261a31a3d6042969e23a1d12e6daae13e5f798"
   },
-  "_source": "git://github.com/JohnPozy/flot-spline.git",
+  "_source": "https://github.com/JohnPozy/flot-spline.git",
   "_target": "0.0.1",
   "_originalSource": "flot-spline"
 }

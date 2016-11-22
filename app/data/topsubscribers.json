@@ -1,0 +1,58 @@
+[
+    {
+        "avatar": "data/members/person-3.png",
+        "name": "Josh Hamilton",
+        "position": "Business Analyst",
+        "email": "person1@gmail.com",
+        "subscribedOn": "Nov 7 2016",
+        "actions": {
+            "today": 3,
+            "thisweek": 7,
+            "thismonth": 15,
+            "total": 25
+        },
+        "isPowerUser": true
+    },
+    {
+        "avatar": "data/members/person-4.png",
+        "name": "Carri Walsh",
+        "position": "Engineering",
+        "email":  "person1@gmail.com",
+        "subscribedOn": "Nov 2 2016",
+        "actions": {
+            "today": 5,
+            "thisweek": 7,
+            "thismonth": 11,
+            "total": 18
+        },
+        "isPowerUser": false
+    },
+    {
+        "avatar": "data/members/person-5.png",
+        "name": "Melissa Rivers",
+        "position": "Designer",
+        "email":  "person1@gmail.com",
+        "subscribedOn": "Oct 24 2016",
+        "actions": {
+            "today": 2,
+            "thisweek": 4,
+            "thismonth": 9,
+            "total": 15
+        },
+        "isPowerUser": false
+    },
+    {
+        "avatar": "data/members/person-6.png",
+        "name": "Adrian Brody",
+        "position": "Design Manager",
+        "email":  "person1@gmail.com",
+        "subscribedOn": "Oct 18 2016",
+        "actions": {
+            "today": 1,
+            "thisweek": 2,
+            "thismonth": 10,
+            "total": 14
+        },
+        "isPowerUser": true
+    }
+]

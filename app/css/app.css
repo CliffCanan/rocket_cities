@@ -1121,11 +1121,11 @@ a {
 
     .page-topbar .quick-area .info-menu li .dropdown-menu {
         width: 360px;
-        border-radius: 0px;
-        -o-border-radius: 0px;
-        -ms-border-radius: 0px;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
+        border-radius: 8px;
+        -o-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
         line-height: 23px;
         font-size: 14px;
         padding-bottom: 0px;
@@ -1139,6 +1139,13 @@ a {
         padding-top: 0px;
     }
 
+        .page-topbar .quick-area .info-menu li .dropdown-menu li:last-child {
+            border-radius: 0 0 8px 8px;
+            -o-border-radius: 0 0 8px 8px;
+            -ms-border-radius: 0 0 8px 8px;
+            -moz-border-radius: 0 0 8px 8px;
+            -webkit-border-radius: 0 0 8px 8px;
+        }
 
     /*---- top arrow - start ----- */
 
@@ -1287,10 +1294,25 @@ a {
 
     /* ---- notifications page top bar ----- */
 
-    .page-topbar li .dropdown-menu.notifications li .name .time {
-        display: block;
-        position: relative;
+    .page-topbar li .dropdown-menu.notifications li .message-content {
+        padding: 7px 0;
     }
+
+        .page-topbar li .dropdown-menu.notifications li .message-content h4 {
+            font-size: 15px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .page-topbar li .dropdown-menu.notifications li .message-content .f-600:hover {
+            text-decoration: underline;
+        }
+
+        .page-topbar li .dropdown-menu.notifications li .message-content .time {
+            color: #999;
+            display: block;
+            position: relative;
+        }
 
     .page-topbar li .notifications .notice-icon i {
         border-radius: 50%;
@@ -1304,10 +1326,11 @@ a {
         float: left;
         display: inline-block;
         text-align: center;
-        margin-right: 15px;
+        margin-right: 12px;
         color: #fff;
-        margin-top: 5px !important;
-        font-size: 14px !important;
+        margin-top: 7px;
+        font-size: 13px !important;
+        text-shadow: 0 2px 11px rgba(0, 0, 0, .25);
     }
 
     .page-topbar li .notifications .total {
@@ -1339,6 +1362,7 @@ a {
     .page-topbar li .notifications .offline .notice-icon i {
         background-color: rgba(169, 169, 169, 1);
     }
+
 
 
     /*---- profile drop down -----*/
@@ -2189,56 +2213,6 @@ a {
         font-size: 13px;
     }
 
-/*
-.page-sidebar .project-info {
-    position: relative;
-    bottom: 0px;
-    height: 40px;
-    background-color: rgba(70, 70, 78, 1.0);
-    width: 100%;
-    display: block;
-    overflow: hidden;
-}
-
-.page-sidebar .project-info .block1 {
-    display: inline-block;
-    height: 40px;
-    padding: 8px 0 5px 30px;
-}
-
-.page-sidebar .project-info .block2 {
-    display: inline-block;
-    height: 40px;
-    padding: 8px 0 5px 15px;
-}
-
-.page-sidebar .project-info .graph {
-    float: left;
-    width: 55px;
-    padding: 5px 5px 5px 5px;
-}
-
-.page-sidebar .project-info .data {
-    float: left;
-    font-size: 10px;
-    color: #aaaaaa;
-    width: auto;
-    white-space: nowrap;
-    display: inline-block;
-    padding-right: 5px;
-}
-
-.page-sidebar .project-info .data .title {
-    display: block;
-    line-height: 15px;
-}
-
-.page-sidebar .project-info .data .total {
-    color: #dddddd;
-    line-height: 12px;
-    display: block;
-    font-size: 11px;
-}*/
 
 
 /*---------------------------------
@@ -2263,7 +2237,7 @@ section header {
     border-bottom: 0px solid #bc0303;
     vertical-align: top;
     position: relative;
-    padding: 10px 0 0 0;
+    padding: 5px 0 0 0;
 }
 
 section.box.primary header {
@@ -2370,11 +2344,11 @@ section.box .actions {
     line-height: 30px;
     position: absolute;
     right: 0px;
-    top: 12px;
+    top: 7px;
     height: 30px;
 }
 
-    section.box .actions i {
+    section.box .actions > i {
         color: #bdbdbd;
         font-size: 14px;
         margin-left: 4px;
@@ -2388,22 +2362,30 @@ section.box .actions {
         float: left;
     }
 
-        section.box .actions i:hover {
+        section.box .actions > i:hover {
             color: #9E9E9E;
         }
 
-        section.box .actions i.box_toggle {
+        section.box .actions > i.box_toggle {
             font-size: 21px;
             margin-top: 12px;
         }
 
-        section.box .actions i.box_close {
+        section.box .actions > i.box_close {
             font-size: 16px;
         }
 
-        section.box .actions i.box_setting {
+        section.box .actions > i.box_setting {
             font-size: 14px;
         }
+
+    section.box .actions .radio {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 1.2rem;
+    }
+
+
 
 section.collapsed .content-body {
     height: 15px !important;
@@ -2443,7 +2425,7 @@ section.box.collapsed {
     -webkit-border-radius: 0px;
     background-color: #FFF;
     position: relative;
-    font-size: .75rem;
+    font-size: .8rem;
     color: #a9b1b4;
 }
 
@@ -10067,7 +10049,6 @@ border-left: 3px solid transparent;
     background-position: right top;
 }
 
-
 /*-----------------------------------------------------------
     Profile Page
 ----------------------------------------------------------*/
@@ -10406,9 +10387,9 @@ border-left: 3px solid transparent;
 }
 
 
-/*--------------------------------------
+/*---------------------------
         SETTINGS PAGE
-----------------------------------------*/
+-----------------------------*/
 
 .media .avatar {
     position: relative;
@@ -10430,9 +10411,109 @@ border-left: 3px solid transparent;
     padding: 15px;
 }
 
-/*-------------------------------------------------
+
+/*---------------------------
+    POSTS PAGE
+-----------------------------*/
+#posts-summary tr > td:not(:last-child) {
+    color: #888;
+    font-size: 96%;
+}
+
+#posts-summary tbody > tr:first-child > td:not(:last-child) {
+    color: #333;
+    font-weight: 600;
+    font-size: 103%;
+}
+
+#posts-summary tbody > tr:hover > td:not(:last-child) {
+    color: #333;
+    font-weight: 600;
+    font-size: 105%;
+}
+
+
+#recent-posts > thead > tr > th, #recent-posts > tbody > tr > th,
+#recent-posts > thead > tr > td, #recent-posts > tbody > tr > td {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#recent-posts tr > th:first-child,
+#recent-posts tr > td:first-child {
+    display: none;
+}
+
+#recent-posts tr > th:not(:nth-child(2)),
+#recent-posts tr > td:not(:nth-child(2)) {
+    text-align: center;
+}
+
+#recent-posts .media-object {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0 0 5px;
+    width: 40px;
+    height: auto;
+}
+
+#recent-posts .media-heading {
+    font-weight: 600;
+}
+
+    #recent-posts .media-heading * {
+        color: #505458;
+        font-size: 1rem;
+    }
+
+.media .media-body .timestamp {
+    color: #888;
+    font-size: .8rem;
+}
+
+
+
+#users-over-time + chart-legend .line-legend li {
+    color: #888;
+    font-size: .8rem;
+    font-weight: 500;
+    margin: 5px 0 0;
+    padding: 0px 1rem 0px 1.35rem;
+    text-transform: uppercase;
+}
+
+    #users-over-time + chart-legend .line-legend li span {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        top: 4px;
+    }
+
+.top-subscribers .media-heading {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.media .actions-taken {
+    background: transparent;
+    color: #999;
+    display: block;
+    float: right;
+    font-size: 14.5px;
+}
+
+.top-subscribers .media-body {
+    color: #999;
+    font-size: 13px;
+}
+
+/*---------------------------
     Widget - To Do Task List
--------------------------------------------------*/
+-----------------------------*/
 
 .slant-todo-task {
     padding: 20px;
@@ -10932,7 +11013,7 @@ border-left: 3px solid transparent;
 -------------------------------------*/
 
 .page-topbar li .dropdown-menu .ps-scrollbar {
-    padding: 0 30px;
+    padding: 0 10px;
     overflow: hidden;
     max-height: 300px;
     height: 300px;
@@ -12160,5 +12241,20 @@ videogular vg-mute-button .mute:before,
 
     .sub-nav-profile-pic.avatar-sm > img {
         left: 7%;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .page-topbar .quick-area .info-menu li .dropdown-menu {
+        box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.15);
+        -o-box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.15);
+        -ms-box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.15);
+        -webkit-box-shadow: 0 4px 14px -1px rgba(0, 0, 0, 0.2), 0 2px 1px rgba(0, 0, 0, 0.15);
+    }
+
+    .page-topbar li .dropdown-menu .ps-scrollbar {
+        padding: 0 15px;
     }
 }

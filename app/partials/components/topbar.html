@@ -57,37 +57,46 @@
 
             <li class="dropdown tab" uib-dropdown>
                 <a href class="dropdown-toggle toggle" uib-dropdown-toggle>
-                    <i class="material-icons">notifications</i>
-                    <span class="badge">3</span>
+                    <i class="fa fa-bell"></i>
+                    <span class="badge">4</span>
                 </a>
 
                 <ul class="dropdown-menu notifications animated fadeIn">
+
                     <li class="total">
                         <span class="small">
                             You have <strong>3</strong> new notifications.
                             <a href="javascript:;" class="pull-right">Mark all as Read</a>
                         </span>
                     </li>
+
                     <li ng-controller="NotificationsDropDownCtrl" class="list">
+
                         <perfect-scrollbar wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class='ps-scrollbar'>
+
                             <ul class="dropdown-menu-list list-unstyled">
                                 <li class="{{notification.read ? 'read' : 'unread'}} {{notification.status}}" ng-repeat="notification in notifications">
-                                    <!-- available: success, warning, info, error -->
+                                    <!-- available: success, warning, info, error | BUSY, OFFLINE, AWAY, IDLE -->
                                     <a href="javascript:;">
                                         <div class="notice-icon">
-                                            <i class="material-icons">{{notification.statusicon}}</i>
+                                            <i class="fa fa-{{notification.statusicon}}"></i>
                                         </div>
                                         <div>
-                                            <span class="name">
-                                                <h4>{{notification.message}}</h4>
+                                            <div class="message-content">
+                                                <h4>
+                                                    <span class="f-600">{{notification.subject}}</span> {{notification.verb}} your {{notification.objectType}} {{notification.object}}
+                                                </h4>
                                                 <span class="time small">{{notification.time}}</span>
-                                            </span>
+                                            </div>
                                         </div>
                                     </a>
                                 </li>
                             </ul>
+
                         </perfect-scrollbar>
+
                     </li>
+
                     <li class="external">
                         <a href="javascript:;">
                             <span>Read All Notifications</span>
@@ -118,12 +127,14 @@
         <ul class="info-menu right-links list-inline list-unstyled">
 
             <li class="dropdown profile tab" uib-dropdown>
+
                 <a href class="dropdown-toggle toggle" uib-dropdown-toggle>
                     <img src="data/profile/profile.jpg" alt="user-image" class="img-circle img-inline">
                     <span class="profile-status available"></span>
                     <span class='hidden-sm hidden-xs'>Cliff Canan</span>
                     <i class="material-icons hidden-sm hidden-xs">expand_more</i>
                 </a>
+
                 <ul class="dropdown-menu dropdown-menu-right profile">
                     <li ng-if="userType == 'influencer'">
                         <a ui-sref="app.settings">

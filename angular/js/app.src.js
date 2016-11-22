@@ -54061,18 +54061,22 @@ angular.module('app')
             .state('app.tables.editable', {
                 url: '/editable',
                 templateUrl: 'partials/tables-editable.html',
-                controller: 'FormXeditableCtrl',
+                controller: 'SettingsCtrl',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load('xeditable').then(
                                 function () {
-                                    return $ocLazyLoad.load('js/controllers/form-xeditable.js');
+                                    return $ocLazyLoad.load('js/controllers/settings.js');
                                 }
                             );
                         }
                     ]
                 }
+            })
+            .state('app.posts', {
+                url: '/posts',
+                templateUrl: 'partials/posts.html'
             })
             .state('app.tables.smart', {
                 url: '/smart',

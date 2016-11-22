@@ -1,5 +1,5 @@
 <div class='content-wrapper' ng-init="app.settings.pagetitle = 'Editable';">
-    <div class="col-lg-12" ng-controller="FormXeditableCtrl">
+    <div class="col-lg-12" ng-controller="SettingsCtrl">
         <section class="box ">
             <header class="panel_header">
                 <h2 class="title pull-left">Editable row</h2>
@@ -23,20 +23,20 @@
                                 <td class="v-middle">
                                     <!-- editable username (text with validation) -->
                                     <span editable-text="user.name" e-name="name" e-form="rowform" onbeforesave="checkName($data, user.id)" e-required>
-          {{ user.name || 'empty' }}
-        </span>
+                                        {{ user.name || 'empty' }}
+                                    </span>
                                 </td>
                                 <td class="v-middle">
                                     <!-- editable status (select-local) -->
                                     <span editable-select="user.status" e-name="status" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
-          {{ showStatus(user) }}
-        </span>
+                                        {{ showStatus(user) }}
+                                    </span>
                                 </td>
                                 <td class="v-middle">
                                     <!-- editable group (select-remote) -->
                                     <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="rowform" e-ng-options="g.id as g.text for g in groups">
-          {{ showGroup(user) }}
-        </span>
+                                        {{ showGroup(user) }}
+                                    </span>
                                 </td>
                                 <td style="white-space: nowrap">
                                     <!-- form -->
@@ -61,7 +61,7 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-12" ng-controller="FormXeditableCtrl">
+    <div class="col-lg-12" ng-controller="SettingsCtrl">
         <section class="box ">
             <header class="panel_header">
                 <h2 class="title pull-left">Editable Column</h2>
@@ -126,20 +126,20 @@
                                 <td class="v-middle">
                                     <!-- editable username (text with validation) -->
                                     <span editable-text="user.name" e-name="name" e-form="nameform" onbeforesave="checkName($data)">
-                          {{ user.name || 'empty' }}
-                        </span>
+                                        {{ user.name || 'empty' }}
+                                    </span>
                                 </td>
                                 <td class="v-middle">
                                     <!-- editable status (select-local) -->
                                     <span editable-select="user.status" e-name="status" e-form="statusform" e-ng-options="s.value as s.text for s in statuses">
-                          {{ showStatus(user) }}
-                        </span>
+                                        {{ showStatus(user) }}
+                                    </span>
                                 </td>
                                 <td class="v-middle">
                                     <!-- editable group (select-remote) -->
                                     <span editable-select="user.group" e-name="group" onshow="loadGroups()" e-form="groupform" e-ng-options="g.id as g.text for g in groups">
-                          {{ showGroup(user) }}
-                        </span>
+                                        {{ showGroup(user) }}
+                                    </span>
                                 </td>
                             </tr>
                         </table>
@@ -148,7 +148,7 @@
             </div>
         </section>
     </div>
-    <div class="col-lg-12" ng-controller="FormXeditableCtrl">
+    <div class="col-lg-12" ng-controller="SettingsCtrl">
         <section class="box ">
             <header class="panel_header">
                 <h2 class="title pull-left">Editable Table</h2>
@@ -174,20 +174,20 @@
                                     <td>
                                         <!-- editable username (text with validation) -->
                                         <span editable-text="user.name" e-form="tableform" onbeforesave="checkName($data, user.id)">
-                                {{ user.name || 'empty' }}
-                              </span>
+                                            {{ user.name || 'empty' }}
+                                        </span>
                                     </td>
                                     <td>
                                         <!-- editable status (select-local) -->
                                         <span editable-select="user.status" e-form="tableform" e-ng-options="s.value as s.text for s in statuses">
-                                {{ showStatus(user) }}
-                              </span>
+                                            {{ showStatus(user) }}
+                                        </span>
                                     </td>
                                     <td>
                                         <!-- editable group (select-remote) -->
                                         <span editable-select="user.group" e-form="tableform" onshow="loadGroups()" e-ng-options="g.id as g.text for g in groups">
-                                {{ showGroup(user) }}
-                              </span>
+                                            {{ showGroup(user) }}
+                                        </span>
                                     </td>
                                     <td>
                                         <button type="button" ng-show="tableform.$visible" ng-click="removeUser(user.id)" class="btn btn-xs btn-danger pull-right">Del</button>

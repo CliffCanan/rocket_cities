@@ -1,0 +1,320 @@
+<div class="content-wrapper p-t-5" ng-init="app.settings.pagetitle = '';">
+
+    <div class="col-xs-12 col-md-9 col-lg-8">
+
+        <section class="box">
+
+            <header class="panel_header">
+                <h2 class="title pull-left">Post Overview</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                </div>
+            </header>
+
+            <div class="content-body p-b-15">
+                <table id="posts-summary" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Week</th>
+                            <th>Posts</th>
+                            <th>Views</th>
+                            <th>Likes</th>
+                            <th>Comments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </section>
+
+
+        <section class="box">
+
+            <header class="panel_header">
+                <h2 class="title pull-left">Recent Posts</h2>
+            </header>
+
+            <div class="content-body p-b-15">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <table id="recent-posts" class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width:0%">ID</th>
+                                    <th style="width:50%">Post</th>
+                                    <th style="width:17%">Views</th>
+                                    <th style="width:16%">Likes</th>
+                                    <th style="width:17%">Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="img/c0.png" />
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="">Best Video Post Ever!!</a></h4>
+                                                <span class="timestamp">Nov 13, 2016 at 11:09pm</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="m-r-5 f-700">97</div>
+                                        <div ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2]" ui-jq="sparkline" ui-options="{{data2}}, {
+                type: 'bar',
+                barColor: '{{app.color.primary}}',
+                height: '20',
+                barWidth: '3',
+                barSpacing: 1
+                }" class="sparkline inline">
+                                            ...
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <uib-progressbar value="35" class="progress progress-sm primary"></uib-progressbar>
+                                    </td>
+                                    <td>
+                                        <span class="f-700">2</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="img/c4.png" />
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="">Not Another Post</a></h4>
+                                                <span class="timestamp">Nov 1, 2016 at 9:45pm</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="m-r-5 f-700">81</div>
+                                        <div class="sparkline inline" ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2]" ui-jq="sparkline" ui-options="{{data2}}, {
+                                             type: 'bar',
+                                             barColor: '{{app.color.success}}',
+                                             height: '20',
+                                             barWidth: '3',
+                                             barSpacing: 1}">
+                                            ...
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <uib-progressbar value="55" class="progress progress-sm success"></uib-progressbar>
+                                    </td>
+                                    <td>
+                                        <span class="f-700">8</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="img/c0.png" />
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="">Videos Galore</a></h4>
+                                                <span class="timestamp">Oct 21, 2016 at 8:15pm</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="m-r-5 f-700">97</div>
+                                        <div ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2]" ui-jq="sparkline" ui-options="{{data2}}, {
+                type: 'bar',
+                barColor: '{{app.color.primary}}',
+                height: '20',
+                barWidth: '3',
+                barSpacing: 1
+                }" class="sparkline inline">
+                                            ...
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <uib-progressbar value="75" class="progress progress-sm accent"></uib-progressbar>
+                                    </td>
+                                    <td>
+                                        <span class="f-700">1</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="img/c2.png" />
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="">Frosty The Snowman: The Redo</a></h4>
+                                                <span class="timestamp">Sept 30, 2016 at 2:55pm</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="m-r-5 f-700">185</div>
+                                        <div class="sparkline inline" ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2]" ui-jq="sparkline" ui-options="{{data2}}, {
+                                             type: 'bar',
+                                             barColor: '{{app.color.danger}}',
+                                             height: '20',
+                                             barWidth: '3',
+                                             barSpacing: 1}">
+                                            ...
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <uib-progressbar value="85" class="progress progress-sm warning"></uib-progressbar>
+                                    </td>
+                                    <td>
+                                        <span class="f-700">6</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object" src="img/c3.png" />
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="">Final Countdown Video</a></h4>
+                                                <span class="timestamp">Sept 3, 2016 at 3:30pm</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="m-r-5 f-700">46</div>
+                                        <div class="sparkline inline" ng-init="data2=[10, 8, 5, 7, 4, 4, 7, 5, 2]" ui-jq="sparkline" ui-options="{{data2}}, {
+                                             type: 'bar',
+                                             barColor: '{{app.color.accent}}',
+                                             height: '20',
+                                             barWidth: '3',
+                                             barSpacing: 1}">
+                                            ...
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <uib-progressbar value="90" class="progress progress-sm danger"></uib-progressbar>
+                                    </td>
+                                    <td>
+                                        <span class="f-700">9</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="col-xs-12 col-md-3 col-lg-4">
+
+        <section class="box ">
+
+            <header class="panel_header">
+                <h2 class="title pull-left">Last 7 Days</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_setting material-icons" ng-click="section_modal()">mode_edit</i>
+                </div>
+            </header>
+
+            <div class="content-body">
+
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="panel_subheader p-0">Views</div>
+
+                        <div class="sparkline inline" ng-init="dataviews = [30, 44, 19, 54, 89, 59, 85]" ui-jq="sparkline" ui-options="{{dataviews}}, {
+                             type: 'line',
+                             width: '100%',
+                             height: '50',
+                             lineWidth: 2,
+                             lineColor: '{{app.color.primary}}',
+                             fillColor: '{{app.color.primaryLight}}',
+                             highlightSpotColor: '#950202',
+                             highlightLineColor: '#fff',
+                             maxSpotColor: '{{app.color.success}}',
+                             minSpotColor: '{{app.color.primary}}',
+                             spotColor: null,
+                             spotRadius: 3
+                             }">
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-25">
+                    <div class="col-xs-12">
+
+                        <div class="panel_subheader p-0">Likes</div>
+
+                        <div class="sparkline inline" ng-init="datalikes = [4, 3, 5, 7, 8, 13, 12]" ui-jq="sparkline" ui-options="{{datalikes}}, {
+                             type: 'line',
+                             width: '100%',
+                             height: '50',
+                             lineWidth: 2,
+                             lineColor: '{{app.color.success}}',
+                             fillColor: '{{app.color.successLight}}',
+                             highlightSpotColor: '#369b6f',
+                             highlightLineColor: '#fff',
+                             maxSpotColor: '{{app.color.success}}',
+                             minSpotColor: '{{app.color.primary}}',
+                             spotColor: null,
+                             spotRadius: 3
+                             }">
+                            ...
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-25">
+                    <div class="col-xs-12">
+
+                        <div class="panel_subheader p-0">Comments</div>
+
+                        <div class="sparkline inline" ng-init="datacomments = [2, 1, 0, 3, 1, 2, 4]" ui-jq="sparkline" ui-options="{{datacomments}}, {
+                             type: 'line',
+                             width: '100%',
+                             height: '50',
+                             lineWidth: 2,
+                             lineColor: '{{app.color.info}}',
+                             fillColor: '{{app.color.infoLight}}',
+                             highlightSpotColor: '#1e9faf',
+                             highlightLineColor: '#fff',
+                             maxSpotColor: '{{app.color.success}}',
+                             minSpotColor: '{{app.color.primary}}',
+                             spotColor: null,
+                             spotRadius: 3
+                             }">
+                            ...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</div>

@@ -1,0 +1,406 @@
+<div class="content-wrapper" ng-init="app.settings.pagetitle = '';" ng-controller="VideoPlayCntrlr">
+
+    <div class="container-fluid p-0 full-width">
+
+        <div class="m-b-10">
+
+            <div class="profile-banner-bg" ng-if="userType == 'influencer'">
+
+                <div class="alert bg-white alert-default alert-dismissible text-center m-b-0 fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <strong>Hey there, Cliff!</strong> This is your public profile page. <a href="">Add videos</a> to get started.
+                </div>
+
+                <div class="name-container">
+                    <h2><strong>Cliff Canan</strong> | Video Game Reviews</h2>
+                </div>
+
+                <div id="banner-hover-wrap">
+                    <a href="" ng-click="clickUploadCoverPic()">
+                        <i class="fa fa-camera fa-2x block"></i>
+                        <div>
+                            Edit Banner Photo
+                            <span class="block f-300">1200px x 400px</span>
+                        </div>
+                    </a>
+
+                    <input type="file" id="coverPicUpload">
+                </div>
+            </div>
+
+            <div class="sub-nav-bar">
+                <div>
+                    <div class="sub-nav-profile-pic relative" ng-class="{ 'avatar-sm': userType != 'influencer'}">
+                        <img src="data/profile/profile.jpg" class="img-responsive">
+                    </div>
+
+                    <div class="container-inner">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-9">
+                                <div class="indent-left-lg">
+                                    <div class="relative">
+                                        <ul class="nav">
+                                            <li class="active">
+                                                <a href="#">
+                                                    <div>Videos</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <div>Posts</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <div>Messages</div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <div class="m-t-15">
+                                    <button class="btn btn-lg btn-icon btn-block btn-primary btn-corner center-block" type="button" style="max-width: 220px;">
+                                        <i class="fa fa-pencil"></i>&nbsp;
+                                        <span>Join This City</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container p-0">
+        <div class="row">
+
+            <div class="col-xs-12 col-md-2 col-lg-3">
+
+                <section class="box">
+
+                    <div class="content-body p-15">
+
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <button ng-if="userType == 'influencer'" type="button" class="btn btn-primary btn-icon btn-corner btn-xs m-b-5 m-r-10">
+                                    <i class="fa fa-plus"></i>&nbsp;<span>Subscribe</span>
+                                </button>
+
+                                <button type="button" class="btn btn-info btn-icon-round btn-border btn-xs m-b-5 m-r-5" ui-tooltip tooltip-class="success animated pulse" uib-tooltip="Like" data-placement="top">
+                                    <i class="fa fa-thumbs-o-up"></i>
+                                </button>
+
+                                <button type="button" class="btn btn-danger btn-icon-round btn-border btn-xs m-b-5" ui-tooltip tooltip-class="danger animated pulse" uib-tooltip="Dislike" data-placement="top">
+                                    <i class="fa fa-thumbs-o-down"></i>
+                                </button>
+
+                                <div class="dropdown pull-right" uib-dropdown>
+                                    <a href="" class="dropdown-toggle toggle" uib-dropdown-toggle ui-tooltip tooltip-class=" animated fadeIn" uib-tooltip="More" data-placement="top">
+                                        <i class="fa fa-ellipsis-v"></i>
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li class="dropdown-header">More</li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-external-link"></i> &nbsp;<span>Share</span>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-flag"></i> &nbsp;<span>Report</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a ui-sref="app.dashboard">
+                                                <i class="fa fa-ban"></i> &nbsp;<span>Block</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <div class="panel_subheader">Influencer Description</div>
+                                <div class="side-description">
+                                    <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
+
+                                    <div class="social-btns">
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit Twitter Profile" data-placement="auto">
+                                            <i class="fa fa-twitter"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit Facebook Page" data-placement="auto">
+                                            <i class="fa fa-facebook-f"></i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit G+ Page" data-placement="auto">
+                                            <i class="fa fa-google-plus"></i>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <span class="footer-title">Tags</span>
+                        <div class="controls">
+                            <input type="text" ui-jq="tagsinput" class="form-control" id="tagsinput-1" value="Sample tag, Another tag, Awesome" placeholder="Add a tag" />
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="col-xs-12 col-md-7 col-lg-6 post-feed">
+
+                <div ng-if="userType != 'influencer'" class="alert minimal alert-primary alert-icon m-t-15 fade in" role="alert">
+                    <div class="row">
+                        <div class="col-xs-2 text-center">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <div class="col-xs-10">
+                            <div class="alert-text">
+                                <strong>Want more special premium content?</strong> Subscribe to get access to all of Cliff's <strong>28 videos</strong>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="box" ng-repeat="post in videos" ng-mouseenter="mouseenterBox($event)" ng-mouseleave="mouseleaveBox($event)">
+                    <div class="bg-white">
+
+                        <div class="box_header">
+                            <div class="influencer_info">
+
+                                <a href="">
+                                    <div class="avatar" style="background-image: url({{post.avatar}})"></div>
+                                </a>
+
+                                <div class="post_info_container">
+                                    <a href="">
+                                        <div class="name">{{post.name}}</div>
+                                    </a>
+
+                                    <div class="post_info_detals">
+                                        <div class="">
+                                            <span class="fan_count">{{post.fan_count}} Fans</span>
+                                            <span class="divider">&bull;</span>
+                                            <span class="timestamp">{{post.date_posted}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="access-container inline-block">
+                                    <button type="button" class="btn btn-sm btn-border btn-icon animated">
+                                        <i class="fa fa-lock"></i>
+                                        <span>Fans Only</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="content-body p-t-0 p-b-0" style="overflow:hidden">
+                            <div class="row">
+                                <div class="col-xs-12">
+
+                                    <div ng-if="post.type == 'video'">
+                                        <!-- 16:9 aspect ratio -->
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="{{trustSrc(post.url)}}" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <div ng-if="post.type == 'text'">
+                                        <div class="">
+                                            {{post.text}}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="postFooter">
+                            <div class="row">
+                                <div class="col-xs-12">
+
+                                    <div class="p-l-20 p-r-20">
+                                        <div class="postStats pull-left">
+                                            <div class="comments">
+                                                <a href="" class="">
+                                                    <i class="fa fa-comment-o"></i>&nbsp;
+                                                    <span>9 Comment<span ng-if="post.num_likes > 1">s</span></span>
+                                                </a>
+                                            </div>
+                                            <div class="likes">
+                                                <a href="" ui-tooltip tooltip-class="success animated pulse" uib-tooltip="Like" data-placement="top">
+                                                    <i class="fa fa-thumbs-o-up"></i>&nbsp;
+                                                    <span>{{post.num_likes}}</span>
+                                                </a>
+                                            </div>
+                                            <div class="dislikes">
+                                                <a href="" ui-tooltip tooltip-class="danger animated pulse" uib-tooltip="Dislike" data-placement="top">
+                                                    <i class="fa fa-thumbs-o-down"></i>&nbsp;
+                                                    <span>{{post.num_dislikes}}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="dropdown pull-right" uib-dropdown>
+                                            <a href="" class="dropdown-toggle toggle" uib-dropdown-toggle ui-tooltip tooltip-class="animated fadeIn" uib-tooltip="More" data-placement="top">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-external-link"></i> &nbsp;<span>Share</span>
+                                                    </a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-flag"></i> &nbsp;<span>Report</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a ui-sref="app.dashboard">
+                                                        <i class="fa fa-ban"></i> &nbsp;<span>Block</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="col-xs-12 col-md-3">
+
+                <section class="box">
+
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <button type="button" class="btn btn-facebook btn-icon m-r-10 m-b-5">
+                                    <i class="fa fa-facebook-square"></i> &nbsp; <span>Share</span>
+                                </button>
+
+                                <button type="button" class="btn btn-twitter btn-icon m-b-5">
+                                    <i class="fa fa-twitter-square"></i> &nbsp; <span>Tweet</span>
+                                </button>
+
+                                <div ng-if="userType == 'influencer'" class="m-t-5 text-center small">
+                                    Spread the word to get more fans!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- To Do Widget -->
+                <div ng-if="userType == 'influencer'" class="slant-widget slant-todo-task bg-primary m-t-15" ui-todowidget>
+
+                    <div class="wid-task-header">
+                        <div class="wid-icon">
+                            <i class="fa fa-tasks"></i>
+                        </div>
+                        <div class="wid-text">
+                            <h4>Build My City</h4>
+                        </div>
+                    </div>
+
+                    <div class="wid-all-tasks">
+                        <perfect-scrollbar class="ps-todo-widget" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20">
+                            <ul class="list-unstyled">
+                                <li class="checked">
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="" checked>
+                                        <i></i> Complete Profile
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Upload A Video
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Add Payment Info
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="icheck icheck-label icheck-white form-label ">
+                                        <input type="checkbox" value="">
+                                        <i></i> Get Subscribers
+                                    </label>
+                                </li>
+                            </ul>
+                        </perfect-scrollbar>
+                    </div>
+
+                    <div class="wid-add-task">
+                        <input type="text" class="form-control" placeholder="Add task" />
+                    </div>
+
+                </div>
+
+
+                <!-- Suggested Influencers -->
+                <section ng-if="userType != 'influencer'" class="box" ng-controller="MembersCtrl">
+
+                    <header class="panel_header">
+                        <span class="title pull-left">Suggested</span>
+                    </header>
+
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <div class="media" ng-repeat="member in members">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="img-responsive media-object" ng-src="{{member.avatar}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="media-body gray">
+                                        <h4 class="media-heading">{{member.name}}</h4>
+                                        {{member.position}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</div>
