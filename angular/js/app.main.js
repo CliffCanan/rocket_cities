@@ -10,15 +10,18 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
             $rootScope.userType = 'influencer';
 
 
-        $scope.app = {
+        $rootScope.app = {
             name: 'Rocket Cities',
             version: '0.0.1',
             type: $rootScope.userType,
             color: {
                 primary: '#a30303',//'#3f51b5',
+                primaryLight: '#fd7373',
                 accent: '#E91E63',
                 info: '#03A9F4',
+                infoLight: '#67d7e5',
                 success: '#46be8a',
+                successLight: '#7fd2ae',
                 warning: '#fdb45d',
                 danger: '#F44336',
                 secondary: '#a9a9a9',

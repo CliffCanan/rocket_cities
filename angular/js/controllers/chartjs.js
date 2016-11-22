@@ -140,37 +140,6 @@
         }];
     });
 
-    app.controller('PolarAreaCtrl', function ($scope) {
-        $scope.labels = ['Download Sales', 'In-Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
-        $scope.data = [300, 500, 100, 40, 120];
-        $scope.colours = [{ // grey
-            fillColor: "#E91E63",
-            strokeColor: "#E91E63",
-            highlightFill: "#E91E63",
-            highlightStroke: "#E91E63"
-        }, { // dark grey
-            fillColor: "#3f51b5",
-            strokeColor: "#3f51b5",
-            highlightFill: "#3f51b5",
-            highlightStroke: "#3f51b5"
-        }, { // dark grey
-            fillColor: "#FFC107",
-            strokeColor: "#FFC107",
-            highlightFill: "#FFC107",
-            highlightStroke: "#FFC107"
-        }, { // dark grey
-            fillColor: "#4CAF50",
-            strokeColor: "#4CAF50",
-            highlightFill: "#4CAF50",
-            highlightStroke: "#4CAF50"
-        }, { // dark grey
-            fillColor: "#f44336",
-            strokeColor: "#f44336",
-            highlightFill: "#f44336",
-            highlightStroke: "#f44336"
-        }];
-    });
-
     app.controller('BaseCtrl', function ($scope) {
         $scope.labels = ['Download Sales', 'Store Sales', 'Mail Sales', 'Telesales', 'Corporate Sales'];
         $scope.data = [300, 500, 100, 40, 120];
@@ -204,34 +173,6 @@
             strokeColor: "#f44336",
             highlightFill: "#f44336",
             highlightStroke: "#f44336"
-        }];
-    });
-
-    app.controller('RadarCtrl', function ($scope) {
-        $scope.labels = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
-
-        $scope.data = [
-            [65, 59, 90, 81, 56, 55, 40],
-            [28, 48, 40, 19, 96, 27, 100]
-        ];
-
-        $scope.onClick = function (points, evt) {
-            console.log(points, evt);
-        };
-        $scope.colours = [{ // grey
-            fillColor: "#E91E63",
-            strokeColor: "#E91E63",
-            pointColor: "#E91E63",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "#E91E63"
-        }, { // dark grey
-            fillColor: "#3f51b5",
-            strokeColor: "#3f51b5",
-            pointColor: "#3f51b5",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "#3f51b5"
         }];
     });
 

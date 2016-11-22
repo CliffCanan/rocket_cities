@@ -35,25 +35,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.widgets', {
-                url: '/widgets',
-                templateUrl: 'partials/widgets.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
-                                'countTo',
-                                'js/controllers/countto.js',
-                                'js/controllers/vectormap.js',
-                                'js/controllers/vectormap.js',
-                                'js/controllers/messages-widget.js',
-                                'js/directives/ui-todowidget.js',
-                                '../bower_components/font-awesome/css/font-awesome.css'
-                            ]);
-                        }
-                    ]
-                }
-            })
             .state('app.searchapp', {
                 url: '/searchapp',
                 templateUrl: 'partials/searchapp.html',
@@ -122,47 +103,9 @@ angular.module('app')
                 url: '/ui',
                 template: '<div ui-view class=""></div>'
             })
-
-            .state('app.ui.notifications', {
-                url: '/notifications',
-                templateUrl: 'partials/ui-notifications.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('cgNotify').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/notify.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.sortable', {
-                url: '/sortable',
-                templateUrl: 'partials/ui-sortable.html'
-            })
-            .state('app.ui.tooltips', {
-                url: '/tooltips',
-                templateUrl: 'partials/ui-tooltips.html'
-            })
-            .state('app.store', {
-                url: '/store',
-                templateUrl: 'partials/store.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load([
-                                '../node_modules/isotope-layout/dist/isotope.pkgd.min.js',
-                                'js/controllers/store.js',
-                            ]);
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.videoembed', {
-                url: '/videoembed',
-                templateUrl: 'partials/ui-videoembed.html',
+            .state('app.city', {
+                url: '/city',
+                templateUrl: 'partials/city.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
@@ -176,130 +119,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.ui.tiles', {
-                url: '/tiles',
-                templateUrl: 'partials/ui-tiles.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('countTo').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/countto.js');
-                                }
-                            ).then(
-                                function () {
-                                    return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.form', {
-                url: '/form',
-                template: '<div ui-view class=""></div>'
-            })
-
-            .state('app.form.premade', {
-                url: '/premade',
-                templateUrl: 'partials/form-premade.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.components', {
-                url: '/components',
-                templateUrl: 'partials/form-components.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('colorpicker.module').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/colorpicker.js');
-                                }
-                            ).then(
-                                function () {
-                                    return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-            .state('app.form.wizard', {
-                url: '/wizard',
-                templateUrl: 'partials/form-wizard.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.validation', {
-                url: '/validation',
-                templateUrl: 'partials/form-validation.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load('js/controllers/form-validation.js');
-                        }
-                    ]
-                }
-            })
-            .state('app.form.masks', {
-                url: '/masks',
-                templateUrl: 'partials/form-masks.html'
-            })
-            .state('app.ui.calendar', {
-                url: '/calendar',
-                templateUrl: 'partials/ui-calendar.html',
-                resolve: {
-                    deps: ['$ocLazyLoad', 'uiLoad',
-                        function ($ocLazyLoad, uiLoad) {
-                            return uiLoad.load(
-                                JQ_CONFIG.fullcalendar.concat('js/controllers/calendar.js')
-                            ).then(
-                                function () {
-                                    return $ocLazyLoad.load('ui.calendar');
-                                }
-                            )
-                        }
-                    ]
-                }
-            })
-            .state('app.ui.profile', {
-                url: '/profile',
-                templateUrl: 'partials/ui-profile.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
-            .state('app.form.editable', {
-                url: '/editable',
-                templateUrl: 'partials/form-editable.html',
-                controller: 'SettingsCtrl',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('xeditable').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/settings.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.settings', {
                 url: '/settings',
                 templateUrl: 'partials/settings.html',
@@ -307,7 +126,7 @@ angular.module('app')
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['xeditable','angularFileUpload']).then(
+                            return $ocLazyLoad.load(['xeditable', 'angularFileUpload']).then(
                                 function () {
                                     return $ocLazyLoad.load([
                                         'js/map/load-google-maps.js',
@@ -326,24 +145,43 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.form.fileupload', {
-                url: '/fileupload',
-                templateUrl: 'partials/form-fileupload.html',
+            .state('app.paymenthistory', {
+                url: '/paymenthistory',
+                templateUrl: 'partials/paymenthistory.html'
+            })
+            .state('app.posts', {
+                url: '/posts',
+                templateUrl: 'partials/dash-posts.html',
+                controller: 'PostsCtrl',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('angularFileUpload').then(
+                            return $ocLazyLoad.load([
+                                '../bower_components/datatables/media/js/jquery.dataTables.min.js',
+                                'js/controllers/posts.js',
+                                '../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
+            })
+            .state('app.subscribers', {
+                url: '/subscribers',
+                templateUrl: 'partials/dash-subscribers.html',
+                controller: 'SubscribersCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('chart.js').then(
                                 function () {
-                                    return $ocLazyLoad.load('js/controllers/file-upload.js');
+                                    return $ocLazyLoad.load([
+                                        '../bower_components/datatables/media/js/jquery.dataTables.min.js',
+                                        'js/controllers/users.js',
+                                        '../bower_components/font-awesome/css/font-awesome.css']);
                                 }
                             );
                         }
                     ]
                 }
-            })
-            .state('app.paymenthistory', {
-                url: '/paymenthistory',
-                templateUrl: 'partials/paymenthistory.html'
             })
 
             .state('app.ui.members', {
@@ -352,7 +190,9 @@ angular.module('app')
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
-                            return uiLoad.load(['js/controllers/members.js', '../bower_components/font-awesome/css/font-awesome.css']);
+                            return uiLoad.load([
+                                'js/controllers/members.js',
+                                '../bower_components/font-awesome/css/font-awesome.css']);
                         }
                     ]
                 }
@@ -363,37 +203,32 @@ angular.module('app')
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
-                            return $ocLazyLoad.load(['js/filters/search-startfrom.js', 'js/controllers/search.js', 'js/directives/ui-searchtabs.js', '../bower_components/font-awesome/css/font-awesome.css']);
+                            return $ocLazyLoad.load([
+                                'js/filters/search-startfrom.js',
+                                'js/controllers/search.js',
+                                'js/directives/ui-searchtabs.js',
+                                '../bower_components/font-awesome/css/font-awesome.css']);
                         }
                     ]
                 }
             })
-            .state('app.ui.imagecrop', {
-                url: '/imagecrop',
-                templateUrl: 'partials/ui-imagecrop.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('ngImgCrop').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/imagecrop.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
-           /* .state('app.ui.faq', {
+            .state('app.ui.faq', {
                 url: '/faq',
                 templateUrl: 'partials/ui-faq.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
-                        function($ocLazyLoad) {
+                        function ($ocLazyLoad) {
                             return $ocLazyLoad.load(['js/controllers/faq.js']);
                         }
                     ]
                 }
-            })*/
+            })
+
+
+            //------------------------------------------------------------
+            // FUTURE FEATURES - NOT NECESSARY FOR V1 MVP (CLIFF 11/21/16)
+            //------------------------------------------------------------
+
             .state('app.mail', {
                 abstract: true,
                 url: '/mail',
@@ -423,24 +258,45 @@ angular.module('app')
                 url: '/{mailId:[0-9]{1,4}}',
                 templateUrl: 'partials/mail-view.html'
             })
-            .state('app.charts', {
-                url: '/charts',
-                template: '<div ui-view class=""></div>',
-            })
-            .state('app.charts.morrisline', {
-                url: '/morrisline',
-                templateUrl: 'partials/charts-morris-line.html',
+            .state('app.store', {
+                url: '/store',
+                templateUrl: 'partials/store.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('ngMorris').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/morris.js');
-                                }
-                            );
+                            return $ocLazyLoad.load([
+                                '../node_modules/isotope-layout/dist/isotope.pkgd.min.js',
+                                'js/controllers/store.js',
+                            ]);
                         }
                     ]
                 }
+            })
+            .state('app.calendar', {
+                url: '/calendar',
+                templateUrl: 'partials/calendar.html',
+                resolve: {
+                    deps: ['$ocLazyLoad', 'uiLoad',
+                        function ($ocLazyLoad, uiLoad) {
+                            return uiLoad.load(
+                                JQ_CONFIG.fullcalendar.concat('js/controllers/calendar.js')
+                            ).then(
+                                function () {
+                                    return $ocLazyLoad.load('ui.calendar');
+                                }
+                            )
+                        }
+                    ]
+                }
+            })
+
+            //---------------------------------------------------------------------------------------------
+            // ORIGINAL TEMPLATE PAGES - LEAVING JUST FOR REFERENCE, CAN EVENTUALLY DELETE (CLIFF 11/21/16)
+            //---------------------------------------------------------------------------------------------
+
+            .state('app.charts', {
+                url: '/charts',
+                template: '<div ui-view class=""></div>',
             })
             .state('app.charts.chartjs', {
                 url: '/chartjspie',
@@ -523,10 +379,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.posts', {
-                url: '/posts',
-                templateUrl: 'partials/posts.html'
-            })
             .state('app.tables.smart', {
                 url: '/smart',
                 templateUrl: 'partials/table-smart.html',
@@ -542,22 +394,178 @@ angular.module('app')
                     ]
                 }
             })
-
-            .state('app.layout', {
-                url: '/layout',
+            .state('app.form', {
+                url: '/form',
                 template: '<div ui-view class=""></div>'
             })
-            .state('app.layout.default', {
-                url: '/default',
-                templateUrl: 'partials/layout-default.html'
+
+            .state('app.form.premade', {
+                url: '/premade',
+                templateUrl: 'partials/form-premade.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
             })
-            .state('app.layout.collapsed', {
-                url: '/collapsed',
-                templateUrl: 'partials/layout-collapsed.html'
+            .state('app.form.elements', {
+                url: '/elements',
+                templateUrl: 'partials/form-elements-check.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
             })
-            .state('app.layout.chat', {
-                url: '/chat',
-                templateUrl: 'partials/layout-chat.html'
+            .state('app.form.components', {
+                url: '/components',
+                templateUrl: 'partials/form-components.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('colorpicker.module').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/colorpicker.js');
+                                }
+                            ).then(
+                                function () {
+                                    return $ocLazyLoad.load('../bower_components/font-awesome/css/font-awesome.css');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.form.wizard', {
+                url: '/wizard',
+                templateUrl: 'partials/form-wizard.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
+            })
+            .state('app.form.validation', {
+                url: '/validation',
+                templateUrl: 'partials/form-validation.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load('js/controllers/form-validation.js');
+                        }
+                    ]
+                }
+            })
+            .state('app.form.masks', {
+                url: '/masks',
+                templateUrl: 'partials/form-masks.html'
+            })
+            .state('app.ui.profile', {
+                url: '/profile',
+                templateUrl: 'partials/ui-profile.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
+            })
+            .state('app.form.editable', {
+                url: '/editable',
+                templateUrl: 'partials/form-editable.html',
+                controller: 'SettingsCtrl',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('xeditable').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/settings.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.form.fileupload', {
+                url: '/fileupload',
+                templateUrl: 'partials/form-fileupload.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('angularFileUpload').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/file-upload.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.ui.imagecrop', {
+                url: '/imagecrop',
+                templateUrl: 'partials/ui-imagecrop.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('ngImgCrop').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/imagecrop.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+            .state('app.ui.notifications', {
+                url: '/notifications',
+                templateUrl: 'partials/ui-notifications.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load('cgNotify').then(
+                                function () {
+                                    return $ocLazyLoad.load('js/controllers/notify.js');
+                                }
+                            );
+                        }
+                    ]
+                }
+            })
+
+            // NOT USED - CAN EVENTUALLY BE DELETED (CLIFF 11/21/16)
+            .state('app.widgets', {
+                url: '/widgets',
+                templateUrl: 'partials/widgets.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'countTo',
+                                'js/controllers/countto.js',
+                                'js/controllers/vectormap.js',
+                                'js/controllers/vectormap.js',
+                                'js/controllers/messages-widget.js',
+                                'js/directives/ui-todowidget.js',
+                                '../bower_components/font-awesome/css/font-awesome.css'
+                            ]);
+                        }
+                    ]
+                }
+            })
+            .state('app.ui.sortable', {
+                url: '/sortable',
+                templateUrl: 'partials/ui-sortable.html'
+            })
+            .state('app.ui.tooltips', {
+                url: '/tooltips',
+                templateUrl: 'partials/ui-tooltips.html'
             })
     }
     ]);
