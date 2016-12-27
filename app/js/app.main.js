@@ -32,7 +32,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
                 menuFolded: menufold,
                 chatFolded: true,
                 searchFocus: false,
-                pagetitle: 'Complete Amin \\ AngularJS',
+                pagetitle: 'Rocket Cities',
             }
         }
 

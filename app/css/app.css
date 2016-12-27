@@ -1,94 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700|Open+Sans:100,300,400,500,600,700);
 
-
-/*-----------------------------------------
-
-Table of Contents:
-
-General Layout Style
-Page Title and Breadcrumb    
-Typography
-Page Loading Progress Bar
-Page Top Bar
-Sidebar Main Menu 
-Sidebar User Profile
-Sidebar Fixed Bottom Graphs
-Section or Content Box
-Drag n Drop panels(section boxes)
-FORM ELEMENTS
-BUTTONS
-Modals
-Alert Notifications
-Dropdown menu
-Datepicker, Daterangepicker,  Datetimepicker & Colorpicker
-Progress Bars
-General Animation Settings
-Tooltips
-Popovers
-Nestable list
-Accordions
-Tabs
-UI Grid
-FULL UI Calendar
-Timeline Centered Style
-Pricing Tables 
-jVector Maps
-Tables
-Data Tables
-UI Icons
-Team Members
-Login and Registration Page - Transparent Background Style
-Display Code Wrappers
-List Group
-Breadcrumbs
-Pagination
-Labels
-Badges
-Easy PIE Charts
-Sparkline Charts
-Page Layout - Sidebar, Chat API toggle interactions
-COLLAPSED MENU
-CHAT API
-CHAT API Windows
-Mailbox
-Dashboard
-Messages widget (Dashboard)
-Error pages 404, 505
-UI Lockscreen
-Form Validations
-Form Wizard
-Carousel
-Visibility Animation in Elements (Viewport)
-Widget - Tile Counter
-Widget - Tile Progress widget 
-Navigation Bars
-Search page
-Blogs
-Invoice
-Logo
-Profile Page
-Widget - To Do Task List
-Widget - Social Media
-Widget - Blogs
-Widget - Project Report
-Widget - Sparkline Graphs
-Widget - Vector Map
-Widget - Weather
-Widget - User Profile Tile
-Widget - Stats
-UI Dropdowns
-Angular navigation menu
-Angular perfect scrollbar
-easyPieChart
-Checkboxes and radio buttons
-CSS switches
-Sortable list and grid
-Bootstrap Touchspin
-Bootstrap Chosen
-Material Icons 
-------------------------------------------*/
-
-
 /*----------------------------------------
   General Layout Style
 ------------------------------------------*/
@@ -1551,6 +1462,7 @@ a {
 
         .influencer_info .post_info_container .name {
             color: #232d32;
+            cursor: pointer;
             display: inline-block;
             font-size: 1rem;
             font-weight: 700;
@@ -1783,6 +1695,14 @@ a {
         #main-menu-wrapper ul.wraplist {
             padding-bottom: 0px;
         }
+
+        #main-menu-wrapper ul li.demo-only {
+            background: #ddd;
+        }
+
+            #main-menu-wrapper ul li.demo-only a {
+                color: #777;
+            }
 
     #main-menu-wrapper .menusection {
         font-family: 'Roboto', Arial, Helvetica, sans-serif;

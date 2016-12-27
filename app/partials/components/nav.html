@@ -78,7 +78,7 @@
         </a>
     </li>
 
-    <li ui-sref-active="active">
+    <li ng-if="userType == 'subscriber'" ui-sref-active="active">
         <a ui-sref="app.ui.members" class="nosub">
             <i class="fa fa-edit"></i>
             <span class="title">Explore Artists</span>
@@ -86,7 +86,7 @@
     </li>
 
 
-    <li class="menusection">FUTURE FEATURES...</li>
+    <li ng-if="userType == 'influencer'" class="menusection demo-only">FUTURE FEATURES...</li>
 
     <li ng-if="userType == 'influencer'" ui-sref-active="active">
         <a ui-sref="app.mail.list" class="nosub">
@@ -110,31 +110,24 @@
         </a>
     </li>
 
-    <li ui-sref-active="active">
-        <a ui-sref="app.widgets" class="nosub">
-            <i class="fa fa-cogs"></i>
-            <span class="title">Widgets</span>
-        </a>
-    </li>
 
+    <li class="menusection demo-only">Charts, Tables &amp; Forms</li>
 
-    <li class="menusection">Charts, Tables &amp; Forms</li>
-
-    <li ui-sref-active="active">
+    <li ui-sref-active="active" class="demo-only">
         <a ui-sref="app.charts.chartjs" class="nosub">
             <i class="fa fa-line-chart"></i>
             <span class="title">JS Charts</span>
         </a>
     </li>
 
-    <li ui-sref-active="active">
+    <li ui-sref-active="active" class="demo-only">
         <a ui-sref="app.charts.easypiechart" class="nosub">
             <i class="fa fa-pie-chart"></i>
             <span class="title">Knob Charts</span>
         </a>
     </li>
 
-    <li href class="auto">
+    <li href class="auto demo-only">
         <a href="javascript:;">
             <i class="fa fa-table"></i>
             <span class="title">Tables</span>
@@ -154,9 +147,6 @@
                 <a ui-sref="app.tables.smart">Smart</a>
             </li>
             <li ui-sref-active="active">
-                <a ui-sref="app.tables.uigrid">uiGrid</a>
-            </li>
-            <li ui-sref-active="active">
                 <a ui-sref="app.tables.editable">Editable</a>
             </li>
             <li ui-sref-active="active">
@@ -165,7 +155,7 @@
         </ul>
     </li>
 
-    <li href class="auto">
+    <li href class="auto demo-only">
         <a href="javascript:;">
             <i class="fa fa-check-square-o"></i>
             <span class="title">Forms</span>
@@ -219,7 +209,14 @@
     </li>
 
 
-    <li class="menusection">Page Kits</li>
+    <li class="menusection demo-only">DEMO - Page Kits</li>
+
+    <li ui-sref-active="active" class="demo-only">
+        <a ui-sref="app.widgets" class="nosub">
+            <i class="fa fa-cogs"></i>
+            <span class="title">Widgets</span>
+        </a>
+    </li>
 
     <li href class="auto">
         <a href="javascript:;">
@@ -274,16 +271,16 @@
     </li>
 
 
-    <li class="menusection">Extensions</li>
+    <li class="menusection demo-only">Extensions</li>
 
-    <li ui-sref-active="active">
+    <li ui-sref-active="active" class="demo-only">
         <a ui-sref="app.form.fileupload" class="nosub">
             <i class="fa fa-upload"></i>
             <span class="title">File Upload</span>
         </a>
     </li>
 
-    <li ui-sref-active="active">
+    <li ui-sref-active="active" class="demo-only">
         <a ui-sref="app.ui.imagecrop" class="nosub">
             <i class="fa fa-file-image-o"></i>
             <span class="title">Image cropper</span>
