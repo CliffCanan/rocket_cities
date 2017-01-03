@@ -2,9 +2,10 @@
 angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
     function ($scope, $rootScope) {
 
-        var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
         $rootScope.screenWidth = screenWidth;
+
+        var menufold = screenWidth < 767 ? true : false;
 
         if (typeof $rootScope.userType == 'undefined')
             $rootScope.userType = 'influencer';

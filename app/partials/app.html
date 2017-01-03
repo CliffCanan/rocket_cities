@@ -26,20 +26,22 @@
         <section class="wrapper main-wrapper" style='' ui-view></section>
     </section>
     <!-- END CONTENT -->
+
     <!-- rightsidebar start-->
     <div data-ng-include=" 'partials/components/rightbar.html' " class="page-chatapi {{app.settings.chatFolded ? 'hideit' : 'showit'}}">
     </div>
 
     <div class="chatapi-windows {{app.settings.chatFolded ? 'hideit' : 'showit'}}"></div>
     <!-- rightsidebar end -->
+
     <!-- footer -->
-    <div ng-if="app.type != 'music'" class="app-footer app-footer-fixed {{app.settings.menuFolded ? 'sidebar_shift' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}">
+    <div class="app-footer app-footer-fixed {{app.settings.menuFolded ? 'sidebar_shift' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}">
     </div>
     <!-- / footer -->
 
 </div>
 <!-- END CONTAINER -->
 <!-- footer -->
-<div data-ng-include=" 'partials/components/footer.html' ">
+<div data-ng-include=" 'partials/components/footer.html' " class="{{app.settings.showSideMenu ? 'footer-sidebar-shift' : ''}} {{app.settings.chatFolded ? '' : 'chat_shift'}}">
 </div>
 <!-- / footer -->

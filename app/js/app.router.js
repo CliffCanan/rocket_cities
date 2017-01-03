@@ -45,7 +45,7 @@ angular.module('app')
             })
             .state('access.login', {
                 url: '/login',
-                templateUrl: 'partials/ui-login.html',
+                templateUrl: 'partials/login.html',
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
@@ -57,7 +57,7 @@ angular.module('app')
             })
             .state('access.register', {
                 url: '/register',
-                templateUrl: 'partials/ui-register.html',
+                templateUrl: 'partials/register.html',
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
@@ -68,7 +68,7 @@ angular.module('app')
             })
             .state('access.forgotpwd', {
                 url: '/forgotpwd',
-                templateUrl: 'partials/ui-forgotpwd.html',
+                templateUrl: 'partials/forgotpwd.html',
             })
             .state('access.404', {
                 url: '/404',

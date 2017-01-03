@@ -112,10 +112,6 @@ body {
     margin-left: 15px;
 }
 
-.p-0 {
-    padding: 0px !important;
-}
-
 .padding-5, .p-5 {
     padding: 5px !important;
 }
@@ -412,12 +408,32 @@ body {
     margin-left: 9rem;
 }
 
-.no-padding {
+.p-0, .no-padding {
     padding: 0 !important;
 }
 
-.no-margin {
+.m-0, .no-margin {
     margin: 0 !important;
+}
+
+.f-14 {
+    font-size: 14px !important;
+}
+
+.f-18 {
+    font-size: 18px !important;
+}
+
+.f-20 {
+    font-size: 20px !important;
+}
+
+.f-22 {
+    font-size: 22px !important;
+}
+
+.f-24 {
+    font-size: 24px !important;
 }
 
 .inline {
@@ -1704,6 +1720,14 @@ a {
                 color: #777;
             }
 
+        #main-menu-wrapper ul li.future-feature {
+            background: rgba(200,30,30,.3);
+        }
+
+            #main-menu-wrapper ul li.future-feature a {
+                color: #666;
+            }
+
     #main-menu-wrapper .menusection {
         font-family: 'Roboto', Arial, Helvetica, sans-serif;
         font-weight: 400;
@@ -2613,10 +2637,15 @@ fieldset[disabled] .form-control {
 
 .input-group .input-group-addon {
     min-width: 25px;
-    padding-left: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
     text-align: left;
     border: 0px solid transparent;
     border-bottom: 2px solid #e1e1e1;
+}
+
+.input-group-lg > .input-group-addon ~ .form-control {
+    padding-left: 8px;
 }
 
 .input-group.focus .input-group-addon {
@@ -3294,6 +3323,60 @@ fieldset[disabled] .btn {
 .apple {
     background-color: #02a7e7 !important;
     color: #fff !important;
+}
+
+
+
+
+/*----------------------
+        FOOTER
+  ----------------------*/
+.footer-sidebar-shift {
+    margin-left: 260px;
+}
+
+.footer-container {
+    background-color: #232d32;
+    color: #a7b2b8;
+    padding: 60px 0 2px;
+    line-height: 200%;
+    font-size: 1rem;
+}
+
+    .footer-container .containerInner {
+        box-sizing: border-box;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 71rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        width: 100%;
+    }
+
+    .footer-container ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+        .footer-container ul li > a {
+            -webkit-transition: color .15s;
+            transition: color .15s;
+            color: #a7b2b8;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+.footerHeading {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.copyright {
+    font-size: 13px;
+    opacity: .5;
+    text-align: center;
+    margin: 30px auto 0;
 }
 
 
@@ -6211,9 +6294,9 @@ table.dataTable.no-footer {
     }
 
 
-/*----------------------------------------------------------------
-    Login and Registration Page - Transparent Background Style
-------------------------------------------------------------------*/
+/*----------------------------------
+    Login and Registration
+  ----------------------------------*/
 
 .btn > .icon-separator {
     font-size: 16px;
@@ -6242,6 +6325,7 @@ table.dataTable.no-footer {
 }
 
 .social-signup .btn {
+    font-size: 17px;
     height: 42px;
 }
 
@@ -6291,7 +6375,7 @@ table.dataTable.no-footer {
 
 .login_page .panel {
     width: 100%;
-    max-width: 740px;
+    max-width: 660px;
     margin: 0 auto;
 }
 
@@ -6315,50 +6399,22 @@ table.dataTable.no-footer {
         color: #23527c;
     }
 
-.loginpage form {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    margin-left: 0;
-    font-weight: 400;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -ms-box-shadow: none;
-    -o-box-shadow: none;
-    overflow: hidden;
-    background-color: transparent;
-}
-
-    .loginpage form .forgetmenot {
-        width: 100%;
-        display: block;
-        margin: 12px 0 11px 0 !important;
-        font-weight: 400;
-        float: left;
-        margin-bottom: 0px;
-    }
-
-    .loginpage form p.submit {
-        display: inline-block;
-        width: 100%;
-        margin-top: 15px;
-    }
-
-        .loginpage form p.submit .btn {
-            padding: 11px 21px;
-        }
-
-.loginpage label {
+.login_page label {
     font-size: 14px;
-    line-height: 23px;
-    width: 100%;
+    font-weight: 600;
     text-transform: uppercase;
-    font-weight: 500;
+    margin-bottom: 0;
 }
 
-.loginpage form .input,
-.loginpage form input[type=checkbox],
-.loginpage input[type=text] {
+.login_page .checkbox label {
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.login_page form .input,
+.login_page form input[type=checkbox],
+.login_page input[type=text] {
     -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
@@ -6368,56 +6424,22 @@ table.dataTable.no-footer {
     font-weight: 500;
 }
 
-.loginpage form .input,
-.loginpage input[type=text] {
-    font-size: 19px;
-    width: 100%;
-    padding: 9px;
-    line-height: 25px;
-    margin: 5px 0 15px 0;
-    border: 0px solid transparent;
-    height: 40px;
-}
-
-.loginpage form .input,
-.loginpage form input[type=checkbox],
-.loginpage input[type=text] {
+.login_page form .input,
+.login_page form input[type=checkbox],
+.login_page input[type=text] {
     color: #E91E63;
     background: rgba(255, 255, 255, 0.6);
     font-weight: 400;
 }
 
-.loginpage,
-.loginpage form label,
-.loginpage form,
-.loginpage .message {
-    color: #555;
-}
-
-    .loginpage form .input,
-    .loginpage form input[type=checkbox],
-    .loginpage input[type=text] {
-        outline: none;
+    .login_page #login_error,
+    .login_page .message {
     }
 
-        .loginpage form .input:hover,
-        .loginpage form input[type=checkbox]:hover,
-        .loginpage input[type=text]:hover,
-        .loginpage form .input:focus,
-        .loginpage form input[type=checkbox]:focus,
-        .loginpage input[type=text]:focus {
-            background-color: rgba(255, 255, 255, .8);
-            outline: none;
-        }
-
-    .loginpage #login_error,
-    .loginpage .message {
-    }
-
-        .loginpage .message,
-        .loginpage .message a,
-        .loginpage #login_error,
-        .loginpage #login_error a {
+        .login_page .message,
+        .login_page .message a,
+        .login_page #login_error,
+        .login_page #login_error a {
             margin-bottom: 20px;
             background-color: transparent;
             color: #cccccc;
@@ -6476,10 +6498,9 @@ body .login_page {
 }
 
 
-/*-----------------------------------------------------------
+/*--------------------------
     Display Code Wrappers
-----------------------------------------------------------*/
-
+  --------------------------*/
 kbd {
     color: #fff;
     background-color: #555;
@@ -6514,10 +6535,9 @@ code {
 }
 
 
-/*-----------------------------------------------------------
+/*--------------------------
     List Group
-----------------------------------------------------------*/
-
+  --------------------------*/
 .list-group {
     border-radius: 0px;
     -o-border-radius: 0px;
