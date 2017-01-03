@@ -25,9 +25,8 @@ angular.module('ui.jq', ['ui.load']).
           compile: function uiJqCompilingFunction(tElm, tAttrs) {
 
               if (!angular.isFunction(tElm[tAttrs.uiJq]) && !JQ_CONFIG[tAttrs.uiJq])
-              {
                   throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
-              }
+              
               var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
 
               return function uiJqLinkingFunction(scope, elm, attrs) {

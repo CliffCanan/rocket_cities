@@ -53368,7 +53368,7 @@ angular.module('app')
                           '../bower_components/flot.tooltip/js/jquery.flot.tooltip.js',
                           '../bower_components/flot.orderbars/js/jquery.flot.orderBars.js',
                           '../bower_components/flot-spline/js/jquery.flot.spline.js'],
-      knob:           [   '../bower_components/jquery-knob/dist/jquery.knob.min.js', 'js/jq/chart-knobs.js'],
+      knob:           [   '../bower_components/jquery-knob/dist/jquery.knob.min.js', 'js/directives/chart-knobs.js'],
       isotobe:          [  'js/uport_isotobe.js',
                             'js/uport_isotobe_script.js'],
       dataTable:      [   '../bower_components/datatables/media/js/jquery.dataTables.min.js',
@@ -53596,7 +53596,7 @@ angular.module('app')
             })
             .state('access.login', {
                 url: '/login',
-                templateUrl: 'partials/ui-login.html',
+                templateUrl: 'partials/login.html',
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
@@ -53608,7 +53608,7 @@ angular.module('app')
             })
             .state('access.register', {
                 url: '/register',
-                templateUrl: 'partials/ui-register.html',
+                templateUrl: 'partials/register.html',
                 resolve: {
                     deps: ['uiLoad',
                         function (uiLoad) {
@@ -53619,7 +53619,7 @@ angular.module('app')
             })
             .state('access.forgotpwd', {
                 url: '/forgotpwd',
-                templateUrl: 'partials/ui-forgotpwd.html',
+                templateUrl: 'partials/forgotpwd.html',
             })
             .state('access.404', {
                 url: '/404',
@@ -53657,6 +53657,22 @@ angular.module('app')
             .state('app.city', {
                 url: '/city',
                 templateUrl: 'partials/city.html',
+                resolve: {
+                    deps: ['$ocLazyLoad',
+                        function ($ocLazyLoad) {
+                            return $ocLazyLoad.load([
+                                'js/directives/ui-todowidget.js',
+                                'js/controllers/members.js',
+                                'js/controllers/video-play.js',
+                                '../bower_components/font-awesome/css/font-awesome.css'
+                            ]);
+                        }
+                    ]
+                }
+            })
+            .state('app.video', {
+                url: '/video',
+                templateUrl: 'partials/video.html',
                 resolve: {
                     deps: ['$ocLazyLoad',
                         function ($ocLazyLoad) {
@@ -53841,6 +53857,7 @@ angular.module('app')
                 }
             })
 
+
             //---------------------------------------------------------------------------------------------
             // ORIGINAL TEMPLATE PAGES - LEAVING JUST FOR REFERENCE, CAN EVENTUALLY DELETE (CLIFF 11/21/16)
             //---------------------------------------------------------------------------------------------
@@ -53899,21 +53916,6 @@ angular.module('app')
                     ]
                 }
             })
-            .state('app.tables.uigrid', {
-                url: '/uigrid',
-                templateUrl: 'partials/tables-uigrid.html',
-                resolve: {
-                    deps: ['$ocLazyLoad',
-                        function ($ocLazyLoad) {
-                            return $ocLazyLoad.load('ui.grid').then(
-                                function () {
-                                    return $ocLazyLoad.load('js/controllers/table-uigrid.js');
-                                }
-                            );
-                        }
-                    ]
-                }
-            })
             .state('app.tables.editable', {
                 url: '/editable',
                 templateUrl: 'partials/tables-editable.html',
@@ -53945,6 +53947,23 @@ angular.module('app')
                     ]
                 }
             })
+            .state('app.ui.profile', {
+                url: '/profile',
+                templateUrl: 'partials/ui-profile.html',
+                resolve: {
+                    deps: ['uiLoad',
+                        function (uiLoad) {
+                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
+                        }
+                    ]
+                }
+            })
+
+
+
+            // NOT USED - CAN EVENTUALLY BE DELETED
+            // Keeping just for reference, can be removed for Production
+
             .state('app.form', {
                 url: '/form',
                 template: '<div ui-view class=""></div>'
@@ -54017,17 +54036,6 @@ angular.module('app')
                 url: '/masks',
                 templateUrl: 'partials/form-masks.html'
             })
-            .state('app.ui.profile', {
-                url: '/profile',
-                templateUrl: 'partials/ui-profile.html',
-                resolve: {
-                    deps: ['uiLoad',
-                        function (uiLoad) {
-                            return uiLoad.load(['../bower_components/font-awesome/css/font-awesome.css']);
-                        }
-                    ]
-                }
-            })
             .state('app.form.editable', {
                 url: '/editable',
                 templateUrl: 'partials/form-editable.html',
@@ -54089,8 +54097,6 @@ angular.module('app')
                     ]
                 }
             })
-
-            // NOT USED - CAN EVENTUALLY BE DELETED (CLIFF 11/21/16)
             .state('app.widgets', {
                 url: '/widgets',
                 templateUrl: 'partials/widgets.html',
@@ -54099,7 +54105,7 @@ angular.module('app')
                         function ($ocLazyLoad) {
                             return $ocLazyLoad.load([
                                 'countTo',
-                                'js/controllers/countto.js',
+                                //'js/controllers/countto.js',
                                 'js/controllers/vectormap.js',
                                 'js/controllers/vectormap.js',
                                 'js/controllers/messages-widget.js',
@@ -54125,9 +54131,10 @@ angular.module('app')
 angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
     function ($scope, $rootScope) {
 
-        var menufold = screenWidth < 767 ? true : false;
         var screenWidth = window.innerWidth;
         $rootScope.screenWidth = screenWidth;
+
+        var menufold = screenWidth < 767 ? true : false;
 
         if (typeof $rootScope.userType == 'undefined')
             $rootScope.userType = 'influencer';
@@ -54155,7 +54162,7 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
                 menuFolded: menufold,
                 chatFolded: true,
                 searchFocus: false,
-                pagetitle: 'Complete Amin \\ AngularJS',
+                pagetitle: 'Rocket Cities',
             }
         }
 
@@ -54355,9 +54362,8 @@ angular.module('ui.jq', ['ui.load']).
           compile: function uiJqCompilingFunction(tElm, tAttrs) {
 
               if (!angular.isFunction(tElm[tAttrs.uiJq]) && !JQ_CONFIG[tAttrs.uiJq])
-              {
                   throw new Error('ui-jq: The "' + tAttrs.uiJq + '" function does not exist');
-              }
+              
               var options = uiJqConfig && uiJqConfig[tAttrs.uiJq];
 
               return function uiJqLinkingFunction(scope, elm, attrs) {

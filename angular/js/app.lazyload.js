@@ -14,7 +14,7 @@ angular.module('app')
                           '../bower_components/flot.tooltip/js/jquery.flot.tooltip.js',
                           '../bower_components/flot.orderbars/js/jquery.flot.orderBars.js',
                           '../bower_components/flot-spline/js/jquery.flot.spline.js'],
-      knob:           [   '../bower_components/jquery-knob/dist/jquery.knob.min.js', 'js/jq/chart-knobs.js'],
+      knob:           [   '../bower_components/jquery-knob/dist/jquery.knob.min.js', 'js/directives/chart-knobs.js'],
       isotobe:          [  'js/uport_isotobe.js',
                             'js/uport_isotobe_script.js'],
       dataTable:      [   '../bower_components/datatables/media/js/jquery.dataTables.min.js',
