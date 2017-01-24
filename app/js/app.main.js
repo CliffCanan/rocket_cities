@@ -11,10 +11,11 @@ angular.module('app').controller('AppCtrl', ['$scope', '$rootScope',
             $rootScope.userType = 'influencer';
 
 
-        $rootScope.app = {
+        $scope.app = {
             name: 'Rocket Cities',
             version: '0.0.1',
             type: $rootScope.userType,
+            isLoggedIn: true,
             color: {
                 primary: '#a30303',//'#3f51b5',
                 primaryLight: '#fd7373',

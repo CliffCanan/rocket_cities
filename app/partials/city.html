@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-xs-12 col-md-3">
                                 <div class="m-t-15">
-                                    <button class="btn btn-lg btn-icon btn-block btn-primary btn-corner center-block" type="button" style="max-width: 220px;">
+                                    <button class="btn btn-lg btn-icon btn-block btn-primary btn-corner center-block" type="button" style="max-width: 220px;" ng-click="joinCity()">
                                         <i class="fa fa-pencil"></i>&nbsp;
                                         <span>Join This City</span>
                                     </button>
@@ -106,12 +106,7 @@
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li class="dropdown-header">More</li>
-                                        <li>
-                                            <a ui-sref="app.dashboard">
-                                                <i class="fa fa-external-link"></i> &nbsp;<span>Share</span>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
+                                        <li class="divider hidden"></li>
                                         <li>
                                             <a ui-sref="app.dashboard">
                                                 <i class="fa fa-flag"></i> &nbsp;<span>Report</span>
@@ -136,26 +131,25 @@
                                     <p>Graphic design is the art of visual communication through the use of images, words, and ideas to give information to the viewers. Graphic design can be used for advertising, or just for entertainment intended for the mind.</p>
 
                                     <div class="social-btns">
-                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit Twitter Profile" data-placement="auto">
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ng-click="goToSocialProfile('twitter')" ui-tooltip tooltip-class="" uib-tooltip="Visit Twitter Profile" data-placement="auto">
                                             <i class="fa fa-twitter"></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit Facebook Page" data-placement="auto">
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ng-click="goToSocialProfile('fb')" ui-tooltip tooltip-class="" uib-tooltip="Visit Facebook Page" data-placement="auto">
                                             <i class="fa fa-facebook-f"></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ui-tooltip tooltip-class="" uib-tooltip="Visit G+ Page" data-placement="auto">
+                                        <button type="button" class="btn btn-icon-round btn-border btn-sm" ng-click="goToSocialProfile('gplus')" ui-tooltip tooltip-class="" uib-tooltip="Visit G+ Page" data-placement="auto">
                                             <i class="fa fa-google-plus"></i>
                                         </button>
                                     </div>
-
                                 </div>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="box-footer">
+                    <div ng-if="userType == 'influencer'" class="box-footer">
                         <span class="footer-title">Tags</span>
                         <div class="controls">
                             <input type="text" ui-jq="tagsinput" class="form-control" id="tagsinput-1" value="Sample tag, Another tag, Awesome" placeholder="Add a tag" />

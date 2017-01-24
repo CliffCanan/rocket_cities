@@ -19,12 +19,9 @@ angular.module('app')
       };
   }]);
 
-
-
 /* ------------------------------
  ui.bootstrap popover directive
 --------------------------------*/
-
 angular.module('app')
   .directive('uiPopover', ['$timeout', function ($timeout) {
       return {
@@ -32,7 +29,7 @@ angular.module('app')
           link: function (scope, el, attr) {
 
               el.on('mouseenter', '[popover]', function (e) {
-                  //console.log("tooltip triggered");
+                  console.log("Popover triggered");
                   var _this = $(this);
                   var id = angular.element(_this).attr('popover-class');
                   $(this).next(".popover").addClass(id);
